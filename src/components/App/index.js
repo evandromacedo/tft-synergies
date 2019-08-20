@@ -1,21 +1,16 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './styled';
-import { theme } from './theme';
-
-const TestingFont = styled.h1`
-  ${props => props.theme.bold20px}
-  ${props => props.theme.textShadow1}
-`;
+import { ThemeProvider } from 'styled-components';
+import { Container, GlobalStyle } from './styled';
+import theme from './theme';
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <>
-          <TestingFont>Opa fion</TestingFont>
-        </>
+        <Container>
+          <h1>TFT Synergies</h1>
+        </Container>
       </ThemeProvider>
     </>
   );

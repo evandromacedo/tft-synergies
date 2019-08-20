@@ -1,4 +1,4 @@
-export const theme = {
+const theme = {
   // Colors
   background1: '#000000',
   background2: '#121212',
@@ -35,5 +35,12 @@ export const theme = {
     'font-family: sans-serif; font-size: 1.4rem; font-weight: normal; font-style: italic;',
   sans16pxItalic:
     'font-family: sans-serif; font-size: 1.6rem; font-weight: normal; font-style: italic;',
-  textShadow1: 'text-shadow: 0 0 3px #000;'
+  textShadow1: 'text-shadow: 0 0 3px #000;',
+
+  // Breakpoints
+  large: '1024px',
+  medium: '768px',
+  small: '480px'
 };
+
+export default theme;

@@ -1,6 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import BeaufortRegular from '../../static/font/Beaufort-Regular.ttf';
 import BeaufortBold from '../../static/font/Beaufort-Bold.ttf';
+
+export const Container = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+`;
 
 export const GlobalStyle = createGlobalStyle`
   /* Resets */
