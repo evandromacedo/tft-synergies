@@ -102,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Beaufort', sans-serif;
     font-weight: bold;
     font-size: 10px;
-    color: #fff;
+    color: #ffffff;
     background-color: #121212;
   }
 `;
