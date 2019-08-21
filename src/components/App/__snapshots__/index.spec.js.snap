@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> renders the Container 1`] = `
+exports[`<App /> renders the Layout 1`] = `
 <styled.div>
-  <Alo />
+  <Meta />
+  <Header />
+  <styled.main />
 </styled.div>
 `;

@@ -1,16 +1,28 @@
 import React from 'react';
 import Divider from '../Common/Divider';
-import * as S from './styled';
+import { HeaderWrapper, MenuWrapper, NavList } from './styled';
+import Logo from '../../static/img/Logo.svg';
 
 function Header() {
   return (
-    <>
-      <S.HeaderWrapper>
-        <h1>Header!!!</h1>
-        <h1>Header!!!</h1>
-      </S.HeaderWrapper>
+    <HeaderWrapper>
+      <MenuWrapper>
+        <a href="/" title="TFT Synergies Logo" data-test="logo">
+          <img src={Logo} alt="Logo" />
+        </a>
+        <nav>
+          <NavList>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="/">Contribute</a>
+            </li>
+          </NavList>
+        </nav>
+      </MenuWrapper>
       <Divider />
-    </>
+    </HeaderWrapper>
   );
 }
 

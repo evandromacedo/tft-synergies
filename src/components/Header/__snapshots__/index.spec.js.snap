@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders the logo within a link to home 1`] = `
+<a
+  data-test="logo"
+  href="/"
+  title="TFT Synergies Logo"
+>
+  <img
+    alt="Logo"
+    src="Logo.svg"
+  />
+</a>
+`;
