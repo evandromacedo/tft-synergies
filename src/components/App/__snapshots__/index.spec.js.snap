@@ -2,8 +2,6 @@
 
 exports[`<App /> renders the Container 1`] = `
 <styled.div>
-  <h1>
-    TFT Synergies
-  </h1>
+  <Alo />
 </styled.div>
 `;

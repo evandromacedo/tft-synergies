@@ -1,19 +1,21 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Container, GlobalStyle } from './styled';
+import { Container, Inner, GlobalStyle } from './styled';
 import theme from './theme';
+import Meta from '../Meta';
+import Header from '../Header';
 
-function App() {
+export default function App() {
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Container>
-          <h1>TFT Synergies</h1>
+          <Meta />
+          <Header />
+          <Inner></Inner>
         </Container>
       </ThemeProvider>
     </>
   );
 }
-
-export default App;

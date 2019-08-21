@@ -3,6 +3,12 @@ import BeaufortRegular from '../../static/font/Beaufort-Regular.ttf';
 import BeaufortBold from '../../static/font/Beaufort-Bold.ttf';
 
 export const Container = styled.div`
+  font-family: 'Beaufort', sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+`;
+
+export const Inner = styled.main`
   max-width: 1024px;
   margin: 0 auto;
 `;
@@ -104,10 +110,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: 'Beaufort', sans-serif;
-    font-weight: bold;
     font-size: 10px;
-    color: #ffffff;
     background-color: #121212;
   }
 `;
