@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Container, Inner, GlobalStyle } from './styled';
+import { Layout, Wrapper, GlobalStyle } from './styled';
 import theme from './theme';
 import Meta from '../Meta';
 import Header from '../Header';
@@ -10,11 +10,11 @@ export default function App() {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Container>
+        <Layout>
           <Meta />
           <Header />
-          <Inner></Inner>
-        </Container>
+          <Wrapper></Wrapper>
+        </Layout>
       </ThemeProvider>
     </>
   );

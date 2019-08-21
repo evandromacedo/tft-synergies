@@ -2,13 +2,13 @@ import styled, { createGlobalStyle } from 'styled-components';
 import BeaufortRegular from '../../static/font/Beaufort-Regular.ttf';
 import BeaufortBold from '../../static/font/Beaufort-Bold.ttf';
 
-export const Container = styled.div`
+export const Layout = styled.div`
   font-family: 'Beaufort', sans-serif;
   font-weight: bold;
   color: #ffffff;
 `;
 
-export const Inner = styled.main`
+export const Wrapper = styled.main`
   max-width: 1024px;
   margin: 0 auto;
 `;

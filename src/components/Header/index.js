@@ -1,11 +1,16 @@
 import React from 'react';
-import { HeaderStyled } from './styled';
+import Divider from '../Common/Divider';
+import * as S from './styled';
 
 function Header() {
   return (
-    <HeaderStyled>
-      <h1>Header!!!</h1>
-    </HeaderStyled>
+    <>
+      <S.HeaderWrapper>
+        <h1>Header!!!</h1>
+        <h1>Header!!!</h1>
+      </S.HeaderWrapper>
+      <Divider />
+    </>
   );
 }
 

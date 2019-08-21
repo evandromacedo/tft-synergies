@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import App from '.';
-import { Container } from './styled';
+import { Layout } from './styled';
 import theme from './theme';
 
 describe('<App />', () => {
@@ -20,8 +20,8 @@ describe('<App />', () => {
     expect(ThemeProvider.props().theme).toEqual(theme);
   });
 
-  it('renders the Container', () => {
-    const ContainerComponent = wrapper.find(Container);
-    expect(toJSON(ContainerComponent)).toMatchSnapshot();
+  it('renders the Layout', () => {
+    const LayoutComponent = wrapper.find(Layout);
+    expect(toJSON(LayoutComponent)).toMatchSnapshot();
   });
 });
