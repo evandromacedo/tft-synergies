@@ -4,6 +4,7 @@ import { Layout, Wrapper, GlobalStyle } from './styled';
 import theme from './theme';
 import Meta from '../Meta';
 import Header from '../Header';
+import ClassOrOrigin from '../ClassOrOrigin/';
 
 export default function App() {
   return (
@@ -13,7 +14,9 @@ export default function App() {
         <Layout>
           <Meta />
           <Header />
-          <Wrapper></Wrapper>
+          <Wrapper>
+            <ClassOrOrigin icon={'teste'} name="asd" />
+          </Wrapper>
         </Layout>
       </ThemeProvider>
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
-import Divider from '../Common/Divider';
 import { HeaderWrapper, MenuWrapper, NavList } from './styled';
 import Logo from '../../static/img/Logo.svg';
+import Divider from '../Common/Divider';
 
 function Header() {
   return (
