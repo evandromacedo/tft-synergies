@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import * as SynergyIcon from '../SynergyIcon';
 
 const Grid = styled.div`
   display: grid;
@@ -16,18 +17,42 @@ const Title = styled.p`
   padding-top: 2px;
 `;
 
-function ClassOrOrigin({ icon, title }) {
+function ClassOrOrigin({ type }) {
   return (
     <Grid>
-      {icon}
-      <Title>{title}</Title>
+      {SynergyIcon[type](SynergyIcon.DEFAULT_SMALL)}
+      <Title>{type}</Title>
     </Grid>
   );
 }
 
 ClassOrOrigin.propTypes = {
-  icon: PropTypes.element.isRequired,
-  title: PropTypes.string.isRequired
+  type: PropTypes.oneOf([
+    'Demon',
+    'Dragon',
+    'Exile',
+    'Glacial',
+    'Imperial',
+    'Noble',
+    'Ninja',
+    'Pirate',
+    'Phantom',
+    'Robot',
+    'Void',
+    'Wild',
+    'Yordle',
+    'Assassin',
+    'Blademaster',
+    'Brawler',
+    'Elementalist',
+    'Guardian',
+    'Gunslinger',
+    'Knight',
+    'Ranger',
+    'Shapeshifter',
+    'Sorcerer',
+    'Hextech'
+  ]).isRequired
 };
 
 export default ClassOrOrigin;
