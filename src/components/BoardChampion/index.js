@@ -8,19 +8,19 @@ import * as SplashArt from '../SplashArt';
 // Must implement the drag and drop functionality afterwards.
 function BoardChampion({ tier, background }) {
   return (
-    <S.BoardChampionWrapper tier="5" background={SplashArt.Aatrox}>
-      <S.BoardChampionSynergies>
+    <S.Wrapper tier="5" background={SplashArt.Aatrox}>
+      <S.Synergies>
         <ClassOrOrigin type="Demon" />
         <ClassOrOrigin type="Dragon" />
         <ClassOrOrigin type="Demon" />
-      </S.BoardChampionSynergies>
-      <S.BoardChampionItems>
-        <S.BoardChampionItem />
-        <S.BoardChampionItem />
-        <S.BoardChampionItem />
-        <S.BoardChampionName>Aurelion Sol</S.BoardChampionName>
-      </S.BoardChampionItems>
-    </S.BoardChampionWrapper>
+      </S.Synergies>
+      <S.Items>
+        <S.Item />
+        <S.Item />
+        <S.Item />
+        <S.Name>Aurelion Sol</S.Name>
+      </S.Items>
+    </S.Wrapper>
   );
 }
 
