@@ -14,7 +14,10 @@ const ThemeDecorator = storyFn => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />
-      <Layout>{storyFn()}</Layout>;
+      <Layout>
+        <div style={{ padding: '16px' }}>{storyFn()}</div>
+      </Layout>
+      ;
     </>
   </ThemeProvider>
 );
