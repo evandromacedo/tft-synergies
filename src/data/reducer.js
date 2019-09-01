@@ -1,17 +1,7 @@
-import { useReducer } from 'react';
 import find from 'lodash/find';
+import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, REMOVE_ITEM } from '.';
 
-const ADD_CHAMPION = 'ADD_CHAMPION';
-const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
-const ADD_ITEM = 'ADD_ITEM';
-const REMOVE_ITEM = 'REMOVE_ITEM';
-
-const initialState = {
-  synergies: [],
-  board: []
-};
-
-const synergiesReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case ADD_CHAMPION:
       const addedChampion = action.champion;
@@ -24,13 +14,14 @@ const synergiesReducer = (state, action) => {
         };
       }
 
-      // Ah vai tomar no cu
       let synergiesState = [...state.synergies];
       const { synergies: championSynergies } = addedChampion;
 
+      // Checks if champion synergies already exists
       championSynergies.forEach(synergyName => {
         const hasSynergy = find(synergiesState, { name: synergyName });
 
+        // Adds +1 or create a new one
         if (hasSynergy) {
           hasSynergy.quantity = hasSynergy.quantity + 1;
         } else {
@@ -48,30 +39,8 @@ const synergiesReducer = (state, action) => {
 
     // case REMOVE_CHAMPION:
     default:
-      throw new Error('Opa');
+      return state;
   }
 };
 
-const useSynergies = () => {
-  const [state, dispatch] = useReducer(synergiesReducer, initialState);
-
-  function addChampion(champion) {
-    dispatch({ type: ADD_CHAMPION, champion });
-  }
-
-  function removeChampion(champion) {
-    dispatch({ type: REMOVE_CHAMPION, champion });
-  }
-
-  function addItem(champion, item) {
-    dispatch({ type: REMOVE_CHAMPION, champion, item });
-  }
-
-  function removeItem(champion, item) {
-    dispatch({ type: REMOVE_CHAMPION, champion, item });
-  }
-
-  return { state, addChampion, removeChampion, addItem, removeItem };
-};
-
-export default useSynergies;
+export default reducer;

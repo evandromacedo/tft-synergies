@@ -4,6 +4,31 @@ exports[`<App /> renders the Layout 1`] = `
 <styled.div>
   <Meta />
   <Header />
-  <styled.main />
+  <styled.main>
+    <div>
+      <p />
+      <p />
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Add Champion
+      </button>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Add Champion
+      </button>
+    </div>
+  </styled.main>
 </styled.div>
 `;

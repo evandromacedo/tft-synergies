@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Layout, Wrapper, GlobalStyle } from './styled';
 import { getChampions } from '../../API';
-import useSynergies from '../../reducerData';
+import useSynergies from '../../data';
 import theme from './theme';
 import Meta from '../Meta';
 import Header from '../Header';
