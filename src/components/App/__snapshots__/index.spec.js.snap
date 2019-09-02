@@ -2,33 +2,20 @@
 
 exports[`<App /> renders the Layout 1`] = `
 <styled.div>
-  <Meta />
-  <Header />
-  <styled.main>
-    <div>
-      <p />
-      <p />
-      <button
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "white",
-          }
-        }
-      >
-        Add Champion
-      </button>
-      <button
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "white",
-          }
-        }
-      >
-        Add Champion
-      </button>
-    </div>
-  </styled.main>
+  <BrowserRouter>
+    <Meta />
+    <Header />
+    <styled.main>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/about"
+      />
+    </styled.main>
+  </BrowserRouter>
 </styled.div>
 `;

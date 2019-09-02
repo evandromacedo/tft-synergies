@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styled';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../../static/img/Logo.svg';
 import Divider from '../Common/Divider';
 
@@ -14,10 +14,14 @@ function Header() {
         <S.Nav>
           <S.NavList>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" exact activeClassName="active">
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about" exact activeClassName="active">
+                About
+              </NavLink>
             </li>
             <li>
               <a

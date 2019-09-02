@@ -1,11 +1,16 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '.';
 import { NavList } from './styled';
 
 describe('<Header />', () => {
-  const wrapper = mount(<Header />);
+  const wrapper = mount(
+    <Router>
+      <Header />
+    </Router>
+  );
 
   it('renders properly', () => {
     shallow(<Header />);

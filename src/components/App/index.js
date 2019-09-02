@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Wrapper, GlobalStyle } from './styled';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import { getChampions } from '../../API';
-import useSynergies from '../../data';
+// import useSynergies from '../../data';
 import theme from './theme';
 import { ThemeProvider } from 'styled-components';
 import Meta from '../Meta';
@@ -11,7 +11,7 @@ import Home from '../Home';
 import About from '../About';
 
 export default function App() {
-  const { state, addChampion } = useSynergies();
+  // const { state, addChampion } = useSynergies();
 
   return (
     <>
