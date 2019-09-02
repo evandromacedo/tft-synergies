@@ -43,4 +43,17 @@ describe('Synergies Reducer', () => {
       }
     ]);
   });
+
+  it('adds an existing champion', () => {
+    const { result } = renderHook(() => useSynergies({}));
+    const { addChampion } = result.current;
+
+    act(() => {
+      addChampion({
+        id: 67,
+        name: 'vayne',
+        synergies: ['noble', 'ranger']
+      });
+    });
+  });
 });

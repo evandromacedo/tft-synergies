@@ -6,12 +6,13 @@ export const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 
-const initialState = {
+const firstState = {
+  level: 9,
   synergies: [],
   board: []
 };
 
-const useSynergies = () => {
+const useSynergies = (initialState = firstState) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return {
