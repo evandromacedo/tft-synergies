@@ -2,6 +2,7 @@ import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { Layout, GlobalStyle } from '../src/components/App/styled';
+import { BrowserRouter as Router } from 'react-router-dom';
 import theme from '../src/components/App/theme';
 
 // automatically import all files ending in *.stories.js
@@ -15,7 +16,9 @@ const ThemeDecorator = storyFn => (
     <>
       <GlobalStyle />
       <Layout>
-        <div style={{ padding: '16px' }}>{storyFn()}</div>
+        <Router>
+          <div style={{ padding: '16px' }}>{storyFn()}</div>
+        </Router>
       </Layout>
       ;
     </>

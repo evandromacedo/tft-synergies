@@ -21,9 +21,9 @@ describe('<Header />', () => {
     expect(toJSON(linkTag)).toMatchSnapshot();
   });
 
-  it('renders NavList having 2 items', () => {
+  it('renders NavList having 3 items', () => {
     const NavListComponent = wrapper.find(NavList);
     const Ul = NavListComponent.find('ul');
-    expect(Ul.children()).toHaveLength(2);
+    expect(Ul.children()).toHaveLength(3);
   });
 });

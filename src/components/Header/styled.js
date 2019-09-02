@@ -14,9 +14,14 @@ export const MenuWrapper = styled.div`
   justify-items: center;
 `;
 
+export const Nav = styled.nav`
+  width: 100%;
+  max-width: 28rem;
+`;
+
 export const NavList = styled.ul`
-  width: 184px;
   display: grid;
+  grid-gap: 0.8rem;
   grid-auto-flow: column;
   justify-content: space-between;
 

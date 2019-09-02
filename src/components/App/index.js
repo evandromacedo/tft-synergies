@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React from 'react';
 import { Layout, Wrapper, GlobalStyle } from './styled';
-import { getChampions } from '../../API';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { getChampions } from '../../API';
 import useSynergies from '../../data';
 import theme from './theme';
+import { ThemeProvider } from 'styled-components';
 import Meta from '../Meta';
 import Header from '../Header';
+import Home from '../Home';
+import About from '../About';
 
 export default function App() {
-  // useEffect(() => {
-  //   async function fetchChampions() {
-  //     const champions = await getChampions();
-  //     console.log(champions);
-  //   }
-
-  //   fetchChampions();
-  // });
   const { state, addChampion } = useSynergies();
 
   return (
@@ -23,58 +18,14 @@ export default function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Layout>
-          <Meta />
-          <Header />
-          <Wrapper>
-            <div>
-              <p>
-                {state.synergies.map((synergy, index) => {
-                  return (
-                    <span key={index}>
-                      {synergy.name}
-                      {synergy.quantity}
-                    </span>
-                  );
-                })}
-              </p>
-              <p>
-                {state.board.map((board, index) => {
-                  return (
-                    <span key={index}>
-                      {board.id}
-                      {board.name}
-                    </span>
-                  );
-                })}
-              </p>
-              <button
-                style={{ color: 'white' }}
-                onClick={() =>
-                  addChampion({
-                    id: 67,
-                    name: 'vayne',
-                    synergies: ['noble', 'ranger'],
-                    items: ['blademaster']
-                  })
-                }
-              >
-                Add Champion
-              </button>
-              <button
-                style={{ color: 'white' }}
-                onClick={() =>
-                  addChampion({
-                    id: 80,
-                    name: 'rengar',
-                    synergies: ['wild', 'brawler'],
-                    items: ['blademaster']
-                  })
-                }
-              >
-                Add Champion
-              </button>
-            </div>
-          </Wrapper>
+          <Router>
+            <Meta />
+            <Header />
+            <Wrapper>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
+            </Wrapper>
+          </Router>
         </Layout>
       </ThemeProvider>
     </>

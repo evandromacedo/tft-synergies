@@ -1,28 +1,38 @@
 import React from 'react';
-import { HeaderWrapper, MenuWrapper, NavList } from './styled';
+import * as S from './styled';
+import { Link } from 'react-router-dom';
 import Logo from '../../static/img/Logo.svg';
 import Divider from '../Common/Divider';
 
 function Header() {
   return (
-    <HeaderWrapper>
-      <MenuWrapper>
+    <S.HeaderWrapper>
+      <S.MenuWrapper>
         <a href="/" title="TFT Synergies Logo" data-test="logo">
           <img src={Logo} alt="Logo" />
         </a>
-        <nav>
-          <NavList>
+        <S.Nav>
+          <S.NavList>
             <li>
-              <a href="#about">About</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/">Contribute</a>
+              <Link to="/about">About</Link>
             </li>
-          </NavList>
-        </nav>
-      </MenuWrapper>
+            <li>
+              <a
+                href="https://github.com/evandromacedo/tft-synergies"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contribute
+              </a>
+            </li>
+          </S.NavList>
+        </S.Nav>
+      </S.MenuWrapper>
       <Divider />
-    </HeaderWrapper>
+    </S.HeaderWrapper>
   );
 }
 
