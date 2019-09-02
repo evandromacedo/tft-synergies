@@ -6,8 +6,9 @@ export const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 
-const firstState = {
+export const firstState = {
   level: 9,
+  forceOfNature: 0,
   synergies: [],
   board: []
 };

@@ -1,15 +1,12 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import useSynergies from '.';
+import useSynergies, { firstState } from '.';
 
 describe('Synergies Reducer', () => {
   it('returns an initialState', () => {
     const { result } = renderHook(() => useSynergies());
     const { state } = result.current;
 
-    expect(state).toMatchObject({
-      synergies: [],
-      board: []
-    });
+    expect(state).toEqual(firstState);
   });
 
   it('adds a brand new champion', () => {
@@ -24,7 +21,7 @@ describe('Synergies Reducer', () => {
       });
     });
 
-    expect(result.current.state.synergies).toMatchObject([
+    expect(result.current.state.synergies).toEqual([
       {
         name: 'noble',
         quantity: 1
@@ -35,7 +32,7 @@ describe('Synergies Reducer', () => {
       }
     ]);
 
-    expect(result.current.state.board).toMatchObject([
+    expect(result.current.state.board).toEqual([
       {
         id: 67,
         name: 'vayne',
@@ -44,16 +41,43 @@ describe('Synergies Reducer', () => {
     ]);
   });
 
-  it('adds an existing champion', () => {
-    const { result } = renderHook(() => useSynergies({}));
+  it('adds an existing champion without adding synergies', () => {
+    const vayne = {
+      id: 67,
+      name: 'vayne',
+      synergies: ['noble', 'ranger']
+    };
+
+    const { result } = renderHook(() => useSynergies());
     const { addChampion } = result.current;
 
     act(() => {
-      addChampion({
+      addChampion(vayne);
+      addChampion(vayne);
+    });
+
+    expect(result.current.state.synergies).toEqual([
+      {
+        name: 'noble',
+        quantity: 1
+      },
+      {
+        name: 'ranger',
+        quantity: 1
+      }
+    ]);
+
+    expect(result.current.state.board).toEqual([
+      {
         id: 67,
         name: 'vayne',
         synergies: ['noble', 'ranger']
-      });
-    });
+      },
+      {
+        id: 67,
+        name: 'vayne',
+        synergies: ['noble', 'ranger']
+      }
+    ]);
   });
 });
