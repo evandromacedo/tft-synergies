@@ -6,7 +6,7 @@ import * as SynergyIcon from '../SynergyIcon';
 // details - object with synergy details from the API
 // count - the current synergy count
 // It isn't required because it may have no champion selected at all
-export default function SynergiesUnit({ details, count = 0 }) {
+export default function SynergiesUnit({ details = {}, count = 0 }) {
   const { bonuses } = details;
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
@@ -51,9 +51,9 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
   // Without active bonus
   if (!hasSynergy) {
     return (
-      <>
+      <span>
         {count} / {bonuses[0].needed}
-      </>
+      </span>
     );
   }
 
@@ -95,15 +95,16 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
 // * has one of 3 or more synergy bonus - BRONZE / SILVER / GOLD
 function getSynergyIcon(hasSynergy, count, details) {
   const { bonuses } = details;
+  const Icon = SynergyIcon[details.name];
 
   // Without active bonus
   if (!hasSynergy) {
-    return SynergyIcon[details.name](SynergyIcon.PARTIAL);
+    return <Icon synergy={SynergyIcon.PARTIAL} />;
   }
 
   // Has only 1 synergy bonus
   if (bonuses.length === 1) {
-    return SynergyIcon[details.name](SynergyIcon.GOLD);
+    return <Icon synergy={SynergyIcon.GOLD} />;
   }
 
   // Get the index of active bonus on bonuses array
@@ -125,14 +126,14 @@ function getSynergyIcon(hasSynergy, count, details) {
   switch (activeBonusIndex) {
     // First index - BRONZE
     case 0:
-      return SynergyIcon[details.name](SynergyIcon.BRONZE);
+      return <Icon synergy={SynergyIcon.BRONZE} />;
 
     // Last index - GOLD
     case bonuses.length - 1:
-      return SynergyIcon[details.name](SynergyIcon.GOLD);
+      return <Icon synergy={SynergyIcon.GOLD} />;
 
     // Between first and last index - SILVER
     default:
-      return SynergyIcon[details.name](SynergyIcon.SILVER);
+      return <Icon synergy={SynergyIcon.SILVER} />;
   }
 }

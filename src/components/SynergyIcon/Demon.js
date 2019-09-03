@@ -1,7 +1,7 @@
 import React from 'react';
 import { DEFAULT_SMALL, DEFAULT_BIG, PARTIAL, BRONZE, SILVER, GOLD } from '.';
 
-function Demon(synergy) {
+function Demon({ synergy }) {
   switch (synergy) {
     case PARTIAL:
       return (
@@ -10,7 +10,7 @@ function Demon(synergy) {
             <path
               fill="#000"
               stroke="#5D595C"
-              stroke-width="2"
+              strokeWidth="2"
               d="M20 1.16018296L4 10.57199861V29.4286321l16 9.4112043 16-9.4112043V10.57199861L20 1.16018296z"
             />
             <path
@@ -34,7 +34,7 @@ function Demon(synergy) {
             <path
               fill="url(#a)"
               stroke="#000"
-              stroke-width="2"
+              strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"
               transform="rotate(90 18.5 21.5)"
             />
@@ -59,7 +59,7 @@ function Demon(synergy) {
             <path
               fill="url(#a)"
               stroke="#000"
-              stroke-width="2"
+              strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"
               transform="rotate(90 18.5 21.5)"
             />
@@ -84,7 +84,7 @@ function Demon(synergy) {
             <path
               fill="url(#a)"
               stroke="#000"
-              stroke-width="2"
+              strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"
               transform="rotate(90 18.5 21.5)"
             />
@@ -103,7 +103,7 @@ function Demon(synergy) {
             <path
               fill="#5D595C"
               stroke="#5D595C"
-              stroke-width="1.6"
+              strokeWidth="1.6"
               d="M14 .92814637L1.2 8.45759889V23.5429057L14 31.0718691l12.8-7.5289634V8.45759889L14 .92814637z"
             />
             <path

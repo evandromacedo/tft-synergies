@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SynergyUnit /> renders a BRONZE Icon and active progress when enables first bonus with exact quantity 1`] = `
+<styled.p>
+  <span
+    key="0"
+  >
+    2
+    <styled.span>
+       › 
+    </styled.span>
+  </span>
+  <styled.span
+    key="1"
+  >
+    4
+     › 
+  </styled.span>
+  <styled.span
+    key="2"
+  >
+    6
+  </styled.span>
+</styled.p>
+`;
+
+exports[`<SynergyUnit /> renders a BRONZE Icon and active progress when enables first bonus with one more quantity 1`] = `
+<styled.p>
+  <span
+    key="0"
+  >
+    2
+    <styled.span>
+       › 
+    </styled.span>
+  </span>
+  <styled.span
+    key="1"
+  >
+    4
+     › 
+  </styled.span>
+  <styled.span
+    key="2"
+  >
+    6
+  </styled.span>
+</styled.p>
+`;
+
+exports[`<SynergyUnit /> renders a GOLD Icon and active progress when enables last bonus 1`] = `
+<styled.p>
+  <styled.span
+    key="0"
+  >
+    2
+     › 
+  </styled.span>
+  <styled.span
+    key="1"
+  >
+    4
+     › 
+  </styled.span>
+  <span
+    key="2"
+  >
+    6
+  </span>
+</styled.p>
+`;
+
+exports[`<SynergyUnit /> renders a SILVER Icon and active progress when enables middle bonus 1`] = `
+<styled.p>
+  <styled.span
+    key="0"
+  >
+    2
+     › 
+  </styled.span>
+  <span
+    key="1"
+  >
+    4
+    <styled.span>
+       › 
+    </styled.span>
+  </span>
+  <styled.span
+    key="2"
+  >
+    6
+  </styled.span>
+</styled.p>
+`;

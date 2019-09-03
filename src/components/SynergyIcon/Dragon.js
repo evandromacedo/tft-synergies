@@ -1,7 +1,7 @@
 import React from 'react';
 import { DEFAULT_SMALL, PARTIAL, GOLD } from '.';
 
-function Dragon(synergy) {
+function Dragon({ synergy }) {
   switch (synergy) {
     case PARTIAL:
       return (
