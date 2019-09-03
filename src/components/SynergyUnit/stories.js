@@ -2,16 +2,16 @@ import React from 'react';
 import SynergiesUnit from '.';
 import { storiesOf } from '@storybook/react';
 
-const detailsGuardian = {
-  key: 'guardian',
-  name: 'Guardian',
+const detailsDragon = {
+  key: 'dragon',
+  name: 'Dragon',
   description: null,
-  accentChampionImage: 'https://cdn.blitz.gg/blitz/centered/Braum_Splash_Centered_0.jpg',
+  accentChampionImage:
+    'https://cdn.blitz.gg/blitz/centered/AurelionSol_Splash_Centered_0.jpg',
   bonuses: [
     {
       needed: 2,
-      effect:
-        'At the start of combat, all adjacent allies receive +35 armor. Stacks any number of times.'
+      effect: 'Dragons are immune to 83% Magic damage'
     }
   ]
 };
@@ -40,7 +40,7 @@ const detailsDemon = {
 
 storiesOf('SynergiesUnit', module)
   .add('Default', () => <SynergiesUnit details={{}} />)
-  .add('2 Guardian', () => <SynergiesUnit count={2} details={detailsGuardian} />)
+  .add('2 Dragon', () => <SynergiesUnit count={2} details={detailsDragon} />)
   .add('1 Demon', () => <SynergiesUnit count={1} details={detailsDemon} />)
   .add('2 Demon', () => <SynergiesUnit count={2} details={detailsDemon} />)
   .add('3 Demon', () => <SynergiesUnit count={3} details={detailsDemon} />)

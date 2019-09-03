@@ -62,7 +62,7 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
       return (
         <S.Unable key={index}>
           {bonus.needed}
-          {!isLastBonus && ' > '}
+          {!isLastBonus && ' › '}
         </S.Unable>
       );
     }
@@ -70,7 +70,7 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
     return (
       <span key={index}>
         {bonus.needed}
-        {!isLastBonus && <S.Unable> > </S.Unable>}
+        {!isLastBonus && <S.Unable> › </S.Unable>}
       </span>
     );
   });
