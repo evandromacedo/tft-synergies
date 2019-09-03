@@ -46,6 +46,10 @@ export const Quantity = styled.span`
   background-color: rgba(255, 255, 255, 0.2);
 `;
 
+export const NoSynergies = styled.p`
+  ${props => props.theme.sans16pxItalic}
+`;
+
 export const Name = styled.p`
   ${props => props.theme.bold16px}
 `;
