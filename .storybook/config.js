@@ -20,7 +20,6 @@ const ThemeDecorator = storyFn => (
           <div style={{ padding: '16px' }}>{storyFn()}</div>
         </Router>
       </Layout>
-      ;
     </>
   </ThemeProvider>
 );

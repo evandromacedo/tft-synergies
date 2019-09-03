@@ -1,3 +1,4 @@
+export { default as NoSynergy } from './NoSynergy';
 export { default as Demon } from './Demon';
 export { default as Dragon } from './Dragon';
 

@@ -37,7 +37,7 @@ export const NavList = styled.ul`
       width: 0;
       border-radius: 2px;
       background-color: ${props => props.theme.accentYellow};
-      transition: width 0.1s linear;
+      transition: width 0.2s;
     }
 
     &:hover::before {
