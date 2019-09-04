@@ -6,12 +6,15 @@ import * as SynergyIcon from '../SynergyIcon';
 // details - object with synergy details from the API
 // count - the current synergy count
 // It isn't required because it may have no champion selected at all
-export default function SynergiesUnit({ details = {}, count = 0 }) {
+export default function SynergyUnit({ details = {}, count = 0 }) {
+  console.log(count);
+  console.log(details);
   const { bonuses } = details;
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
   // Has at least one champion selected on the board
   const hasChampionSelected = count > 0;
+  console.log(getSynergyIcon(hasSynergy, count, details));
 
   return (
     <S.Wrapper>
@@ -38,7 +41,7 @@ export default function SynergiesUnit({ details = {}, count = 0 }) {
   );
 }
 
-SynergiesUnit.propTypes = {
+SynergyUnit.propTypes = {
   details: PropTypes.object,
   count: PropTypes.number
 };

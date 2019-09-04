@@ -26,8 +26,8 @@ function Demon({ synergy }) {
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
             <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
-              <stop offset="0%" stop-color="#61391C" />
-              <stop offset="100%" stop-color="#8C644B" />
+              <stop offset="0%" stopColor="#61391C" />
+              <stop offset="100%" stopColor="#8C644B" />
             </linearGradient>
           </defs>
           <g fill="none" fillRule="nonzero">
@@ -51,8 +51,8 @@ function Demon({ synergy }) {
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
             <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
-              <stop offset="0%" stop-color="#646464" />
-              <stop offset="100%" stop-color="#969696" />
+              <stop offset="0%" stopColor="#646464" />
+              <stop offset="100%" stopColor="#969696" />
             </linearGradient>
           </defs>
           <g fill="none" fillRule="nonzero">
@@ -76,8 +76,8 @@ function Demon({ synergy }) {
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
             <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
-              <stop offset="0%" stop-color="#9B7832" />
-              <stop offset="100%" stop-color="#D0B25D" />
+              <stop offset="0%" stopColor="#9B7832" />
+              <stop offset="100%" stopColor="#D0B25D" />
             </linearGradient>
           </defs>
           <g fill="none" fillRule="nonzero">
@@ -99,7 +99,7 @@ function Demon({ synergy }) {
     case DEFAULT_BIG:
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="32">
-          <g fill="none" fill-rule="nonzero">
+          <g fill="none" fillRule="nonzero">
             <path
               fill="#5D595C"
               stroke="#5D595C"

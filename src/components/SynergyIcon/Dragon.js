@@ -6,11 +6,11 @@ function Dragon({ synergy }) {
     case PARTIAL:
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-          <g fill="none" fill-rule="nonzero">
+          <g fill="none" fillRule="nonzero">
             <path
               fill="#000"
               stroke="#5D595C"
-              stroke-width="2"
+              strokeWidth="2"
               d="M20 1.16018296L4 10.57199861V29.4286321l16 9.4112043 16-9.4112043V10.57199861L20 1.16018296z"
             />
             <path
@@ -26,15 +26,15 @@ function Dragon({ synergy }) {
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
             <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
-              <stop offset="0%" stop-color="#9B7832" />
-              <stop offset="100%" stop-color="#D0B25D" />
+              <stop offset="0%" stopColor="#9B7832" />
+              <stop offset="100%" stopColor="#D0B25D" />
             </linearGradient>
           </defs>
-          <g fill="none" fill-rule="nonzero">
+          <g fill="none" fillRule="nonzero">
             <path
               fill="url(#a)"
               stroke="#000"
-              stroke-width="2"
+              strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"
               transform="rotate(90 18.5 21.5)"
             />
@@ -50,7 +50,7 @@ function Dragon({ synergy }) {
     default:
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-          <g fill="none" fill-rule="nonzero">
+          <g fill="none" fillRule="nonzero">
             <path
               fill="#5D595C"
               stroke="#5D595C"
