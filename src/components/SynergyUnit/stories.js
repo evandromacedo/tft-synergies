@@ -39,12 +39,26 @@ const detailsDemon = {
 };
 
 storiesOf('SynergiesUnit', module)
-  .add('Default', () => <SynergiesUnit details={{}} />)
-  .add('2 Dragon', () => <SynergiesUnit count={2} details={detailsDragon} />)
-  .add('1 Demon', () => <SynergiesUnit count={1} details={detailsDemon} />)
-  .add('2 Demon', () => <SynergiesUnit count={2} details={detailsDemon} />)
-  .add('3 Demon', () => <SynergiesUnit count={3} details={detailsDemon} />)
-  .add('4 Demon', () => <SynergiesUnit count={4} details={detailsDemon} />)
-  .add('5 Demon', () => <SynergiesUnit count={5} details={detailsDemon} />)
-  .add('6 Demon', () => <SynergiesUnit count={6} details={detailsDemon} />)
-  .add('7 Demon', () => <SynergiesUnit count={7} details={detailsDemon} />);
+  .add('Default', () => <SynergiesUnit />)
+  .add('2 Dragon', () => (
+    <SynergiesUnit count={2} details={detailsDragon} ranking="GOLD" />
+  ))
+  .add('1 Demon', () => (
+    <SynergiesUnit count={1} details={detailsDemon} ranking="PARTIAL" />
+  ))
+  .add('2 Demon', () => (
+    <SynergiesUnit count={2} details={detailsDemon} ranking="BRONZE" />
+  ))
+  .add('3 Demon', () => (
+    <SynergiesUnit count={3} details={detailsDemon} ranking="BRONZE" />
+  ))
+  .add('4 Demon', () => (
+    <SynergiesUnit count={4} details={detailsDemon} ranking="SILVER" />
+  ))
+  .add('5 Demon', () => (
+    <SynergiesUnit count={5} details={detailsDemon} ranking="SILVER" />
+  ))
+  .add('6 Demon', () => <SynergiesUnit count={6} details={detailsDemon} ranking="GOLD" />)
+  .add('7 Demon', () => (
+    <SynergiesUnit count={7} details={detailsDemon} ranking="GOLD" />
+  ));
