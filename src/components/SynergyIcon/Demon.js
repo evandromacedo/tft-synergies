@@ -25,14 +25,20 @@ function Demon({ synergy }) {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
-            <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
+            <linearGradient
+              id="demonBronze"
+              x1="67.4023438%"
+              x2="45.6640625%"
+              y1="50%"
+              y2="50%"
+            >
               <stop offset="0%" stopColor="#61391C" />
               <stop offset="100%" stopColor="#8C644B" />
             </linearGradient>
           </defs>
           <g fill="none" fillRule="nonzero">
             <path
-              fill="url(#a)"
+              fill="url(#demonBronze)"
               stroke="#000"
               strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"
@@ -50,14 +56,20 @@ function Demon({ synergy }) {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
-            <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
+            <linearGradient
+              id="demonSilver"
+              x1="67.4023438%"
+              x2="45.6640625%"
+              y1="50%"
+              y2="50%"
+            >
               <stop offset="0%" stopColor="#646464" />
               <stop offset="100%" stopColor="#969696" />
             </linearGradient>
           </defs>
           <g fill="none" fillRule="nonzero">
             <path
-              fill="url(#a)"
+              fill="url(#demonSilver)"
               stroke="#000"
               strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"
@@ -75,14 +87,20 @@ function Demon({ synergy }) {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
           <defs>
-            <linearGradient id="a" x1="67.4023438%" x2="45.6640625%" y1="50%" y2="50%">
+            <linearGradient
+              id="demonGold"
+              x1="67.4023438%"
+              x2="45.6640625%"
+              y1="50%"
+              y2="50%"
+            >
               <stop offset="0%" stopColor="#9B7832" />
               <stop offset="100%" stopColor="#D0B25D" />
             </linearGradient>
           </defs>
           <g fill="none" fillRule="nonzero">
             <path
-              fill="url(#a)"
+              fill="url(#demonGold)"
               stroke="#000"
               strokeWidth="2"
               d="M-1.83981704 20l9.41181565 16H26.4286321l9.4112043-16-9.4112043-16H7.57199861l-9.41181565 16z"

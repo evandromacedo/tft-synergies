@@ -21,10 +21,10 @@ export default function SynergiesBar() {
   //   console.log(synergies.demon);
   // }
   const data = [
-    // {
-    //   name: 'demon',
-    //   quantity: 6
-    // },
+    {
+      name: 'demon',
+      quantity: 6
+    },
     {
       name: 'dragon',
       quantity: 2
@@ -32,11 +32,11 @@ export default function SynergiesBar() {
     {
       name: 'demon',
       quantity: 4
+    },
+    {
+      name: 'demon',
+      quantity: 2
     }
-    // {
-    //   name: 'demon',
-    //   quantity: 2
-    // },
     // {
     //   name: 'demon',
     //   quantity: 1

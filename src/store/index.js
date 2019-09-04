@@ -1,20 +1,38 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
+import { getSynergies } from '../API';
 import reducer from './reducer';
 
 export const ADD_CHAMPION = 'ADD_CHAMPION';
 export const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const LEVEL_UP = 'LEVEL_UP';
+export const LEVEL_DOWN = 'LEVEL_DOWN';
+export const CLEAR_BOARD = 'CLEAR_BOARD';
+export const SET_BONUSES = 'SET_BONUSES';
 
 export const firstState = {
   level: 9,
   forceOfNature: 0,
   synergies: [],
-  board: []
+  board: [],
+  bonuses: {}
 };
 
 const useSynergies = (initialState = firstState) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    async function fetchSynergies() {
+      const payload = await getSynergies();
+      dispatch({
+        type: SET_BONUSES,
+        payload
+      });
+    }
+
+    fetchSynergies();
+  }, []);
 
   return {
     state,
