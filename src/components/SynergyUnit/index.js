@@ -5,9 +5,11 @@ import * as SynergyIcon from '../SynergyIcon';
 
 // details - object with synergy details from the API
 // count - the current synergy count
+// ranking - synergy ranking: PARTIAL, BRONZE, SILVER, GOLD
 // It isn't required because it may have no champion selected at all
-export default function SynergyUnit({ details = {}, count = 0 }) {
+export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIAL' }) {
   const { bonuses } = details;
+  const Icon = SynergyIcon[details.name];
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
   // Has at least one champion selected on the board
@@ -18,7 +20,7 @@ export default function SynergyUnit({ details = {}, count = 0 }) {
       {/* Show the synergy icon or no synergy */}
       <S.Icon>
         {!hasChampionSelected && <SynergyIcon.NoSynergy />}
-        {hasChampionSelected && getSynergyIcon(hasSynergy, count, details)}
+        {hasChampionSelected && <Icon synergy={SynergyIcon[ranking.toUpperCase()]} />}
       </S.Icon>
 
       {/* Show the synergy count and progress, or no synergies text */}
@@ -86,54 +88,4 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
       </span>
     );
   });
-}
-
-// Return the correct synergy icon
-// * without active bonus - PARTIAL
-// * has only 1 synergy bonus - GOLD
-// * has one of 2 synergy bonus - BRONZE / GOLD
-// * has one of 3 or more synergy bonus - BRONZE / SILVER / GOLD
-function getSynergyIcon(hasSynergy, count, details) {
-  const { bonuses } = details;
-  const Icon = SynergyIcon[details.name];
-
-  // Without active bonus
-  if (!hasSynergy) {
-    return <Icon synergy={SynergyIcon.PARTIAL} />;
-  }
-
-  // Has only 1 synergy bonus
-  if (bonuses.length === 1) {
-    return <Icon synergy={SynergyIcon.GOLD} />;
-  }
-
-  // Get the index of active bonus on bonuses array
-  let activeBonusIndex = 0;
-
-  bonuses.some((bonus, index, array) => {
-    const isLastBonus = !(index + 1 < array.length);
-    const isActiveBonus =
-      count >= bonus.needed && (isLastBonus || count < array[index + 1].needed);
-
-    if (isActiveBonus) {
-      activeBonusIndex = index;
-      return true;
-    }
-
-    return false;
-  });
-
-  switch (activeBonusIndex) {
-    // First index - BRONZE
-    case 0:
-      return <Icon synergy={SynergyIcon.BRONZE} />;
-
-    // Last index - GOLD
-    case bonuses.length - 1:
-      return <Icon synergy={SynergyIcon.GOLD} />;
-
-    // Between first and last index - SILVER
-    default:
-      return <Icon synergy={SynergyIcon.SILVER} />;
-  }
 }
