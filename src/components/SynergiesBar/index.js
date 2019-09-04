@@ -4,8 +4,39 @@ import * as S from './styled';
 import Divisor from './BarAssets/Divisor.svg';
 import SynergyUnit from '../SynergyUnit';
 
-export default function SynergiesBar() {
-  const [synergies, setSynergies] = useState(null);
+const data = [
+  {
+    name: 'demon',
+    count: 6,
+    ranking: 'gold'
+  },
+  {
+    name: 'demon',
+    count: 4,
+    ranking: 'silver'
+  },
+  {
+    name: 'demon',
+    count: 3,
+    ranking: 'bronze'
+  },
+  {
+    name: 'demon',
+    count: 2,
+    ranking: 'bronze'
+  },
+  {
+    name: 'demon',
+    count: 1,
+    ranking: 'partial'
+  }
+];
+
+export default function SynergiesBar({ synergies, bonuses }) {
+  /*********************************/
+  /* This will be removed soon!!! */
+  /*********************************/
+  const [synergyBonuses, setSynergies] = useState(null);
 
   useEffect(() => {
     async function fetchSynergies() {
@@ -15,42 +46,20 @@ export default function SynergiesBar() {
 
     fetchSynergies();
   }, []);
-
-  // console.log(JSON.stringify(synergies, null, 2));
-  // if (synergies) {
-  //   console.log(synergies.demon);
-  // }
-  const data = [
-    {
-      name: 'demon',
-      quantity: 6
-    },
-    {
-      name: 'dragon',
-      quantity: 2
-    },
-    {
-      name: 'demon',
-      quantity: 4
-    },
-    {
-      name: 'demon',
-      quantity: 2
-    }
-    // {
-    //   name: 'demon',
-    //   quantity: 1
-    // },
-  ];
+  /*****************************/
 
   return (
     <S.Edge>
       <S.Bar>
         <S.SynergiesList>
-          {synergies &&
+          {synergyBonuses &&
             data.map((teste, index) => (
               <li key={index}>
-                <SynergyUnit count={teste.quantity} details={synergies[teste.name]} />
+                <SynergyUnit
+                  count={teste.count}
+                  details={synergyBonuses[teste.name]}
+                  ranking={teste.ranking}
+                />
               </li>
             ))}
         </S.SynergiesList>
