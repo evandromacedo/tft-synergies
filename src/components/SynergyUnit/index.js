@@ -9,7 +9,7 @@ import * as SynergyIcon from '../SynergyIcon';
 // It isn't required because it may have no champion selected at all
 export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIAL' }) {
   const { bonuses } = details;
-  const Icon = SynergyIcon[details.name];
+  const Icon = SynergyIcon[details.name] || SynergyIcon.NoSynergy;
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
   // Has at least one champion selected on the board

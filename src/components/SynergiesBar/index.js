@@ -1,38 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getSynergies } from '../../API';
+import { synergiesMock } from './mocks';
 import * as S from './styled';
 import Divisor from './BarAssets/Divisor.svg';
 import SynergyUnit from '../SynergyUnit';
 
-const data = [
-  {
-    name: 'demon',
-    count: 6,
-    ranking: 'gold'
-  },
-  {
-    name: 'demon',
-    count: 4,
-    ranking: 'silver'
-  },
-  {
-    name: 'demon',
-    count: 3,
-    ranking: 'bronze'
-  },
-  {
-    name: 'demon',
-    count: 2,
-    ranking: 'bronze'
-  },
-  {
-    name: 'demon',
-    count: 1,
-    ranking: 'partial'
-  }
-];
-
-export default function SynergiesBar({ synergies, bonuses }) {
+// export default function SynergiesBar({ synergies, bonuses }) {
+export default function SynergiesBar() {
   /*********************************/
   /* This will be removed soon!!! */
   /*********************************/
@@ -48,12 +22,15 @@ export default function SynergiesBar({ synergies, bonuses }) {
   }, []);
   /*****************************/
 
+  // synergiesMock
+  // console.log(synergiesMock);
+
   return (
     <S.Edge>
       <S.Bar>
         <S.SynergiesList>
           {synergyBonuses &&
-            data.map((teste, index) => (
+            synergiesMock.map((teste, index) => (
               <li key={index}>
                 <SynergyUnit
                   count={teste.count}
