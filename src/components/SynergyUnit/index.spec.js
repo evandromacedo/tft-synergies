@@ -66,7 +66,9 @@ describe('<SynergyUnit />', () => {
   });
 
   it("renders a PARTIAL Icon and inactive progress when there's no bonus yet", () => {
-    const wrapper = shallow(<SynergyUnit count={1} details={mockDemonDetails} />);
+    const wrapper = shallow(
+      <SynergyUnit count={1} details={mockDemonDetails} raking="PARTIAL" />
+    );
     const PartialIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
     expect(PartialIcon.exists()).toBe(true);
     expect(PartialIcon.props().synergy).toEqual(SynergyIcon.PARTIAL);
@@ -76,7 +78,9 @@ describe('<SynergyUnit />', () => {
   });
 
   it('renders a BRONZE Icon and active progress when enables first bonus with exact quantity', () => {
-    const wrapper = shallow(<SynergyUnit count={2} details={mockDemonDetails} />);
+    const wrapper = shallow(
+      <SynergyUnit count={2} details={mockDemonDetails} ranking="BRONZE" />
+    );
     const BronzeIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
     expect(BronzeIcon.exists()).toBe(true);
     expect(BronzeIcon.props().synergy).toEqual(SynergyIcon.BRONZE);
@@ -86,7 +90,9 @@ describe('<SynergyUnit />', () => {
   });
 
   it('renders a BRONZE Icon and active progress when enables first bonus with one more quantity', () => {
-    const wrapper = shallow(<SynergyUnit count={3} details={mockDemonDetails} />);
+    const wrapper = shallow(
+      <SynergyUnit count={3} details={mockDemonDetails} ranking="BRONZE" />
+    );
     const BronzeIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
     expect(BronzeIcon.exists()).toBe(true);
     expect(BronzeIcon.props().synergy).toEqual(SynergyIcon.BRONZE);
@@ -96,7 +102,9 @@ describe('<SynergyUnit />', () => {
   });
 
   it('renders a SILVER Icon and active progress when enables middle bonus', () => {
-    const wrapper = shallow(<SynergyUnit count={4} details={mockDemonDetails} />);
+    const wrapper = shallow(
+      <SynergyUnit count={4} details={mockDemonDetails} ranking="SILVER" />
+    );
     const SilverIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
     expect(SilverIcon.exists()).toBe(true);
     expect(SilverIcon.props().synergy).toEqual(SynergyIcon.SILVER);
@@ -106,7 +114,9 @@ describe('<SynergyUnit />', () => {
   });
 
   it('renders a GOLD Icon and active number when enables solo bonus', () => {
-    const wrapper = shallow(<SynergyUnit count={2} details={mockDragonDetails} />);
+    const wrapper = shallow(
+      <SynergyUnit count={2} details={mockDragonDetails} ranking="GOLD" />
+    );
     const GoldIcon = wrapper.find(SynergyIcon[mockDragonDetails.name]);
     expect(GoldIcon.exists()).toBe(true);
     expect(GoldIcon.props().synergy).toEqual(SynergyIcon.GOLD);
@@ -116,7 +126,9 @@ describe('<SynergyUnit />', () => {
   });
 
   it('renders a GOLD Icon and active progress when enables last bonus', () => {
-    const wrapper = shallow(<SynergyUnit count={6} details={mockDemonDetails} />);
+    const wrapper = shallow(
+      <SynergyUnit count={6} details={mockDemonDetails} ranking="GOLD" />
+    );
     const GoldIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
     expect(GoldIcon.exists()).toBe(true);
     expect(GoldIcon.props().synergy).toEqual(SynergyIcon.GOLD);
