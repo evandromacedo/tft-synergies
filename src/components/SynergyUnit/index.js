@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import * as S from './styled';
 import * as SynergyIcon from '../SynergyIcon';
+import ReactHover from 'react-hover';
 
 // details - object with synergy details from the API
 // count - the current synergy count
@@ -15,28 +16,43 @@ export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIA
   // Has at least one champion selected on the board
   const hasChampionSelected = count > 0;
 
-  return (
-    <S.Wrapper>
-      {/* Show the synergy icon or no synergy */}
-      <S.Icon>
-        {!hasChampionSelected && <SynergyIcon.NoSynergy />}
-        {hasChampionSelected && <Icon synergy={SynergyIcon[ranking.toUpperCase()]} />}
-      </S.Icon>
+  const optionsCursorTrueWithMargin = {
+    followCursor: true,
+    shiftX: 20,
+    shiftY: 0
+  };
 
-      {/* Show the synergy count and progress, or no synergies text */}
-      <S.Count>
-        {!hasChampionSelected && <S.NoSynergies>No synergies yet</S.NoSynergies>}
-        {hasChampionSelected && (
-          <>
-            <S.Quantity>{count}</S.Quantity>
-            <div>
-              <S.Name>{details.name}</S.Name>
-              <S.Progress>{printSynergyProgress(hasSynergy, count, bonuses)}</S.Progress>
-            </div>
-          </>
-        )}
-      </S.Count>
-    </S.Wrapper>
+  return (
+    <ReactHover options={optionsCursorTrueWithMargin}>
+      <ReactHover.Trigger type="trigger">
+        <S.Wrapper>
+          {/* Show the synergy icon or no synergy */}
+          <S.Icon>
+            {!hasChampionSelected && <SynergyIcon.NoSynergy />}
+            {hasChampionSelected && <Icon synergy={SynergyIcon[ranking.toUpperCase()]} />}
+          </S.Icon>
+
+          {/* Show the synergy count and progress, or no synergies text */}
+          <S.Count>
+            {!hasChampionSelected && <S.NoSynergies>No synergies yet</S.NoSynergies>}
+            {hasChampionSelected && (
+              <>
+                <S.Quantity>{count}</S.Quantity>
+                <div>
+                  <S.Name>{details.name}</S.Name>
+                  <S.Progress>
+                    {printSynergyProgress(hasSynergy, count, bonuses)}
+                  </S.Progress>
+                </div>
+              </>
+            )}
+          </S.Count>
+        </S.Wrapper>
+      </ReactHover.Trigger>
+      <ReactHover.Hover type="hover">
+        <p>{ranking}</p>
+      </ReactHover.Hover>
+    </ReactHover>
   );
 }
 

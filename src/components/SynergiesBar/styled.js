@@ -31,6 +31,10 @@ export const SynergiesList = styled.ul`
   margin-left: 0.4rem;
   display: grid;
   grid-gap: 0.6rem;
+
+  li {
+    overflow: hidden;
+  }
 `;
 
 export const Divisor = styled.li`
