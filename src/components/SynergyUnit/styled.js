@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   height: 4rem;
   position: relative;
+  /* Makes the block div to be width: auto */
   float: left;
   clear: left;
 `;
@@ -28,11 +29,11 @@ export const Count = styled.div`
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 
-  /* TODO: make the transition to show/hide  */
+  /* Transition to show or hide based on screen size */
   transform: translateX(2rem) translateY(-4rem);
   transition: transform 0.4s ease;
 
-  &.off {
+  &.hide {
     transform: translateX(-100%) translateY(-4rem);
   }
 `;

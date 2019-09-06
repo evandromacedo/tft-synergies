@@ -8,23 +8,34 @@ import ReactHover from 'react-hover';
 // count - the current synergy count
 // ranking - synergy ranking: PARTIAL, BRONZE, SILVER, GOLD
 // None of them is required because it may have no champion selected at all
-export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIAL' }) {
+export default function SynergyUnit({
+  count = 0,
+  details = {},
+  ranking = 'PARTIAL',
+  showDetails = true
+}) {
   const { bonuses } = details;
   const Icon = SynergyIcon[details.name] || SynergyIcon.NoSynergy;
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
   // Has at least one champion selected on the board
   const hasChampionSelected = count > 0;
-
-  const optionsCursorTrueWithMargin = {
+  // Settings for the hover on synergy
+  const reactHoverSettings = {
     followCursor: true,
     shiftX: 20,
     shiftY: 0
   };
+  // Show or hide details based on props
+  const detailsSettings = {
+    trigger: showDetails ? 'trigger' : '',
+    hover: showDetails ? 'hover' : '',
+    hide: showDetails ? '' : 'hide'
+  };
 
   return (
-    <ReactHover options={optionsCursorTrueWithMargin}>
-      <ReactHover.Trigger type="trigger">
+    <ReactHover options={reactHoverSettings}>
+      <ReactHover.Trigger type={detailsSettings.trigger}>
         <S.Wrapper>
           {/* Show the synergy icon or no synergy */}
           <S.Icon>
@@ -33,7 +44,7 @@ export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIA
           </S.Icon>
 
           {/* Show the synergy count and progress, or no synergies text */}
-          <S.Count>
+          <S.Count className={detailsSettings.hide}>
             {!hasChampionSelected && <S.NoSynergies>No synergies yet</S.NoSynergies>}
             {hasChampionSelected && (
               <>
@@ -49,8 +60,12 @@ export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIA
           </S.Count>
         </S.Wrapper>
       </ReactHover.Trigger>
-      <ReactHover.Hover type="hover">
-        <p>{ranking}</p>
+      <ReactHover.Hover type={detailsSettings.hover}>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus sit facere
+          dignissimos corrupti natus porro ex aliquam doloribus assumenda, quia excepturi,
+          iusto, optio voluptates! Atque nam aliquid consectetur quia aliquam?
+        </p>
       </ReactHover.Hover>
     </ReactHover>
   );

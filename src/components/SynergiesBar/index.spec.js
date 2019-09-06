@@ -2,26 +2,26 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { generateBonusesMock, generateSynergiesMock } from './stories';
 import * as S from './styled';
-import SynergyBar from '.';
+import { SynergiesBar } from '.';
 import SynergyUnit from '../SynergyUnit';
 
-describe('<SynergyBar />', () => {
+describe('<SynergiesBar />', () => {
   it('renders properly', () => {
-    shallow(<SynergyBar />);
+    shallow(<SynergiesBar />);
   });
 
   it('renders just a "No synergies yet" SynergyUnit when no synergies are passed on props', () => {
-    const wrapper = shallow(<SynergyBar />);
+    const wrapper = shallow(<SynergiesBar />);
     const SynergyUnitComponent = wrapper.find(SynergyUnit);
     const SynergiesUl = wrapper.find('[data-test="synergies-ul"]');
     expect(SynergiesUl.children().length).toEqual(1);
     expect(SynergyUnitComponent.exists()).toBeTruthy();
-    expect(SynergyUnitComponent.props()).toEqual({});
+    expect(SynergyUnitComponent.props()).toEqual({ showDetails: true });
   });
 
   it('renders the synergies in decrescent order', () => {
     const wrapper = shallow(
-      <SynergyBar
+      <SynergiesBar
         synergies={generateSynergiesMock()}
         bonusesDetails={generateBonusesMock()}
       />
