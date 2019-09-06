@@ -36,7 +36,7 @@ export const SynergyList = styled.ul`
 
 export const SynergyItem = styled.li`
   ${props => props.theme.sans16px};
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.4);
 
   &.active {
     color: white;

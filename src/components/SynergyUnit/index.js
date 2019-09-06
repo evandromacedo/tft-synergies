@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import * as S from './styled';
 import * as SynergyIcon from '../SynergyIcon';
+import { getSynergyIndex } from '../../utils';
 import ReactHover from 'react-hover';
 import SynergyDetails from '../SynergyDetails';
 
@@ -65,7 +66,12 @@ export default function SynergyUnit({
         </S.Wrapper>
       </ReactHover.Trigger>
       <ReactHover.Hover type={detailsSettings.hover}>
-        <SynergyDetails />
+        {hasChampionSelected ? (
+          <SynergyDetails
+            synergyIndex={getSynergyIndex(count, bonuses)}
+            details={details}
+          />
+        ) : null}
       </ReactHover.Hover>
     </ReactHover>
   );
