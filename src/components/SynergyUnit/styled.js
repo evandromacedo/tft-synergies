@@ -19,6 +19,7 @@ export const Icon = styled.div`
 `;
 
 export const Count = styled.div`
+  cursor: default;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 0.8rem;
