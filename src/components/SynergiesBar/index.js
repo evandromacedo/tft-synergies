@@ -1,18 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { arrangeSynergies } from '../../utils';
 import * as S from './styled';
 import SynergyUnit from '../SynergyUnit';
 
-export default function SynergiesBar({ synergies, bonuses }) {
+// synergies - array of synergies from selected champions on reducer
+// bonusesDetails - object containing details of the synergies from API
+export default function SynergiesBar({ synergies, bonusesDetails }) {
+  // Split synergies in arrays of golds, silvers, bronzes and partials
   const splittedSynergies = arrangeSynergies(synergies);
   const { golds, silvers, bronzes, partials } = splittedSynergies;
 
-  function renderSynergies(synergyArray, renderDivisor) {
+  // Render SynergyUnits and Divisor into list items
+  function renderSynergiesUnities(synergyArray, renderDivisor) {
     let synergies = synergyArray.map((synergyItem, index) => (
       <li key={index}>
         <SynergyUnit
           count={synergyItem.count}
-          details={bonuses[synergyItem.name]}
+          details={bonusesDetails[synergyItem.name]}
           ranking={synergyItem.ranking}
         />
       </li>
@@ -29,12 +34,12 @@ export default function SynergiesBar({ synergies, bonuses }) {
     <S.Edge>
       <S.Bar>
         <S.SynergiesList>
-          {bonuses && (
+          {bonusesDetails && (
             <>
-              {golds && renderSynergies(golds, true)}
-              {silvers && renderSynergies(silvers)}
-              {bronzes && renderSynergies(bronzes, true)}
-              {partials && renderSynergies(partials)}
+              {golds && renderSynergiesUnities(golds, true)}
+              {silvers && renderSynergiesUnities(silvers, !bronzes && !!partials && true)}
+              {bronzes && renderSynergiesUnities(bronzes, !!partials && true)}
+              {partials && renderSynergiesUnities(partials)}
             </>
           )}
         </S.SynergiesList>
@@ -42,3 +47,8 @@ export default function SynergiesBar({ synergies, bonuses }) {
     </S.Edge>
   );
 }
+
+SynergiesBar.propTypes = {
+  synergies: PropTypes.array,
+  bonusesDetails: PropTypes.object.isRequired
+};

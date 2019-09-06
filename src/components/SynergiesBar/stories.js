@@ -3,7 +3,10 @@ import SynergiesBar from '.';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('SynergiesBar', module).add('Default', () => (
-  <SynergiesBar synergies={generateSynergiesMock()} bonuses={generateBonusesMock()} />
+  <SynergiesBar
+    synergies={generateSynergiesMock()}
+    bonusesDetails={generateBonusesMock()}
+  />
 ));
 
 function generateBonusesMock() {

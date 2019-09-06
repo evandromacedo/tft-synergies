@@ -6,7 +6,7 @@ import * as SynergyIcon from '../SynergyIcon';
 // details - object with synergy details from the API
 // count - the current synergy count
 // ranking - synergy ranking: PARTIAL, BRONZE, SILVER, GOLD
-// It isn't required because it may have no champion selected at all
+// None of them is required because it may have no champion selected at all
 export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIAL' }) {
   const { bonuses } = details;
   const Icon = SynergyIcon[details.name] || SynergyIcon.NoSynergy;
@@ -41,8 +41,9 @@ export default function SynergyUnit({ count = 0, details = {}, ranking = 'PARTIA
 }
 
 SynergyUnit.propTypes = {
+  count: PropTypes.number,
   details: PropTypes.object,
-  count: PropTypes.number
+  ranking: PropTypes.string
 };
 
 // Print the synergy progress with active synergy
