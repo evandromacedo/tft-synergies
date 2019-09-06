@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SynergyDetails /> render SynergyList with bonuses 1`] = `
+<styled.ul>
+  <styled.li
+    className=""
+    key="0"
+  >
+    (
+    2
+    ) 
+    Return 15 mana back to attacker
+  </styled.li>
+  <styled.li
+    className="active"
+    key="1"
+  >
+    (
+    4
+    ) 
+    Return 30 mana back to attacker
+  </styled.li>
+  <styled.li
+    className=""
+    key="2"
+  >
+    (
+    6
+    ) 
+    Return 45 mana back to attacker
+  </styled.li>
+</styled.ul>
+`;

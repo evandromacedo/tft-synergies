@@ -2,7 +2,7 @@
 // * without synergy bonus - null
 // * has only 1 synergy bonus - 0
 // * has 2 or more synergy bonus - activeBonusIndex
-export default function getSynergyIndex(count, bonuses) {
+export default function getSynergyIndex(count = 0, bonuses) {
   const hasSynergy = count >= bonuses[0].needed;
 
   // Without active bonus

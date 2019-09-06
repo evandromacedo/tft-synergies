@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as S from './styled';
 
 export default function SynergyDetails({ details, synergyIndex }) {
@@ -21,6 +22,11 @@ export default function SynergyDetails({ details, synergyIndex }) {
     </S.Wrapper>
   );
 }
+
+SynergyDetails.propTypes = {
+  details: PropTypes.object.isRequired,
+  synergyIndex: PropTypes.number
+};
 
 // This is just a mock and will me replaced when more icons are added
 const SvgBrawler = () => (
