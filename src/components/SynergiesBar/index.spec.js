@@ -54,4 +54,10 @@ describe('<SynergiesBar />', () => {
     expect(SynergyUnitComponents.get(7).props.count).toEqual(1);
     expect(SynergyUnitComponents.get(7).props.ranking).toEqual('partial');
   });
+
+  it('renders ToggleArrow when isMobile={true}', () => {
+    const wrapper = shallow(<SynergiesBar isMobile={true} />);
+    const ToggleArrow = wrapper.find(S.ToggleArrow);
+    expect(ToggleArrow.exists()).toBeTruthy();
+  });
 });
