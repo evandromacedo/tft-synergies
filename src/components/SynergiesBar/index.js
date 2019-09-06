@@ -63,9 +63,9 @@ function SynergiesBar({ synergies, bonusesDetails, isMobile = false }) {
             </>
           )}
 
-          {/* Show Toggle Arrow button if is mobile  */}
+          {/* Show Toggle Arrow button if it's mobile */}
           {isMobile && (
-            <S.ToggleArrow showDetails={showDetails} onClick={toggleDetails} />
+            <S.ToggleArrow rightArrow={!showDetails} onClick={toggleDetails} />
           )}
         </S.SynergiesList>
       </S.Bar>

@@ -3,8 +3,7 @@ import TopBar from './BarAssets/TopBar.png';
 import MidBar from './BarAssets/MidBar.png';
 import BottomBar from './BarAssets/BottomBar.png';
 import DivisorIcon from './BarAssets/Divisor.svg';
-import RightArrowIcon from './BarAssets/RightArrow.svg';
-import LeftArrowIcon from './BarAssets/LeftArrow.svg';
+import ArrowListItem from './ArrowListItem';
 
 export const Edge = styled.div`
   &:before,
@@ -45,11 +44,11 @@ export const Divisor = styled.li`
   transform: translateX(-2px);
 `;
 
-export const ToggleArrow = styled.li`
+export const ToggleArrow = styled(ArrowListItem)`
   height: 2rem;
   width: 3.4rem;
   transform: translateX(-2px);
-  cursor: pointer;
-  background: url(${props => (props.showDetails ? LeftArrowIcon : RightArrowIcon)})
-    no-repeat;
+  button {
+    padding: 0;
+  }
 `;

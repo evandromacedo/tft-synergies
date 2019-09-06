@@ -16,16 +16,19 @@ export default function SynergyUnit({
 }) {
   const { bonuses } = details;
   const Icon = SynergyIcon[details.name] || SynergyIcon.NoSynergy;
+
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
   // Has at least one champion selected on the board
   const hasChampionSelected = count > 0;
+
   // Settings for the hover on synergy
   const reactHoverSettings = {
     followCursor: true,
     shiftX: 20,
     shiftY: 0
   };
+
   // Show or hide details based on props
   const detailsSettings = {
     trigger: showDetails ? 'trigger' : '',
