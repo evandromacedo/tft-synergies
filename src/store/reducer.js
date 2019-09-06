@@ -29,7 +29,7 @@ const reducer = (state, action) => {
           synergiesState.push({
             count: 1,
             name: synergyName,
-            ranking: getSynergyRanking(1, state.bonuses[synergyName])
+            ranking: getSynergyRanking(1, state.bonuses[synergyName].bonuses)
           });
         }
       });

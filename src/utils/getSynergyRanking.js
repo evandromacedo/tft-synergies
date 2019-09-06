@@ -3,8 +3,7 @@
 // * has only 1 synergy bonus - gold
 // * has one of 2 synergy bonus - bronze / gold
 // * has one of 3 or more synergy bonus - bronze / silver / gold
-export default function getSynergyRanking(count, details) {
-  const { bonuses } = details;
+export default function getSynergyRanking(count, bonuses) {
   const hasSynergy = count >= bonuses[0].needed;
 
   // Without active bonus
