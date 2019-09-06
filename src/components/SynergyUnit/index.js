@@ -3,6 +3,7 @@ import React from 'react';
 import * as S from './styled';
 import * as SynergyIcon from '../SynergyIcon';
 import ReactHover from 'react-hover';
+import SynergyDetails from '../SynergyDetails';
 
 // details - object with synergy details from the API
 // count - the current synergy count
@@ -25,8 +26,8 @@ export default function SynergyUnit({
   // Settings for the hover on synergy
   const reactHoverSettings = {
     followCursor: true,
-    shiftX: 20,
-    shiftY: 0
+    shiftX: 15,
+    shiftY: 10
   };
 
   // Show or hide details based on props
@@ -64,11 +65,7 @@ export default function SynergyUnit({
         </S.Wrapper>
       </ReactHover.Trigger>
       <ReactHover.Hover type={detailsSettings.hover}>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus sit facere
-          dignissimos corrupti natus porro ex aliquam doloribus assumenda, quia excepturi,
-          iusto, optio voluptates! Atque nam aliquid consectetur quia aliquam?
-        </p>
+        <SynergyDetails />
       </ReactHover.Hover>
     </ReactHover>
   );

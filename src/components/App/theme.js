@@ -31,6 +31,8 @@ const theme = {
   bold16px: 'font-size: 1.6rem; font-weight: bold; letter-spacing: .5px;',
   bold20px: 'font-size: 2rem; font-weight: bold; letter-spacing: .5px;',
   sans14px: 'font-family: sans-serif; font-size: 1.4rem; font-weight: normal;',
+  sans16px:
+    'font-family: sans-serif; font-size: 1.6rem; font-weight: normal; line-height: 20px;',
   sans14pxItalic:
     'font-family: sans-serif; font-size: 1.4rem; font-weight: normal; font-style: italic;',
   sans16pxItalic:
