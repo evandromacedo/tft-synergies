@@ -33,7 +33,14 @@ export default function SynergiesBar({ synergies, bonusesDetails }) {
   return (
     <S.Edge>
       <S.Bar>
-        <S.SynergiesList>
+        <S.SynergiesList data-test="synergies-ul">
+          {/* Default SynergyUnit shows "No synergies yet" */}
+          {!synergies && (
+            <li>
+              <SynergyUnit />
+            </li>
+          )}
+          {/* Renders ordered synergies and divisors  */}
           {bonusesDetails && (
             <>
               {golds && renderSynergiesUnities(golds, true)}
@@ -50,5 +57,5 @@ export default function SynergiesBar({ synergies, bonusesDetails }) {
 
 SynergiesBar.propTypes = {
   synergies: PropTypes.array,
-  bonusesDetails: PropTypes.object.isRequired
+  bonusesDetails: PropTypes.object
 };

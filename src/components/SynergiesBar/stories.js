@@ -9,7 +9,7 @@ storiesOf('SynergiesBar', module).add('Default', () => (
   />
 ));
 
-function generateBonusesMock() {
+export function generateBonusesMock() {
   return {
     assassin: {
       key: 'assassin',
@@ -297,7 +297,7 @@ function generateBonusesMock() {
   };
 }
 
-function generateSynergiesMock() {
+export function generateSynergiesMock() {
   return [
     {
       name: 'dragon',
