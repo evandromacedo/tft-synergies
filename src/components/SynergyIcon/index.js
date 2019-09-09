@@ -1,10 +1,47 @@
-export { default as NoSynergy } from './NoSynergy';
-export { default as Demon } from './Demon';
-export { default as Dragon } from './Dragon';
+import React from 'react';
+import PropTypes from 'prop-types';
+import capitalize from 'lodash/capitalize';
+import * as AllSynergies from './AllSynergies';
 
-export const DEFAULT_SMALL = 'SYNERGY_DEFAULT_SMALL';
-export const DEFAULT_BIG = 'SYNERGY_DEFAULT_BIG';
-export const PARTIAL = 'SYNERGY_PARTIAL';
-export const BRONZE = 'SYNERGY_BRONZE';
-export const SILVER = 'SYNERGY_SILVER';
-export const GOLD = 'SYNERGY_GOLD';
+export default function SynergyIcon({ classOrOrigin, type = 'default', ...props }) {
+  if (!classOrOrigin) {
+    const Icon = AllSynergies.NoSynergy;
+    return <Icon {...props} />;
+  }
+
+  const classOrOriginCapitalized = capitalize(classOrOrigin);
+  const typeLowerCased = type.toLowerCase();
+  const Icon = AllSynergies[classOrOriginCapitalized];
+
+  return <Icon type={typeLowerCased} {...props} />;
+}
+
+SynergyIcon.propTypes = {
+  classOrOrigin: PropTypes.oneOf([
+    'demon',
+    'dragon',
+    'exile',
+    'glacial',
+    'imperial',
+    'noble',
+    'ninja',
+    'pirate',
+    'phantom',
+    'robot',
+    'void',
+    'wild',
+    'yordle',
+    'assassin',
+    'blademaster',
+    'brawler',
+    'elementalist',
+    'guardian',
+    'gunslinger',
+    'knight',
+    'ranger',
+    'shapeshifter',
+    'sorcerer',
+    'hextech'
+  ]),
+  type: PropTypes.oneOf(['hover', 'default', 'partial', 'bronze', 'silver', 'gold'])
+};

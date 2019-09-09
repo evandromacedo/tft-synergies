@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import * as SynergyIcon from '../SynergyIcon';
+import capitalize from 'lodash/capitalize';
+import SynergyIcon from '../SynergyIcon';
 
 const Grid = styled.div`
   display: grid;
@@ -20,38 +21,38 @@ const Title = styled.p`
 function ClassOrOrigin({ type }) {
   return (
     <Grid>
-      {SynergyIcon[type](SynergyIcon.DEFAULT_SMALL)}
-      <Title>{type}</Title>
+      <SynergyIcon classOrOrigin={type} type="default" />
+      <Title>{capitalize(type)}</Title>
     </Grid>
   );
 }
 
 ClassOrOrigin.propTypes = {
   type: PropTypes.oneOf([
-    'Demon',
-    'Dragon',
-    'Exile',
-    'Glacial',
-    'Imperial',
-    'Noble',
-    'Ninja',
-    'Pirate',
-    'Phantom',
-    'Robot',
-    'Void',
-    'Wild',
-    'Yordle',
-    'Assassin',
-    'Blademaster',
-    'Brawler',
-    'Elementalist',
-    'Guardian',
-    'Gunslinger',
-    'Knight',
-    'Ranger',
-    'Shapeshifter',
-    'Sorcerer',
-    'Hextech'
+    'demon',
+    'dragon',
+    'exile',
+    'glacial',
+    'imperial',
+    'noble',
+    'ninja',
+    'pirate',
+    'phantom',
+    'robot',
+    'void',
+    'wild',
+    'yordle',
+    'assassin',
+    'blademaster',
+    'brawler',
+    'elementalist',
+    'guardian',
+    'gunslinger',
+    'knight',
+    'ranger',
+    'shapeshifter',
+    'sorcerer',
+    'hextech'
   ]).isRequired
 };
 

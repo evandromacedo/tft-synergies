@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import * as S from './styled';
-import * as SynergyIcon from '../SynergyIcon';
+import SynergyIcon from '../SynergyIcon';
 import { getSynergyIndex } from '../../utils';
 import ReactHover from 'react-hover';
 import SynergyDetails from '../SynergyDetails';
@@ -13,11 +13,10 @@ import SynergyDetails from '../SynergyDetails';
 export default function SynergyUnit({
   count = 0,
   details = {},
-  ranking = 'PARTIAL',
+  ranking = 'partial',
   showDetails = true
 }) {
   const { bonuses } = details;
-  const Icon = SynergyIcon[details.name] || SynergyIcon.NoSynergy;
 
   // Has at least one synergy active
   const hasSynergy = bonuses && count >= bonuses[0].needed;
@@ -44,8 +43,10 @@ export default function SynergyUnit({
         <S.Wrapper>
           {/* Show the synergy icon or no synergy */}
           <S.Icon>
-            {!hasChampionSelected && <SynergyIcon.NoSynergy />}
-            {hasChampionSelected && <Icon synergy={SynergyIcon[ranking.toUpperCase()]} />}
+            {!hasChampionSelected && <SynergyIcon />}
+            {hasChampionSelected && (
+              <SynergyIcon classOrOrigin={details.key} type={ranking} />
+            )}
           </S.Icon>
 
           {/* Show the synergy count and progress, or no synergies text */}
