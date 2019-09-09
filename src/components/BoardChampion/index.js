@@ -10,9 +10,9 @@ function BoardChampion({ tier, background }) {
   return (
     <S.Wrapper tier="5" background={SplashArt.Aatrox}>
       <S.Synergies>
-        <ClassOrOrigin type="Demon" />
-        <ClassOrOrigin type="Dragon" />
-        <ClassOrOrigin type="Demon" />
+        <ClassOrOrigin type="demon" />
+        <ClassOrOrigin type="dragon" />
+        <ClassOrOrigin type="demon" />
       </S.Synergies>
       <S.Items>
         <S.Item />

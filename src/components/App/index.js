@@ -7,8 +7,8 @@ import theme from './theme';
 import { ThemeProvider } from 'styled-components';
 import Meta from '../Meta';
 import Header from '../Header';
-import Home from '../Home';
-import About from '../About';
+import Home from '../../pages/Home';
+import About from '../../pages/About';
 
 export default function App() {
   // const { state, addChampion } = useSynergies();
