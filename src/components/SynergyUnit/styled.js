@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   /* Makes the block div to be width: auto */
   float: left;
   clear: left;
+
+  /* Just to do the translate transition */
+  background-image: linear-gradient(to right, #192128 2rem, transparent 0);
+  background-repeat: no-repeat;
 `;
 
 export const Icon = styled.div`
@@ -13,9 +17,9 @@ export const Icon = styled.div`
   position: relative;
   z-index: 1;
 
-  /* Just to do the translate transition */
-  background-image: linear-gradient(to right, #192128 2rem, transparent 0);
-  background-repeat: no-repeat;
+  ${Wrapper}:hover & {
+    filter: brightness(130%);
+  }
 `;
 
 export const Count = styled.div`

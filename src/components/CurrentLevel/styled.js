@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: inline-grid;
+  width: auto;
+  display: grid;
   grid-gap: 1.2rem;
+  justify-content: start;
   grid-auto-flow: column;
   align-items: center;
 `;
@@ -13,4 +15,8 @@ export const Text = styled.p`
 
 export const Button = styled.button`
   padding: 0;
+
+  &:hover {
+    filter: brightness(130%);
+  }
 `;

@@ -3,8 +3,13 @@ import styled from 'styled-components';
 export const Layout = styled.div`
   display: grid;
   grid-template-columns: 20rem 1fr;
+  align-items: start;
   grid-gap: 0.8rem;
   padding: 2.4rem 0;
+`;
+
+export const Sidebar = styled.aside`
+  grid-row: start / -1;
 `;
 
 export const MainWrapper = styled.main`
