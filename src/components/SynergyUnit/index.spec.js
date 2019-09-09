@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import SynergyUnit from '.';
-import * as SynergyIcon from '../SynergyIcon';
+import SynergyIcon from '../SynergyIcon';
 import * as S from './styled';
 
 const mockDragonDetails = {
@@ -48,7 +48,7 @@ describe('<SynergyUnit />', () => {
 
   it('renders "no synergies yet" icon and text when there\'s no champion selected', () => {
     const wrapper = shallow(<SynergyUnit />);
-    const NoSynergyIcon = wrapper.find(SynergyIcon.NoSynergy);
+    const NoSynergyIcon = wrapper.find(SynergyIcon);
     expect(NoSynergyIcon.exists()).toBe(true);
 
     const NoSynergyText = wrapper.find(S.NoSynergies);
@@ -67,11 +67,12 @@ describe('<SynergyUnit />', () => {
 
   it("renders a PARTIAL Icon and inactive progress when there's no bonus yet", () => {
     const wrapper = shallow(
-      <SynergyUnit count={1} details={mockDemonDetails} raking="PARTIAL" />
+      <SynergyUnit count={1} details={mockDemonDetails} ranking="partial" />
     );
-    const PartialIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
+    const PartialIcon = wrapper.find(SynergyIcon);
     expect(PartialIcon.exists()).toBe(true);
-    expect(PartialIcon.props().synergy).toEqual(SynergyIcon.PARTIAL);
+    expect(PartialIcon.props().classOrOrigin).toEqual(mockDemonDetails.key);
+    expect(PartialIcon.props().type).toEqual('partial');
 
     const ProgressText = wrapper.find(S.Progress);
     expect(ProgressText.text()).toMatch('1 / 2');
@@ -79,11 +80,12 @@ describe('<SynergyUnit />', () => {
 
   it('renders a BRONZE Icon and active progress when enables first bonus with exact quantity', () => {
     const wrapper = shallow(
-      <SynergyUnit count={2} details={mockDemonDetails} ranking="BRONZE" />
+      <SynergyUnit count={2} details={mockDemonDetails} ranking="bronze" />
     );
-    const BronzeIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
+    const BronzeIcon = wrapper.find(SynergyIcon);
     expect(BronzeIcon.exists()).toBe(true);
-    expect(BronzeIcon.props().synergy).toEqual(SynergyIcon.BRONZE);
+    expect(BronzeIcon.props().classOrOrigin).toEqual(mockDemonDetails.key);
+    expect(BronzeIcon.props().type).toEqual('bronze');
 
     const ProgressText = wrapper.find(S.Progress);
     expect(toJSON(ProgressText)).toMatchSnapshot();
@@ -91,11 +93,12 @@ describe('<SynergyUnit />', () => {
 
   it('renders a BRONZE Icon and active progress when enables first bonus with one more quantity', () => {
     const wrapper = shallow(
-      <SynergyUnit count={3} details={mockDemonDetails} ranking="BRONZE" />
+      <SynergyUnit count={3} details={mockDemonDetails} ranking="bronze" />
     );
-    const BronzeIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
+    const BronzeIcon = wrapper.find(SynergyIcon);
     expect(BronzeIcon.exists()).toBe(true);
-    expect(BronzeIcon.props().synergy).toEqual(SynergyIcon.BRONZE);
+    expect(BronzeIcon.props().classOrOrigin).toEqual(mockDemonDetails.key);
+    expect(BronzeIcon.props().type).toEqual('bronze');
 
     const ProgressText = wrapper.find(S.Progress);
     expect(toJSON(ProgressText)).toMatchSnapshot();
@@ -103,11 +106,12 @@ describe('<SynergyUnit />', () => {
 
   it('renders a SILVER Icon and active progress when enables middle bonus', () => {
     const wrapper = shallow(
-      <SynergyUnit count={4} details={mockDemonDetails} ranking="SILVER" />
+      <SynergyUnit count={4} details={mockDemonDetails} ranking="silver" />
     );
-    const SilverIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
+    const SilverIcon = wrapper.find(SynergyIcon);
     expect(SilverIcon.exists()).toBe(true);
-    expect(SilverIcon.props().synergy).toEqual(SynergyIcon.SILVER);
+    expect(SilverIcon.props().classOrOrigin).toEqual(mockDemonDetails.key);
+    expect(SilverIcon.props().type).toEqual('silver');
 
     const ProgressText = wrapper.find(S.Progress);
     expect(toJSON(ProgressText)).toMatchSnapshot();
@@ -115,11 +119,12 @@ describe('<SynergyUnit />', () => {
 
   it('renders a GOLD Icon and active number when enables solo bonus', () => {
     const wrapper = shallow(
-      <SynergyUnit count={2} details={mockDragonDetails} ranking="GOLD" />
+      <SynergyUnit count={2} details={mockDragonDetails} ranking="gold" />
     );
-    const GoldIcon = wrapper.find(SynergyIcon[mockDragonDetails.name]);
+    const GoldIcon = wrapper.find(SynergyIcon);
     expect(GoldIcon.exists()).toBe(true);
-    expect(GoldIcon.props().synergy).toEqual(SynergyIcon.GOLD);
+    expect(GoldIcon.props().classOrOrigin).toEqual(mockDragonDetails.key);
+    expect(GoldIcon.props().type).toEqual('gold');
 
     const ProgressText = wrapper.find(S.Progress);
     expect(ProgressText.text()).toMatch('2');
@@ -127,11 +132,12 @@ describe('<SynergyUnit />', () => {
 
   it('renders a GOLD Icon and active progress when enables last bonus', () => {
     const wrapper = shallow(
-      <SynergyUnit count={6} details={mockDemonDetails} ranking="GOLD" />
+      <SynergyUnit count={6} details={mockDemonDetails} ranking="gold" />
     );
-    const GoldIcon = wrapper.find(SynergyIcon[mockDemonDetails.name]);
+    const GoldIcon = wrapper.find(SynergyIcon);
     expect(GoldIcon.exists()).toBe(true);
-    expect(GoldIcon.props().synergy).toEqual(SynergyIcon.GOLD);
+    expect(GoldIcon.props().classOrOrigin).toEqual(mockDemonDetails.key);
+    expect(GoldIcon.props().type).toEqual('gold');
 
     const ProgressText = wrapper.find(S.Progress);
     expect(toJSON(ProgressText)).toMatchSnapshot();
