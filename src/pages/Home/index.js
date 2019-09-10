@@ -7,7 +7,15 @@ import {
 import CurrentLevel from '../../components/CurrentLevel';
 import Button from '../../components/Button';
 import SynergiesBar from '../../components/SynergiesBar';
-import BoardChampion from '../../components/BoardChampion';
+import Board from '../../components/Board';
+
+const champions = [
+  { name: 'Kassadin', cost: 1, synergies: ['void', 'sorcerer'] },
+  { name: 'Ahri', cost: 2, synergies: ['wild', 'sorcerer'] },
+  { name: 'Aatrox', cost: 3, synergies: ['demon', 'blademaster'] },
+  { name: 'Akali', cost: 4, synergies: ['ninja', 'assassin'] },
+  { name: 'Anivia', cost: 5, synergies: ['glacial', 'elementalist'] }
+];
 
 export default function Home() {
   return (
@@ -23,38 +31,7 @@ export default function Home() {
           <CurrentLevel />
           <Button>Clear</Button>
         </S.BoardTop>
-        <S.FakeBoard>
-          <BoardChampion
-            champion={{ name: 'Kassadin', cost: 1, synergies: ['void', 'sorcerer'] }}
-            background={
-              'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_kassadin.png'
-            }
-          />
-          <BoardChampion
-            champion={{ name: 'Ahri', cost: 2, synergies: ['wild', 'sorcerer'] }}
-            background={
-              'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_ahri.png'
-            }
-          />
-          <BoardChampion
-            champion={{ name: 'Aatrox', cost: 3, synergies: ['demon', 'blademaster'] }}
-            background={
-              'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_aatrox.png'
-            }
-          />
-          <BoardChampion
-            champion={{ name: 'Akali', cost: 4, synergies: ['ninja', 'assassin'] }}
-            background={
-              'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_akali.png'
-            }
-          />
-          <BoardChampion
-            champion={{ name: 'Anivia', cost: 5, synergies: ['glacial', 'elementalist'] }}
-            background={
-              'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_anivia.png'
-            }
-          />
-        </S.FakeBoard>
+        <Board champions={champions} />
         <h1>Champions and items</h1>
       </S.MainWrapper>
     </S.Layout>
