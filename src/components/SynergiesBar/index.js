@@ -79,7 +79,7 @@ SynergiesBar.propTypes = {
 };
 
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width < 900
+  isMobile: width <= 768
 });
 
 // Named export for testing, and default for using

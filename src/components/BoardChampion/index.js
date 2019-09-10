@@ -18,7 +18,7 @@ function BoardChampion({ tier, background }) {
         <S.Item />
         <S.Item />
         <S.Item />
-        <S.Name>Aurelion Sol</S.Name>
+        <S.Name>A</S.Name>
       </S.Items>
     </S.Wrapper>
   );

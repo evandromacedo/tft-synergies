@@ -9,6 +9,10 @@ export const Wrapper = styled(TierBorder)`
   display: grid;
   grid-gap: 0.8rem;
 
+  @media (max-width: ${props => props.theme.medium}) {
+    width: 25.6rem;
+  }
+
   /* Background image for Splash Art */
   &:before {
     content: '';
