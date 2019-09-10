@@ -33,12 +33,11 @@ export const FakeBoard = styled.div`
   justify-content: space-evenly;
 
   @media (max-width: 856px) {
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
 
-  @media (max-width: ${props => props.theme.small}) {
+  @media (max-width: ${props => props.theme.extraSmall}) {
     justify-items: center;
     justify-content: space-evenly;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
 `;

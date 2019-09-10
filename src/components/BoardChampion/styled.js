@@ -9,7 +9,7 @@ export const Wrapper = styled(TierBorder)`
   display: grid;
   grid-gap: 0.8rem;
 
-  @media (max-width: 397px) {
+  @media (max-width: ${props => props.theme.extraSmall}) {
     width: 25.6rem;
   }
 

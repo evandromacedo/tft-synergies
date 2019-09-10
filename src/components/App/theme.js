@@ -42,7 +42,8 @@ const theme = {
   // Breakpoints
   large: '1024px',
   medium: '768px',
-  small: '552px'
+  small: '552px',
+  extraSmall: '397px'
 };
 
 export default theme;
