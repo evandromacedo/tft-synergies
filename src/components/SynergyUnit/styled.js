@@ -39,7 +39,7 @@ export const Count = styled.div`
   transition: transform 0.4s ease;
 
   &.hide {
-    transform: translateX(-100%) translateY(-4rem);
+    transform: translateX(calc(-100% - 0.5rem)) translateY(-4rem);
   }
 `;
 
