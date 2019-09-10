@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ClassOrOrigin /> render properly and matches snapshot 1`] = `
+<styled.div>
+  <SynergyIcon
+    classOrOrigin="demon"
+    type="default"
+  />
+  <styled.p>
+    Demon
+  </styled.p>
+</styled.div>
+`;

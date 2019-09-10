@@ -28,7 +28,7 @@ BoardChampion.propTypes = {
     name: PropTypes.string,
     cost: PropTypes.number,
     synergies: PropTypes.arrayOf(PropTypes.string)
-  }),
+  }).isRequired,
   background: PropTypes.string
 };
 

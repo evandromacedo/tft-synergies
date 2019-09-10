@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BoardChampion /> render properly and matches snapshot 1`] = `
+<Styled(styled.div)
+  background="http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_kassadin.png"
+  cost={1}
+>
+  <styled.div>
+    <ClassOrOrigin
+      key="0"
+      type="void"
+    />
+    <ClassOrOrigin
+      key="1"
+      type="sorcerer"
+    />
+  </styled.div>
+  <styled.div>
+    <styled.div />
+    <styled.div />
+    <styled.div />
+    <styled.p>
+      Kassadin
+    </styled.p>
+  </styled.div>
+</Styled(styled.div)>
+`;
