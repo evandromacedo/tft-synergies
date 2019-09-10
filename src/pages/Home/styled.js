@@ -21,3 +21,10 @@ export const BoardTop = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
 `;
+
+export const FakeBoard = styled.div`
+  display: grid;
+  justify-content: space-between;
+  grid-gap: 2.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+`;
