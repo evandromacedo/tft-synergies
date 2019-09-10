@@ -5,23 +5,23 @@ const theme = {
   background3: '#343434',
   background4: '#979797',
   accentYellow: '#D8A75B',
-  borderTier1: {
+  borderCost1: {
     top: '#213042',
     bottom: '#131C26'
   },
-  borderTier2: {
+  borderCost2: {
     top: '#156831',
     bottom: '#0A3518'
   },
-  borderTier3: {
+  borderCost3: {
     top: '#1652A0',
     bottom: '#092242'
   },
-  borderTier4: {
+  borderCost4: {
     top: '#893088',
     bottom: '#3E143D'
   },
-  borderTier5: {
+  borderCost5: {
     top: '#B89D27',
     bottom: '#3A310B'
   },

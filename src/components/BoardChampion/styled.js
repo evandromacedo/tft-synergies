@@ -23,6 +23,7 @@ export const Wrapper = styled(TierBorder)`
     background-image: url(${props => props.background});
     background-position: center right;
     background-size: cover;
+    box-shadow: inset -4px -4px 8px 2px black, inset 4px 4px 8px 2px black;
   }
 `;
 
