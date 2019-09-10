@@ -16,7 +16,9 @@ export const Text = styled.p`
 export const Button = styled.button`
   padding: 0;
 
-  &:hover {
-    filter: brightness(130%);
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(130%);
+    }
   }
 `;

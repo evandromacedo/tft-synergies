@@ -18,8 +18,10 @@ export const Button = styled.button`
   background-position: 0 0, 100% 0;
   background-repeat: no-repeat;
 
-  &:hover {
-    filter: brightness(130%);
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(130%);
+    }
   }
 `;
 
