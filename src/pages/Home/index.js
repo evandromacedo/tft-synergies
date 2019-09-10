@@ -1,12 +1,13 @@
 import React from 'react';
 import * as S from './styled';
-import CurrentLevel from '../../components/CurrentLevel';
-import Button from '../../components/Button';
-import SynergiesBar from '../../components/SynergiesBar';
 import {
   generateSynergiesMock,
   generateBonusesMock
 } from '../../components/SynergiesBar/stories';
+import CurrentLevel from '../../components/CurrentLevel';
+import Button from '../../components/Button';
+import SynergiesBar from '../../components/SynergiesBar';
+import BoardChampion from '../../components/BoardChampion';
 
 export default function Home() {
   return (
@@ -22,7 +23,12 @@ export default function Home() {
           <CurrentLevel />
           <Button>Clear</Button>
         </S.BoardTop>
-        <h1>Board</h1>
+        <S.FakeBoard>
+          <BoardChampion />
+          <BoardChampion />
+          <BoardChampion />
+          <BoardChampion />
+        </S.FakeBoard>
         <h1>Champions and items</h1>
       </S.MainWrapper>
     </S.Layout>
