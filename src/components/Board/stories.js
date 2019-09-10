@@ -10,4 +10,6 @@ const champions = [
   { name: 'Anivia', cost: 5, synergies: ['glacial', 'elementalist'] }
 ];
 
-storiesOf('Board', module).add('Default', () => <Board champions={champions} />);
+storiesOf('Board', module)
+  .add('With champions', () => <Board champions={champions} />)
+  .add('Without champions', () => <Board />);

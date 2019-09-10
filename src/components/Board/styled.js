@@ -22,4 +22,6 @@ export const BoardChampions = styled.section`
 
 export const Text = styled.p`
   ${props => props.theme.sans16pxItalic}
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
 `;
