@@ -7,7 +7,7 @@ export const Layout = styled.div`
   grid-gap: 0.8rem;
   padding: 2.4rem 2.4rem 2.4rem 0;
 
-  @media (max-width: ${props => props.theme.medium}) {
+  @media (max-width: ${props => props.theme.small}) {
     grid-template-columns: 4.2rem 1fr;
   }
 `;
@@ -32,14 +32,13 @@ export const FakeBoard = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   justify-content: space-evenly;
 
-  @media (max-width: ${props => props.theme.medium}) {
-    justify-items: center;
-    justify-content: space-evenly;
-    grid-template-columns: repeat(auto-fill, 25.6rem);
+  @media (max-width: 856px) {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   }
 
-  /* @media (max-width: 856px) {
+  @media (max-width: ${props => props.theme.small}) {
     justify-items: center;
     justify-content: space-evenly;
-  } */
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
 `;
