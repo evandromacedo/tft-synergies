@@ -30,7 +30,7 @@ export const Count = styled.div`
   align-items: center;
   height: 4rem;
   padding: 0.6rem 0.8rem 0.6rem 2.4rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #313131;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 

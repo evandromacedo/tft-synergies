@@ -46,6 +46,11 @@ function SynergiesBar({ synergies, bonusesDetails, isMobile = false }) {
     <S.Edge>
       <S.Bar>
         <S.SynergiesList data-test="synergies-ul">
+          {/* Show Toggle Arrow button if it's mobile */}
+          {isMobile && (
+            <S.ToggleArrow rightArrow={!showDetails} onClick={toggleDetails} />
+          )}
+
           {/* Default SynergyUnit shows "No synergies yet" */}
           {!synergies && (
             <li>
@@ -61,11 +66,6 @@ function SynergiesBar({ synergies, bonusesDetails, isMobile = false }) {
               {bronzes && renderSynergiesUnities(bronzes, !!partials && true)}
               {partials && renderSynergiesUnities(partials)}
             </>
-          )}
-
-          {/* Show Toggle Arrow button if it's mobile */}
-          {isMobile && (
-            <S.ToggleArrow rightArrow={!showDetails} onClick={toggleDetails} />
           )}
         </S.SynergiesList>
       </S.Bar>
