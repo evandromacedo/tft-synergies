@@ -21,7 +21,7 @@ const Title = styled.p`
 function ClassOrOrigin({ type }) {
   return (
     <Grid>
-      <SynergyIcon classOrOrigin={type} type="default" />
+      <SynergyIcon classOrOrigin={type} type="default" style={{ fontSize: '2rem' }} />
       <Title>{capitalize(type)}</Title>
     </Grid>
   );

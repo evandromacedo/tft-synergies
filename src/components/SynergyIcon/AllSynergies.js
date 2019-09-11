@@ -37,7 +37,7 @@ export function Assassin({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -186,7 +186,7 @@ export function Blademaster({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -335,7 +335,7 @@ export function Brawler({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -478,7 +478,7 @@ export function Demon({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -609,7 +609,7 @@ export function Dragon({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -752,7 +752,7 @@ export function Elementalist({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -901,7 +901,7 @@ export function Exile({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1015,7 +1015,7 @@ export function Exile({ type, ...props }) {
 }
 
 export function Glacial({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1032,7 +1032,7 @@ export function Glacial({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1131,13 +1131,7 @@ export function Glacial({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_glacial"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_glacial">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -1164,7 +1158,7 @@ export function Glacial({ type, ...props }) {
 }
 
 export function Guardian({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1181,7 +1175,7 @@ export function Guardian({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1313,7 +1307,7 @@ export function Guardian({ type, ...props }) {
 }
 
 export function Gunslinger({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1330,7 +1324,7 @@ export function Gunslinger({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1462,7 +1456,7 @@ export function Gunslinger({ type, ...props }) {
 }
 
 export function Hextech({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1478,7 +1472,7 @@ export function Hextech({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fill="none" fillRule="evenodd">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1581,13 +1575,7 @@ export function Hextech({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_hextech"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_hextech">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -1615,7 +1603,7 @@ export function Hextech({ type, ...props }) {
 }
 
 export function Imperial({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1632,17 +1620,14 @@ export function Imperial({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
               stroke="#5D595C"
               fill="#5D595C"
             />
-            <path
-              d="M7 14V7.871h6V14l-3-2.47L7 14zm0-6.961V6h6v1.039H7z"
-              fill="#FFF"
-            />
+            <path d="M7 14V7.871h6V14l-3-2.47L7 14zm0-6.961V6h6v1.039H7z" fill="#FFF" />
           </g>
         </svg>
       );
@@ -1764,7 +1749,7 @@ export function Imperial({ type, ...props }) {
 }
 
 export function Knight({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1781,7 +1766,7 @@ export function Knight({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1880,13 +1865,7 @@ export function Knight({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_knight"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_knight">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -1913,7 +1892,7 @@ export function Knight({ type, ...props }) {
 }
 
 export function Ninja({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -1930,7 +1909,7 @@ export function Ninja({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -1967,13 +1946,7 @@ export function Ninja({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="bronze_ninja"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="bronze_ninja">
               <stop stopColor="#61391C" offset="0%" />
               <stop stopColor="#8C644B" offset="100%" />
             </linearGradient>
@@ -1998,13 +1971,7 @@ export function Ninja({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="silver_ninja"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="silver_ninja">
               <stop stopColor="#646464" offset="0%" />
               <stop stopColor="#969696" offset="100%" />
             </linearGradient>
@@ -2029,13 +1996,7 @@ export function Ninja({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_ninja"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_ninja">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -2062,7 +2023,7 @@ export function Ninja({ type, ...props }) {
 }
 
 export function Noble({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2079,7 +2040,7 @@ export function Noble({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -2116,13 +2077,7 @@ export function Noble({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="bronze_noble"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="bronze_noble">
               <stop stopColor="#61391C" offset="0%" />
               <stop stopColor="#8C644B" offset="100%" />
             </linearGradient>
@@ -2147,13 +2102,7 @@ export function Noble({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="silver_noble"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="silver_noble">
               <stop stopColor="#646464" offset="0%" />
               <stop stopColor="#969696" offset="100%" />
             </linearGradient>
@@ -2178,13 +2127,7 @@ export function Noble({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_noble"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_noble">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -2211,7 +2154,7 @@ export function Noble({ type, ...props }) {
 }
 
 export function Phantom({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2228,7 +2171,7 @@ export function Phantom({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -2327,13 +2270,7 @@ export function Phantom({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_phantom"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_phantom">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -2360,7 +2297,7 @@ export function Phantom({ type, ...props }) {
 }
 
 export function Pirate({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2377,7 +2314,7 @@ export function Pirate({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -2476,13 +2413,7 @@ export function Pirate({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_pirate"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_pirate">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -2509,7 +2440,7 @@ export function Pirate({ type, ...props }) {
 }
 
 export function Ranger({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2526,7 +2457,7 @@ export function Ranger({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -2625,13 +2556,7 @@ export function Ranger({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_ranger"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_ranger">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -2658,7 +2583,7 @@ export function Ranger({ type, ...props }) {
 }
 
 export function Robot({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2675,7 +2600,7 @@ export function Robot({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -2712,13 +2637,7 @@ export function Robot({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="bronze_robot"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="bronze_robot">
               <stop stopColor="#61391C" offset="0%" />
               <stop stopColor="#8C644B" offset="100%" />
             </linearGradient>
@@ -2743,13 +2662,7 @@ export function Robot({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="silver_robot"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="silver_robot">
               <stop stopColor="#646464" offset="0%" />
               <stop stopColor="#969696" offset="100%" />
             </linearGradient>
@@ -2774,13 +2687,7 @@ export function Robot({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_robot"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_robot">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -2807,7 +2714,7 @@ export function Robot({ type, ...props }) {
 }
 
 export function Shapeshifter({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2824,7 +2731,7 @@ export function Shapeshifter({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -2956,7 +2863,7 @@ export function Shapeshifter({ type, ...props }) {
 }
 
 export function Sorcerer({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -2973,7 +2880,7 @@ export function Sorcerer({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -3105,7 +3012,7 @@ export function Sorcerer({ type, ...props }) {
 }
 
 export function Void({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -3122,7 +3029,7 @@ export function Void({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -3159,13 +3066,7 @@ export function Void({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="bronze_void"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="bronze_void">
               <stop stopColor="#61391C" offset="0%" />
               <stop stopColor="#8C644B" offset="100%" />
             </linearGradient>
@@ -3190,13 +3091,7 @@ export function Void({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="silver_void"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="silver_void">
               <stop stopColor="#646464" offset="0%" />
               <stop stopColor="#969696" offset="100%" />
             </linearGradient>
@@ -3221,13 +3116,7 @@ export function Void({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_void"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_void">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -3254,7 +3143,7 @@ export function Void({ type, ...props }) {
 }
 
 export function Wild({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -3271,7 +3160,7 @@ export function Wild({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -3308,13 +3197,7 @@ export function Wild({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="bronze_wild"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="bronze_wild">
               <stop stopColor="#61391C" offset="0%" />
               <stop stopColor="#8C644B" offset="100%" />
             </linearGradient>
@@ -3339,13 +3222,7 @@ export function Wild({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="silver_wild"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="silver_wild">
               <stop stopColor="#646464" offset="0%" />
               <stop stopColor="#969696" offset="100%" />
             </linearGradient>
@@ -3370,13 +3247,7 @@ export function Wild({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_wild"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_wild">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
@@ -3403,7 +3274,7 @@ export function Wild({ type, ...props }) {
 }
 
 export function Yordle({ type, ...props }) {
-  switch (type){
+  switch (type) {
     case 'hover':
       return (
         <svg width={20} height={20} {...props}>
@@ -3420,7 +3291,7 @@ export function Yordle({ type, ...props }) {
 
     case 'default':
       return (
-        <svg width={20} height={20} {...props}>
+        <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}>
           <g fillRule="nonzero" fill="none">
             <path
               d="M10 .58L2 5.286v9.428l8 4.706 8-4.706V5.286L10 .58z"
@@ -3519,13 +3390,7 @@ export function Yordle({ type, ...props }) {
       return (
         <svg width={40} height={40} {...props}>
           <defs>
-            <linearGradient
-              x1="67.402%"
-              y1="50%"
-              x2="45.664%"
-              y2="50%"
-              id="gold_yordle"
-            >
+            <linearGradient x1="67.402%" y1="50%" x2="45.664%" y2="50%" id="gold_yordle">
               <stop stopColor="#9B7832" offset="0%" />
               <stop stopColor="#D0B25D" offset="100%" />
             </linearGradient>
