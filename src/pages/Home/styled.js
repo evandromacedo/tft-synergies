@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 export const Layout = styled.div`
   display: grid;
-  grid-template-columns: 17.6rem 1fr;
+  grid-template-columns: 18.4rem 1fr;
   align-items: start;
-  grid-gap: 0.8rem;
-  padding: 2.4rem 2.4rem 2.4rem 0;
+  grid-gap: 2.4rem;
+  padding: 2.4rem 0;
+
+  @media (max-width: 1072px) {
+    padding-right: 2.4rem;
+  }
 
   @media (max-width: ${props => props.theme.small}) {
     grid-template-columns: 4.2rem 1fr;
