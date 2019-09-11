@@ -40,21 +40,9 @@ export const NavList = styled.ul`
       transition: width 0.2s;
     }
 
-    &:hover::before {
+    &:hover::before,
+    &.active::before {
       width: 100%;
-    }
-  }
-
-  li > a.active {
-    &::before {
-      content: ' ';
-      position: absolute;
-      bottom: -6px;
-      height: 2px;
-      width: 100%;
-      border-radius: 2px;
-      background-color: ${props => props.theme.accentYellow};
-      transition: width 0.1s linear;
     }
   }
 `;
