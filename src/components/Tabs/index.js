@@ -15,8 +15,10 @@ export default function Tabs({ items }) {
 }
 
 Tabs.propTypes = {
-  items: PropTypes.arrayOf({
-    title: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
-  }).isRequired
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      onClick: PropTypes.func.isRequired
+    })
+  ).isRequired
 };
