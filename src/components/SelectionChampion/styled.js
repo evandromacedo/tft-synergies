@@ -1,10 +1,22 @@
 import styled from 'styled-components';
 import Gold from './Gold.png';
+import TierBorder from '../Common/TierBorder';
+
+export const Champion = styled(TierBorder)`
+  transition: filter 0.3s;
+`;
 
 export const Wrapper = styled.div`
+  cursor: pointer;
   display: grid;
   grid-gap: 0.8rem;
   width: 12rem;
+
+  @media (hover: hover) {
+    &:hover > ${Champion} {
+      filter: brightness(120%);
+    }
+  }
 `;
 
 export const Title = styled.h1`

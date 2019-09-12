@@ -5,7 +5,7 @@ exports[`<SelectionChampion /> renders and matches snapshot 1`] = `
   <styled.h1>
     Kayle
   </styled.h1>
-  <styled.div
+  <Styled(styled.div)
     cost={5}
   >
     <styled.div
@@ -35,6 +35,6 @@ exports[`<SelectionChampion /> renders and matches snapshot 1`] = `
         />
       </styled.li>
     </styled.ul>
-  </styled.div>
+  </Styled(styled.div)>
 </styled.div>
 `;
