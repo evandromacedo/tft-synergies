@@ -19,7 +19,7 @@ export const ImageAndCost = styled.div`
   background-image: url(${props => props.background});
   background-color: white;
   background-size: cover;
-  box-shadow: inset -4px -4px 8px 2px black, inset 4px 4px 8px 2px black;
+  box-shadow: inset -2px -2px 8px black, inset 2px 2px 8px black;
 `;
 
 export const Cost = styled.p`
@@ -40,4 +40,20 @@ export const Cost = styled.p`
     background-image: url(${Gold});
     background-size: cover;
   }
+`;
+
+export const SynergiesList = styled.ul`
+  width: calc(100% - 2px);
+  background-color: black;
+  display: grid;
+  grid-auto-flow: column;
+  margin: -1px auto 0 auto;
+  padding: 0rem 0.4rem 0.6rem 0.4rem;
+  justify-items: center;
+  justify-content: space-evenly;
+`;
+
+export const SynergyItem = styled.li`
+  font-size: 3.2rem;
+  height: 3.2rem;
 `;
