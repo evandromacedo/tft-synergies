@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import SelectionChampion from '.';
-import * as S from './styled';
 
 const kayleMock = {
   id: '10',

@@ -30,5 +30,5 @@ export default function SelectionItem({ item }) {
 }
 
 SelectionItem.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object.isRequired
 };
