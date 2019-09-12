@@ -4,15 +4,15 @@ import * as S from './styled';
 import SynergyIcon from '../SynergyIcon';
 
 export default function SelectionChampion({ champion }) {
-  function getImgSrc(name) {
-    return `https://rerollcdn.com/characters/${name}.png`;
+  function getImgSrc(key) {
+    return `https://rerollcdn.com/characters/${key}.png`;
   }
 
   return (
     <S.Wrapper>
       <S.Title>{champion.name}</S.Title>
       <S.Champion cost={champion.cost}>
-        <S.ImageAndCost background={getImgSrc(champion.name)}>
+        <S.ImageAndCost background={getImgSrc(champion.key)}>
           <S.Cost>{champion.cost}</S.Cost>
         </S.ImageAndCost>
         <S.SynergiesList>
