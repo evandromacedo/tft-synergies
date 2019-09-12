@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectionChampion /> renders and matches snapshot 1`] = `
+<styled.div>
+  <styled.h1>
+    Kayle
+  </styled.h1>
+  <styled.div
+    cost={5}
+  >
+    <styled.div
+      background="https://rerollcdn.com/characters/Kayle.png"
+    >
+      <styled.p>
+        5
+      </styled.p>
+    </styled.div>
+    <styled.ul>
+      <styled.li
+        key="0"
+        title="Noble"
+      >
+        <SynergyIcon
+          classOrOrigin="noble"
+          type="default"
+        />
+      </styled.li>
+      <styled.li
+        key="0"
+        title="Knight"
+      >
+        <SynergyIcon
+          classOrOrigin="knight"
+          type="default"
+        />
+      </styled.li>
+    </styled.ul>
+  </styled.div>
+</styled.div>
+`;
