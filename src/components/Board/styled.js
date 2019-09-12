@@ -5,7 +5,7 @@ export const Wrapper = styled.section`
   grid-gap: 2.4rem;
 `;
 
-export const BoardChampions = styled.section`
+export const BoardChampions = styled.div`
   display: grid;
   grid-gap: 2.4rem;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

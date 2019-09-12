@@ -29,19 +29,3 @@ export const BoardTop = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
 `;
-
-export const FakeBoard = styled.div`
-  display: grid;
-  grid-gap: 2.4rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  justify-content: space-evenly;
-
-  @media (max-width: 856px) {
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  }
-
-  @media (max-width: ${props => props.theme.extraSmall}) {
-    justify-items: center;
-    justify-content: space-evenly;
-  }
-`;
