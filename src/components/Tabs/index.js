@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 
-export default function Tabs({ items }) {
+export default function Tabs({ tabItems }) {
   return (
     <S.Wrapper>
-      {items.map((item, index) => (
+      {tabItems.map((item, index) => (
         <S.Tab key={index} onClick={item.onClick}>
           {item.title}
         </S.Tab>
@@ -15,7 +15,7 @@ export default function Tabs({ items }) {
 }
 
 Tabs.propTypes = {
-  items: PropTypes.arrayOf(
+  tabItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       onClick: PropTypes.func.isRequired

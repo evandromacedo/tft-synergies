@@ -22,11 +22,11 @@ const mockItems = [
 
 describe('<Tabs />', () => {
   it('renders properly', () => {
-    shallow(<Tabs items={mockItems} />);
+    shallow(<Tabs tabItems={mockItems} />);
   });
 
   it('renders items and calls onClick on each', () => {
-    const wrapper = shallow(<Tabs items={mockItems} />);
+    const wrapper = shallow(<Tabs tabItems={mockItems} />);
     const TabItems = wrapper.find(S.Tab);
     expect(TabItems.length).toBe(3);
 
