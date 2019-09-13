@@ -4,7 +4,7 @@ import * as S from './styled';
 
 export default function SelectionItem({ item }) {
   function getImgSrc(name) {
-    return `https://rerollcdn.com/items/${name.replace(/ /g, '')}.png`;
+    return `https://rerollcdn.com/items/${name.replace(/ |'/g, '')}.png`;
   }
 
   const { key, name, bonus } = item;
@@ -12,7 +12,7 @@ export default function SelectionItem({ item }) {
   const synergyIcons = {
     youmuusghostblade: 'assassin',
     knightsvow: 'knight',
-    fronzenmallet: 'glacial',
+    frozenmallet: 'glacial',
     yuumi: 'sorcerer',
     bladeoftheruinedking: 'blademaster',
     darkin: 'demon'
