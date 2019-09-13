@@ -1,4 +1,4 @@
-const champions = {
+export const champions = {
   "Aatrox": {
     "id": "266",
     "key": "Aatrox",
@@ -2760,4 +2760,7 @@ const champions = {
   }
 };
 
-export default champions;
+export const items = {
+
+};
+

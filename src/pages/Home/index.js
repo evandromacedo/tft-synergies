@@ -9,7 +9,7 @@ import Button from '../../components/Button';
 import SynergiesBar from '../../components/SynergiesBar';
 import Board from '../../components/Board';
 import Selection from '../../components/Selection';
-import championsMock from '../../components/Selection/mock';
+import { champions as championsMock } from '../../components/Selection/mock';
 
 const champions = [
   { name: 'Kassadin', cost: 1, synergies: ['void', 'sorcerer'] },

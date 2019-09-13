@@ -1,19 +1,20 @@
 import React from 'react';
 import orderBy from 'lodash/orderBy';
 import * as S from './styled';
-import SelectionChampion from '../SelectionChampion';
+import SelectionList from '../SelectionList';
+import Divider from '../Common/Divider';
+// import Tabs from '../Tabs';
 
 export default function Selection({ champions }) {
   // Just to test at the moment
   const championsArray = Object.keys(champions).map(key => champions[key]);
   const championsOrdered = orderBy(championsArray, ['cost', 'name']);
-  console.log(championsOrdered);
+  // const championsOrdered = [];
 
   return (
     <S.Wrapper>
-      {championsOrdered.map((champion, index) => (
-        <SelectionChampion key={index} champion={champion} />
-      ))}
+      <SelectionList active="champions" champions={championsOrdered} />
+      <Divider />
     </S.Wrapper>
   );
 }
