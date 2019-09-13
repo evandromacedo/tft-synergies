@@ -1,11 +1,7 @@
 import React from 'react';
 import SelectionList from '.';
 import { storiesOf } from '@storybook/react';
-import { champions } from '../Selection/mock';
-import orderBy from 'lodash/orderBy';
-
-const championsArray = Object.keys(champions).map(key => champions[key]);
-const championsOrdered = orderBy(championsArray, ['cost', 'name']);
+import { champions, items } from '../Selection/mock';
 
 storiesOf('SelectionList', module)
   .add('Without champions', () => (
@@ -14,7 +10,7 @@ storiesOf('SelectionList', module)
   .add('With champions', () => (
     <SelectionList
       active="champions"
-      champions={championsOrdered}
+      champions={champions}
       searchTerm="some random text"
     />
   ))
@@ -22,5 +18,5 @@ storiesOf('SelectionList', module)
     <SelectionList active="items" items={[]} searchTerm="some random text" />
   ))
   .add('With items', () => (
-    <SelectionList active="items" items={[]} searchTerm="some random text" />
+    <SelectionList active="items" items={items} searchTerm="some random text" />
   ));

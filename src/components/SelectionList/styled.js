@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const SelectionList = styled.div`
   display: grid;
   grid-gap: 2.4rem;
-  grid-template-columns: repeat(auto-fill, 12rem);
   justify-content: space-around;
 `;
 
-export const SelectionChampions = styled.div`
-  display: grid;
-  grid-gap: 2.4rem;
+export const SelectionChampions = styled(SelectionList)`
   grid-template-columns: repeat(auto-fill, 12rem);
-  justify-content: space-around;
+`;
+
+export const SelectionItems = styled(SelectionList)`
+  grid-template-columns: repeat(auto-fill, 22.4rem);
 `;
 
 export const Text = styled.p`
