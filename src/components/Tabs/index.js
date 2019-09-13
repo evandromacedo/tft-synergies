@@ -6,7 +6,7 @@ export default function Tabs({ tabItems }) {
   return (
     <S.Wrapper>
       {tabItems.map((item, index) => (
-        <S.Tab key={index} onClick={item.onClick}>
+        <S.Tab key={index} onClick={item.onClick} className={item.active ? 'active' : ''}>
           {item.title}
         </S.Tab>
       ))}
@@ -18,7 +18,8 @@ Tabs.propTypes = {
   tabItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
+      active: PropTypes.bool
     })
   ).isRequired
 };

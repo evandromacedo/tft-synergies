@@ -12,8 +12,14 @@ export const SelectionChampions = styled.div`
   justify-content: space-around;
 `;
 
-export const Text = styled.p`
-  ${props => props.theme.sans16pxItalic}
-  text-align: center;
+export const SearchAndHelpText = styled.div`
+  display: grid;
+  grid-gap: 0.8rem;
+  align-items: center;
+  grid-template-columns: 28rem 1fr;
+`;
+
+export const HelpText = styled.p`
+  ${props => props.theme.sans14pxItalic}
   color: rgba(255, 255, 255, 0.8);
 `;

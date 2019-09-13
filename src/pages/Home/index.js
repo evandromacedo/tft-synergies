@@ -9,7 +9,6 @@ import Button from '../../components/Button';
 import SynergiesBar from '../../components/SynergiesBar';
 import Board from '../../components/Board';
 import Selection from '../../components/Selection';
-import { champions as championsMock } from '../../components/Selection/mock';
 
 const champions = [
   { name: 'Kassadin', cost: 1, synergies: ['void', 'sorcerer'] },
@@ -34,7 +33,7 @@ export default function Home() {
           <Button>Clear</Button>
         </S.BoardTop>
         <Board champions={champions} />
-        <Selection champions={championsMock} />
+        <Selection />
       </S.MainWrapper>
     </S.Layout>
   );

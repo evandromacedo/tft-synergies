@@ -6,7 +6,7 @@ export default function InputSearch({ onChange }) {
     <S.Wrapper>
       <S.Input
         type="search"
-        placeholder="Search by name or synergy"
+        placeholder="Search by name or synergy..."
         onChange={onChange}
       />
     </S.Wrapper>
