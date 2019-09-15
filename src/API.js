@@ -31,7 +31,15 @@ export function getItems() {
       const itemsArray = Object.keys(response).map(key => response[key]);
       const itemsArrayFiltered = itemsArray.filter(item => itemsKeys.includes(item.key));
       const itemsArrayOrdered = orderBy(itemsArrayFiltered, ['name']);
-      return itemsArrayOrdered;
+      const itemsArrayWithSynergy = itemsArrayOrdered.map(item => {
+        const synergy = item.bonus
+          .split(/Wearer is also an? /)[1]
+          .replace('.', '')
+          .toLowerCase();
+        item.synergy = synergy;
+        return item;
+      });
+      return itemsArrayWithSynergy;
     })
     .catch(error => alert('an error has ocurred'));
 }
