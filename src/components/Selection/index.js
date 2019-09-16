@@ -3,10 +3,10 @@ import { getChampions, getItems } from '../../API';
 import * as S from './styled';
 import debounce from 'lodash/debounce';
 import SelectionList from '../SelectionList';
-import Divider from '../Common/Divider';
 import Tabs from '../Tabs';
 import InputSearch from '../InputSearch';
 
+// Selection section for champions and items
 export default function Selection() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('champions');
@@ -16,6 +16,7 @@ export default function Selection() {
   const [activeItems, setActiveItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Fetch champions and items on component mount
   useEffect(() => {
     async function fetchChampionsAndItems() {
       const champions = await getChampions();
@@ -30,10 +31,14 @@ export default function Selection() {
     fetchChampionsAndItems();
   }, []);
 
+  // Saves ref of input search
   const inputRef = useRef(null);
 
+  // Debounce 200ms to filter champions and items
   const onChangeInputSearch = debounce(() => {
     const searchLowerCased = inputRef.current.value.toLowerCase();
+
+    // Filter champions based on name, class or origin
     if (activeTab === 'champions') {
       const championsFiltered = allChampions.filter(
         champion =>
@@ -51,7 +56,9 @@ export default function Selection() {
       }
 
       setActiveChampions(championsFiltered);
-    } else {
+    }
+    // Filter items based on name or synergy
+    else {
       const itemsFiltered = allItems.filter(
         item =>
           item.name.toLowerCase().includes(searchLowerCased) ||
@@ -66,6 +73,7 @@ export default function Selection() {
     }
   }, 200);
 
+  // When change tabs, resets input value, champions' and items' filters
   function changeActiveTab(tab) {
     inputRef.current.value = '';
     setActiveChampions(allChampions);
@@ -73,6 +81,7 @@ export default function Selection() {
     setActiveTab(tab);
   }
 
+  // Tab items for champions and synergy items
   const tabItems = [
     {
       title: 'Champions',
@@ -109,7 +118,6 @@ export default function Selection() {
           searchTerm={searchTerm}
         />
       )}
-      <Divider />
     </S.Wrapper>
   );
 }
