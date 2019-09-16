@@ -8,7 +8,8 @@ const mockOnClick = jest.fn();
 const mockItems = [
   {
     title: 'Champions',
-    onClick: mockOnClick
+    onClick: mockOnClick,
+    active: true
   },
   {
     title: 'Synergy Items',
@@ -30,7 +31,9 @@ describe('<Tabs />', () => {
     const TabItems = wrapper.find(S.Tab);
     expect(TabItems.length).toBe(3);
 
-    TabItems.get(0).props.onClick();
+    const firstTab = TabItems.get(0);
+    firstTab.props.onClick();
+    expect(firstTab.props.className).toMatch('active');
     expect(mockOnClick).toHaveBeenCalled();
     mockOnClick.mockClear();
 
