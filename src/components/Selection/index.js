@@ -100,7 +100,7 @@ export default function Selection() {
         )}
       </S.SearchAndHelpText>
 
-      {loading && 'Loading...'}
+      {loading && <S.Loading>Loading...</S.Loading>}
       {!loading && (
         <SelectionList
           active={activeTab}

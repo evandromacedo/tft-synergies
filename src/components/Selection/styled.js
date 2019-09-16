@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Wrapper = styled.section`
   display: grid;
@@ -10,6 +10,17 @@ export const SelectionChampions = styled.div`
   grid-gap: 2.4rem;
   grid-template-columns: repeat(auto-fill, 12rem);
   justify-content: space-around;
+`;
+
+const blink = keyframes`
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+`;
+
+export const Loading = styled.p`
+  ${props => props.theme.bold20px}
+  animation: ${blink} 1s linear infinite;
 `;
 
 export const SearchAndHelpText = styled.div`
