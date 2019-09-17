@@ -5,10 +5,11 @@ import { action } from '@storybook/addon-actions';
 
 storiesOf('Tabs', module).add('Default', () => (
   <Tabs
-    items={[
+    tabItems={[
       {
         title: 'Champions',
-        onClick: action('On Click Champions')
+        onClick: action('On Click Champions'),
+        active: true
       },
       {
         title: 'Synergy Items',
