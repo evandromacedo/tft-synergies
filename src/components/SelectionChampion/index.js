@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import SynergyIcon from '../SynergyIcon';
-import { useDispatch } from '../App';
+import { useDispatch } from '../Context';
 
 // Helper function to get img src
 function getImgSrc(key) {

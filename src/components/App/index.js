@@ -7,7 +7,7 @@ import Meta from '../Meta';
 import Header from '../Header';
 import Home from '../../pages/Home';
 import About from '../../pages/About';
-import Context from '../../pages/Context';
+import Context from '../Context';
 
 export default function App() {
   return (

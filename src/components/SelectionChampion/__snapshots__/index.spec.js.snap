@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SelectionChampion /> renders and matches snapshot 1`] = `
-<styled.div>
+<styled.div
+  onClick={[Function]}
+>
   <styled.h1>
     Kayle
   </styled.h1>

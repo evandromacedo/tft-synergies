@@ -7,6 +7,7 @@ import theme from '../App/theme';
 import { ThemeProvider } from 'styled-components';
 import Selection from '.';
 import * as S from './styled';
+import * as Context from '../Context';
 
 // Decreases champions quantity to 10 for test
 const championsMock = champions.slice(0, 10);
@@ -23,6 +24,8 @@ global.fetch = fetchMock;
 const ThemeWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
+
+jest.spyOn(Context, 'useDispatch').mockImplementation(() => ({ addChampion: () => {} }));
 
 describe('<Selection />', () => {
   it('renders properly', () => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import SelectionChampion from '.';
+import * as Context from '../Context';
 
 const kayleMock = {
   id: '10',
@@ -42,6 +43,8 @@ const kayleMock = {
   },
   items: ['bladeoftheruinedking', 'guinsoosrageblade', 'spearofshojin']
 };
+
+jest.spyOn(Context, 'useDispatch').mockImplementation(() => ({ addChampion: () => {} }));
 
 describe('<SelectionChampion />', () => {
   it('renders properly', () => {
