@@ -16,4 +16,4 @@ export default function Context({ children }) {
 }
 
 export const useDispatch = () => useContext(DispatchContext);
-export const useState = () => useContext(StoreContext);
+export const useStore = () => useContext(StoreContext);
