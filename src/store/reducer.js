@@ -9,10 +9,12 @@ const reducer = (state, action) => {
       const synergiesState = [...state.synergies];
 
       // If champion is on board, add him with no new synergies
-      if (find(state.board, { id: addedChampion.id })) {
+      const { id, name, synergies } = addedChampion;
+
+      if (find(state.board, { id })) {
         return {
           ...state,
-          board: [...state.board, addedChampion]
+          board: [...state.board, { id, name, synergies }]
         };
       }
 
@@ -29,14 +31,15 @@ const reducer = (state, action) => {
           synergiesState.push({
             count: 1,
             name: synergyName,
-            ranking: getSynergyRanking(1, state.bonuses[synergyName].bonuses)
+            ranking: getSynergyRanking(
+              1,
+              state.bonuses[synergyName.toLowerCase()].bonuses
+            )
           });
         }
       });
 
       // Return new synergies and board
-      const { id, name, synergies } = addedChampion;
-
       return {
         ...state,
         synergies: synergiesState,
