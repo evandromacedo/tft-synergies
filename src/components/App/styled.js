@@ -9,7 +9,7 @@ export const Layout = styled.div`
 `;
 
 export const Wrapper = styled.main`
-  max-width: 1024px;
+  max-width: ${props => props.theme.large};
   margin: 0 auto;
 `;
 
