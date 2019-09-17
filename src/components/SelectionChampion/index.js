@@ -2,14 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import SynergyIcon from '../SynergyIcon';
+import { useDispatch } from '../App';
+
+// Helper function to get img src
+function getImgSrc(key) {
+  return `https://rerollcdn.com/characters/${key}.png`;
+}
 
 export default function SelectionChampion({ champion }) {
-  function getImgSrc(key) {
-    return `https://rerollcdn.com/characters/${key}.png`;
-  }
+  const { addChampion } = useDispatch();
+
+  // Champion object to dispatch to reducer
+  const championToAdd = {
+    id: champion.id,
+    name: champion.name,
+    cost: champion.cost,
+    synergies: [...champion.origin, ...champion.class]
+  };
+
+  const addChampionOnClick = () => addChampion(championToAdd);
 
   return (
-    <S.Wrapper>
+    <S.Wrapper onClick={addChampionOnClick}>
       <S.Title>{champion.name}</S.Title>
       <S.Champion cost={champion.cost}>
         <S.ImageAndCost background={getImgSrc(champion.key)}>
