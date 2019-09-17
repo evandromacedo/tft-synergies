@@ -4,6 +4,11 @@ exports[`<ClassOrOrigin /> render properly and matches snapshot 1`] = `
 <styled.div>
   <SynergyIcon
     classOrOrigin="demon"
+    style={
+      Object {
+        "fontSize": "2rem",
+      }
+    }
     type="default"
   />
   <styled.p>
