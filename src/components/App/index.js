@@ -15,17 +15,17 @@ export default function App() {
     <Context>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Router>
+        <Router>
+          <Layout>
             <Meta />
             <Header />
             <Wrapper>
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
             </Wrapper>
-            <Footer />
-          </Router>
-        </Layout>
+          </Layout>
+          <Footer />
+        </Router>
       </ThemeProvider>
     </Context>
   );

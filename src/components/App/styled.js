@@ -3,9 +3,8 @@ import BeaufortRegular from '../../static/font/Beaufort-Regular.ttf';
 import BeaufortBold from '../../static/font/Beaufort-Bold.ttf';
 
 export const Layout = styled.div`
-  font-family: 'Beaufort', sans-serif;
-  font-weight: bold;
-  color: #ffffff;
+  /* Sticky Footer */
+  min-height: calc(100vh - 65px);
 `;
 
 export const Wrapper = styled.main`
@@ -111,6 +110,9 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 10px;
+    font-family: 'Beaufort', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
     background-color: #121212;
   }
 `;
