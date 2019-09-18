@@ -39,4 +39,9 @@ export const Input = styled.input`
     position: relative;
     right: 2rem;
   }
+
+  text-overflow: ellipsis;
+  &:-moz-placeholder {
+    text-overflow: ellipsis;
+  }
 `;
