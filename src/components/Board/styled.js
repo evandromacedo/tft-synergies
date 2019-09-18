@@ -11,7 +11,7 @@ export const BoardChampions = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   justify-content: space-evenly;
 
-  @media (max-width: 856px) {
+  @media (max-width: 880px) {
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
 

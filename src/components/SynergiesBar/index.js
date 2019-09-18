@@ -78,8 +78,9 @@ SynergiesBar.propTypes = {
   bonusesDetails: PropTypes.object
 };
 
+// This is the "small" breakpoint on theme.js
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width <= 552
+  isMobile: width <= 576
 });
 
 // Named export for testing, and default for using
