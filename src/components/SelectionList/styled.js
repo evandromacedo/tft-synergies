@@ -12,6 +12,7 @@ export const SelectionChampions = styled(SelectionList)`
 
 export const SelectionItems = styled(SelectionList)`
   grid-template-columns: repeat(auto-fill, 22.4rem);
+  justify-content: space-around;
 `;
 
 export const Text = styled.p`
