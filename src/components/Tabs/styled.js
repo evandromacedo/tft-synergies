@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   grid-auto-flow: column;
   grid-gap: 4.8rem;
   justify-content: start;
+
+  @media (max-width: ${props => props.theme.extraSmall}) {
+    justify-content: center;
+  }
 `;
 
 export const Tab = styled.button`
@@ -17,6 +21,7 @@ export const Tab = styled.button`
   &::before {
     content: ' ';
     position: absolute;
+    left: 0;
     bottom: -6px;
     height: 2px;
     width: 0;
