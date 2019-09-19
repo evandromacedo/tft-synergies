@@ -4,7 +4,7 @@ import * as S from './styled';
 import Divider from '../Common/Divider';
 import BoardChampion from '../BoardChampion';
 import { generate } from 'shortid';
-// import * as SplashArt from '../SplashArt';
+import * as SplashArt from '../SplashArt';
 
 export default function Board({ champions }) {
   const hasChampion = champions && !!champions.length;
@@ -15,7 +15,11 @@ export default function Board({ champions }) {
         <S.BoardChampions>
           {champions.map(champion => (
             // SplashArt will be used soon
-            <BoardChampion key={generate()} champion={champion} />
+            <BoardChampion
+              key={generate()}
+              champion={champion}
+              background={SplashArt[champion.name]}
+            />
           ))}
         </S.BoardChampions>
       )}

@@ -13,6 +13,7 @@ const Grid = styled.div`
 
 const Title = styled.p`
   ${props => props.theme.bold12px}
+  text-shadow: 0px 0px 6px black;
 
   /* Necessary to align the text on the center due to font issues. */
   padding-top: 2px;

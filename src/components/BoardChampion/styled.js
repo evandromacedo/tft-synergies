@@ -50,6 +50,7 @@ export const Name = styled.p`
   ${props => props.theme.bold20px}
   text-align: center;
   text-overflow: ellipsis;
+  text-shadow: 1px 1px 3px black, -1px -1px 3px black;
   white-space: nowrap;
   overflow: hidden;
 `;
