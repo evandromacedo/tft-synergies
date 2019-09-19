@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import TierBorder from '../Common/TierBorder';
+import ChampionsSprite from '../../static/img/ChampionsSprite.png';
 
 export const Wrapper = styled(TierBorder)`
   position: relative;
@@ -20,9 +21,9 @@ export const Wrapper = styled(TierBorder)`
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url(${props => props.background});
-    background-position: center right;
-    background-size: cover;
+    background-image: linear-gradient(to right, black 0, transparent 60%),
+      url(${ChampionsSprite});
+    background-position: left center, right ${props => props.position};
     box-shadow: inset -4px -4px 8px 2px black, inset 4px 4px 8px 2px black;
   }
 `;
