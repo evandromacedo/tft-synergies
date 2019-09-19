@@ -7,14 +7,7 @@ const mockKassadin = { name: 'Kassadin', cost: 1, synergies: ['void', 'sorcerer'
 
 describe('<BoardChampion />', () => {
   it('render properly and matches snapshot', () => {
-    const wrapper = shallow(
-      <BoardChampion
-        champion={mockKassadin}
-        background={
-          'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_kassadin.png'
-        }
-      />
-    );
+    const wrapper = shallow(<BoardChampion champion={mockKassadin} />);
 
     expect(toJSON(wrapper)).toMatchSnapshot();
   });

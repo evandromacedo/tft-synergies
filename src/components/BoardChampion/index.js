@@ -7,11 +7,7 @@ import ClassOrOrigin from '../ClassOrOrigin';
 // Must implement the drag and drop functionality afterwards.
 function BoardChampion({ champion, background }) {
   return (
-    <S.Wrapper
-      cost={champion.cost}
-      position={getBackgroundPosition(champion.key)}
-      background={background}
-    >
+    <S.Wrapper cost={champion.cost} position={getBackgroundPosition(champion.key)}>
       <S.Synergies>
         {champion.synergies.map((synergy, index) => (
           <ClassOrOrigin key={index} type={synergy} />
@@ -33,8 +29,7 @@ BoardChampion.propTypes = {
     cost: PropTypes.number,
     key: PropTypes.string,
     synergies: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired,
-  background: PropTypes.string
+  }).isRequired
 };
 
 function getBackgroundPosition(championKey) {

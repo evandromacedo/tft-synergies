@@ -2,7 +2,6 @@
 
 exports[`<BoardChampion /> render properly and matches snapshot 1`] = `
 <Styled(styled.div)
-  background="http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_kassadin.png"
   cost={1}
 >
   <styled.div>

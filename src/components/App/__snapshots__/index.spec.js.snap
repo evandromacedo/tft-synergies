@@ -2,20 +2,18 @@
 
 exports[`<App /> renders the Layout 1`] = `
 <styled.div>
-  <BrowserRouter>
-    <Meta />
-    <Header />
-    <styled.main>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
-      <Route
-        component={[Function]}
-        path="/about"
-      />
-    </styled.main>
-  </BrowserRouter>
+  <Meta />
+  <Header />
+  <styled.main>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/about"
+    />
+  </styled.main>
 </styled.div>
 `;
