@@ -40,9 +40,14 @@ export const NavList = styled.ul`
       transition: width 0.2s;
     }
 
-    &:hover::before,
     &.active::before {
       width: 100%;
+    }
+
+    @media (hover: hover) {
+      &:hover::before {
+        width: 100%;
+      }
     }
   }
 `;

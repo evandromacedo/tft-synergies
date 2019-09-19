@@ -17,8 +17,10 @@ export const Icon = styled.div`
   position: relative;
   z-index: 1;
 
-  ${Wrapper}:hover & {
-    filter: brightness(130%);
+  @media (hover: hover) {
+    ${Wrapper}:hover & {
+      filter: brightness(130%);
+    }
   }
 `;
 

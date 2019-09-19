@@ -30,9 +30,14 @@ export const Tab = styled.button`
     transition: width 0.2s;
   }
 
-  &:hover::before,
   &.active::before {
     width: 100%;
+  }
+
+  @media (hover: hover) {
+    &:hover::before {
+      width: 100%;
+    }
   }
 
   /* Tabs Separator */
