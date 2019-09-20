@@ -1,14 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { DragPreviewImage, useDrag } from 'react-dnd';
 import * as S from './styled';
-import { DragSource } from 'react-dnd';
 
-function SelectionItem({ item, isDragging, connectDragSource }) {
+export default function SelectionItem({ item }) {
   function getImgSrc(name) {
     return `https://rerollcdn.com/items/${name.replace(/ |'/g, '')}.png`;
   }
 
-  const { key, name, bonus } = item;
+  const [{ isDragging }, drag, preview] = useDrag({
+    item: { item, type: 'item' },
+    end: (dragItem, monitor) => {
+      const dropResult = monitor.getDropResult();
+      if (dragItem && dropResult) {
+        alert(`You dropped ${dragItem.item.name} into ${dropResult.name}!`);
+      }
+    },
+    collect: monitor => ({
+      isDragging: monitor.isDragging()
+    })
+  });
 
   const synergyIcons = {
     youmuusghostblade: 'assassin',
@@ -19,8 +30,12 @@ function SelectionItem({ item, isDragging, connectDragSource }) {
     darkin: 'demon'
   };
 
+  const { key, name, bonus } = item;
+  const opacity = isDragging ? 0.4 : 1;
+
   return (
-    <S.Wrapper ref={connectDragSource}>
+    <S.Wrapper ref={drag} style={{ opacity }}>
+      <DragPreviewImage connect={preview} src={getImgSrc(name)} />
       <S.Img src={getImgSrc(name)} alt={name} title={name} />
       <S.IconAndDescription>
         <S.SynergyIcon classOrOrigin={synergyIcons[key]} type="default" />
@@ -33,21 +48,3 @@ function SelectionItem({ item, isDragging, connectDragSource }) {
 SelectionItem.propTypes = {
   item: PropTypes.object.isRequired
 };
-
-export default DragSource(
-  'box',
-  {
-    beginDrag: props => ({ name: props.item.name }),
-    endDrag(props, monitor) {
-      const item = monitor.getItem();
-      const dropResult = monitor.getDropResult();
-      if (dropResult) {
-        alert(`You dropped ${item.name} into ${dropResult.name}!`);
-      }
-    }
-  },
-  (connect, monitor) => ({
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  })
-)(SelectionItem);
