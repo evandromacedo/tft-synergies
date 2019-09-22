@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import App from '.';
-import { Layout } from './styled';
+import './matchMediaMock.js';
 import theme from './theme';
+import { Layout } from './styled';
+import App from '.';
 
 describe('<App />', () => {
   const wrapper = shallow(<App />);
