@@ -5,7 +5,7 @@ import ClassOrOrigin from '../ClassOrOrigin';
 
 // This will be made again to atempt the API and props.
 // Must implement the drag and drop functionality afterwards.
-function BoardChampion({ champion, background }) {
+export default function BoardChampion({ champion }) {
   return (
     <S.Wrapper cost={champion.cost} position={getBackgroundPosition(champion.key)}>
       <S.Synergies>
@@ -95,5 +95,3 @@ function getBackgroundPosition(championKey) {
 
   return positions[championKey];
 }
-
-export default BoardChampion;
