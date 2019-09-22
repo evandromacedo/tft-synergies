@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import ClassOrOrigin from '../ClassOrOrigin';
-import { DropTarget } from 'react-dnd';
 
 // This will be made again to atempt the API and props.
 // Must implement the drag and drop functionality afterwards.
-function BoardChampion({ champion, connectDropTarget }) {
+export default function BoardChampion({ champion }) {
   return (
     <S.Wrapper cost={champion.cost} position={getBackgroundPosition(champion.key)}>
       <S.Synergies>
@@ -15,9 +14,9 @@ function BoardChampion({ champion, connectDropTarget }) {
         ))}
       </S.Synergies>
       <S.Items>
-        <S.Item ref={connectDropTarget} />
-        <S.Item ref={connectDropTarget} />
-        <S.Item ref={connectDropTarget} />
+        <S.Item />
+        <S.Item />
+        <S.Item />
         <S.Name>{champion.name}</S.Name>
       </S.Items>
     </S.Wrapper>
@@ -96,15 +95,3 @@ function getBackgroundPosition(championKey) {
 
   return positions[championKey];
 }
-
-export default DropTarget(
-  'box',
-  {
-    drop: props => ({ name: props.champion.name })
-  },
-  (connect, monitor) => ({
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
-    canDrop: monitor.canDrop()
-  })
-)(BoardChampion);
