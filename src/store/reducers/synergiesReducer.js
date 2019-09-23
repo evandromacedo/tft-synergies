@@ -18,9 +18,14 @@ export default function synergiesReducer(state = initialState, action) {
       championSynergies.forEach(synergyName => {
         const foundSynergy = find(synergies, { name: synergyName });
 
-        // If found, adds +1 on count
+        // If found, adds +1 on count with new ranking
         if (foundSynergy) {
-          foundSynergy.count = foundSynergy.count + 1;
+          const newCount = foundSynergy.count + 1;
+          foundSynergy.count = newCount;
+          foundSynergy.ranking = getSynergyRanking(
+            newCount,
+            action.bonuses[synergyName.toLowerCase()].bonuses
+          );
         }
         // Else, create a new one with initial count
         else {
