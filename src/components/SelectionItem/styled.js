@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   align-items: center;
   grid-gap: 0.6rem;
   border: 1px dashed ${props => props.theme.background4};
+  cursor: move;
 `;
 
 export const IconAndDescription = styled.div`
