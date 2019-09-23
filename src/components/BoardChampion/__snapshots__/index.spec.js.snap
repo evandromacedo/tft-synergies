@@ -1,26 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<BoardChampion /> render properly and matches snapshot 1`] = `
-<Styled(styled.div)
-  cost={1}
+<Memo()
+  backend={[Function]}
 >
-  <styled.div>
-    <ClassOrOrigin
-      key="0"
-      type="void"
-    />
-    <ClassOrOrigin
-      key="1"
-      type="sorcerer"
-    />
-  </styled.div>
-  <styled.div>
-    <styled.div />
-    <styled.div />
-    <styled.div />
-    <styled.p>
-      Kassadin
-    </styled.p>
-  </styled.div>
-</Styled(styled.div)>
+  <BoardChampion
+    champion={
+      Object {
+        "cost": 1,
+        "name": "Kassadin",
+        "synergies": Array [
+          "void",
+          "sorcerer",
+        ],
+      }
+    }
+  />
+</Memo()>
 `;

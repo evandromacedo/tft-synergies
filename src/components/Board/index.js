@@ -4,9 +4,10 @@ import * as S from './styled';
 import Divider from '../Common/Divider';
 import BoardChampion from '../BoardChampion';
 import { generate } from 'shortid';
+import { useStore } from '../Context';
 
 export default function Board() {
-  const champions = [];
+  const { board: champions } = useStore();
   const hasChampion = champions && !!champions.length;
 
   return (
