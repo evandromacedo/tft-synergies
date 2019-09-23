@@ -5,7 +5,8 @@ import Divider from '../Common/Divider';
 import BoardChampion from '../BoardChampion';
 import { generate } from 'shortid';
 
-export default function Board({ champions }) {
+export default function Board() {
+  const champions = [];
   const hasChampion = champions && !!champions.length;
 
   return (
