@@ -10,12 +10,6 @@ export default function SelectionItem({ item }) {
 
   const [{ isDragging }, drag, preview] = useDrag({
     item: { item, type: 'item' },
-    end: (dragItem, monitor) => {
-      const dropResult = monitor.getDropResult();
-      if (dragItem && dropResult) {
-        alert(`You dropped ${dragItem.item.name} into ${dropResult.name}!`);
-      }
-    },
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })

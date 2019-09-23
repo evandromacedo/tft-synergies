@@ -47,7 +47,7 @@ export const Synergies = styled.div`
   grid-template-rows: repeat(3, 2rem);
 `;
 
-export const Items = styled.div`
+export const ItemsAndName = styled.div`
   display: grid;
   grid-gap: 0.8rem;
   grid-template-columns: 2.8rem 2.8rem 2.8rem 1fr;

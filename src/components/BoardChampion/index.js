@@ -10,13 +10,16 @@ import ItemSlot from '../ItemSlot';
 export default function BoardChampion({ champion }) {
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'item',
-    drop: () => ({ name: 'Dustbin' }),
+    drop: item => {
+      console.log(`You dropped ${item.item.name} into ${champion.name}!`);
+    },
     collect: monitor => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop()
     })
   });
 
+  // Classname based on drag and drop
   const className = getClassName(canDrop, isOver);
 
   return (
@@ -31,12 +34,12 @@ export default function BoardChampion({ champion }) {
           <ClassOrOrigin key={index} type={synergy} />
         ))}
       </S.Synergies>
-      <S.Items>
+      <S.ItemsAndName>
         <ItemSlot />
         <ItemSlot />
         <ItemSlot />
         <S.Name>{champion.name}</S.Name>
-      </S.Items>
+      </S.ItemsAndName>
     </S.Wrapper>
   );
 }
