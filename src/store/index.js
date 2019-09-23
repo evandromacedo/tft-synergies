@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
 import { getSynergies } from '../API';
-import reducer from './reducer';
+import reducer from './reducers';
 
 export const ADD_CHAMPION = 'ADD_CHAMPION';
 export const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
@@ -13,7 +13,6 @@ export const SET_BONUSES = 'SET_BONUSES';
 
 export const firstState = {
   level: 9,
-  forceOfNature: 0,
   synergies: [],
   board: [],
   bonuses: {}
@@ -22,6 +21,7 @@ export const firstState = {
 const useSynergies = (initialState = firstState) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // Fetch bonuses details and dispatches to "bonuses"
   useEffect(() => {
     async function fetchSynergies() {
       const payload = await getSynergies();
