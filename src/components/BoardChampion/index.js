@@ -1,22 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDrop } from 'react-dnd';
 import * as S from './styled';
 import ClassOrOrigin from '../ClassOrOrigin';
+import ItemSlot from '../ItemSlot';
 
 // This will be made again to atempt the API and props.
 // Must implement the drag and drop functionality afterwards.
 export default function BoardChampion({ champion }) {
+  const [{ canDrop, isOver }, drop] = useDrop({
+    accept: 'item',
+    drop: () => ({ name: 'Dustbin' }),
+    collect: monitor => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop()
+    })
+  });
+
+  const className = getClassName(canDrop, isOver);
+
   return (
-    <S.Wrapper cost={champion.cost} position={getBackgroundPosition(champion.key)}>
+    <S.Wrapper
+      ref={drop}
+      className={className}
+      cost={champion.cost}
+      position={getBackgroundPosition(champion.key)}
+    >
       <S.Synergies>
         {champion.synergies.map((synergy, index) => (
           <ClassOrOrigin key={index} type={synergy} />
         ))}
       </S.Synergies>
       <S.Items>
-        <S.Item />
-        <S.Item />
-        <S.Item />
+        <ItemSlot />
+        <ItemSlot />
+        <ItemSlot />
         <S.Name>{champion.name}</S.Name>
       </S.Items>
     </S.Wrapper>
@@ -31,6 +49,19 @@ BoardChampion.propTypes = {
     synergies: PropTypes.arrayOf(PropTypes.string)
   }).isRequired
 };
+
+function getClassName(canDrop, isOver) {
+  const isActive = canDrop && isOver;
+  if (isActive) {
+    return 'active';
+  }
+
+  if (canDrop) {
+    return 'canDrop';
+  }
+
+  return '';
+}
 
 function getBackgroundPosition(championKey) {
   const positions = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import BoardChampion from './index.js';
 import { storiesOf } from '@storybook/react';
-import * as SplashArt from '../SplashArt';
 
 storiesOf('BoardChampion', module)
   .add('Kassadin', () => (
@@ -23,7 +22,9 @@ storiesOf('BoardChampion', module)
   .add('Aatrox', () => (
     <BoardChampion
       champion={{ name: 'Aatrox', cost: 3, synergies: ['demon', 'blademaster'] }}
-      background={SplashArt.Aatrox}
+      background={
+        'http://raw.communitydragon.org/latest/game/assets/ux/tft/championsplashes/tft_ahri.png'
+      }
     />
   ))
   .add('Akali', () => (

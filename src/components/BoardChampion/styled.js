@@ -26,6 +26,19 @@ export const Wrapper = styled(TierBorder)`
     background-position: left center, right ${props => props.position};
     box-shadow: inset -4px -4px 8px 2px black, inset 4px 4px 8px 2px black;
   }
+
+  /* Transition when item is dragging */
+  transition: box-shadow 0.2s linear;
+
+  &.active {
+    box-shadow: 1px 1px 4px ${props => props.theme.accentYellow},
+      -1px -1px 4px ${props => props.theme.accentYellow};
+  }
+
+  &.canDrop {
+    box-shadow: 1px 1px 4px ${props => props.theme.background4},
+      -1px -1px 4px ${props => props.theme.background4};
+  }
 `;
 
 export const Synergies = styled.div`
@@ -39,12 +52,6 @@ export const Items = styled.div`
   grid-gap: 0.8rem;
   grid-template-columns: 2.8rem 2.8rem 2.8rem 1fr;
   align-items: center;
-`;
-
-export const Item = styled.div`
-  width: 2.8rem;
-  height: 2.8rem;
-  background-color: ${props => props.theme.background3};
 `;
 
 export const Name = styled.p`
