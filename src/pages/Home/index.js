@@ -1,9 +1,5 @@
 import React from 'react';
 import * as S from './styled';
-import {
-  generateSynergiesMock,
-  generateBonusesMock
-} from '../../components/SynergiesBar/stories';
 import CurrentLevel from '../../components/CurrentLevel';
 import Button from '../../components/Button';
 import SynergiesBar from '../../components/SynergiesBar';
@@ -14,10 +10,7 @@ export default function Home() {
   return (
     <S.Layout>
       <S.Sidebar>
-        <SynergiesBar
-          synergies={generateSynergiesMock()}
-          bonusesDetails={generateBonusesMock()}
-        />
+        <SynergiesBar />
       </S.Sidebar>
       <S.MainWrapper>
         <S.BoardTop>

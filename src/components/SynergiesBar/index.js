@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import withSizes from 'react-sizes';
 import { arrangeSynergies } from '../../utils';
+import { useStore } from '../Context';
 import * as S from './styled';
 import SynergyUnit from '../SynergyUnit';
 
 // synergies - array of synergies from selected champions on reducer
 // bonusesDetails - object containing details of the synergies from API
-function SynergiesBar({ synergies, bonusesDetails, isMobile = false }) {
+function SynergiesBar({ isMobile = false }) {
+  // Get synergies and bonuses from store
+  const { synergies, bonuses: bonusesDetails } = useStore();
+
   // Show details based on screen size
   const [showDetails, setDetails] = useState(true);
   function toggleDetails() {
@@ -52,7 +56,7 @@ function SynergiesBar({ synergies, bonusesDetails, isMobile = false }) {
           )}
 
           {/* Default SynergyUnit shows "No synergies yet" */}
-          {!synergies && (
+          {!synergies.length && (
             <li>
               <SynergyUnit showDetails={showDetails} />
             </li>
@@ -74,8 +78,7 @@ function SynergiesBar({ synergies, bonusesDetails, isMobile = false }) {
 }
 
 SynergiesBar.propTypes = {
-  synergies: PropTypes.array,
-  bonusesDetails: PropTypes.object
+  isMobile: PropTypes.bool
 };
 
 // This is the "small" breakpoint on theme.js

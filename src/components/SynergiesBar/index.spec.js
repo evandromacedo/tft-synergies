@@ -1,16 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { generateBonusesMock, generateSynergiesMock } from './stories';
+import * as Context from '../Context';
 import * as S from './styled';
 import { SynergiesBar } from '.';
 import SynergyUnit from '../SynergyUnit';
 
 describe('<SynergiesBar />', () => {
   it('renders properly', () => {
+    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ synergies: [] }));
     shallow(<SynergiesBar />);
   });
 
   it('renders just a "No synergies yet" SynergyUnit when no synergies are passed on props', () => {
+    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ synergies: [] }));
     const wrapper = shallow(<SynergiesBar />);
     const SynergyUnitComponent = wrapper.find(SynergyUnit);
     const SynergiesUl = wrapper.find('[data-test="synergies-ul"]');
@@ -20,12 +23,18 @@ describe('<SynergiesBar />', () => {
   });
 
   it('renders the synergies in decrescent order', () => {
+    jest.spyOn(Context, 'useStore').mockImplementation(() => ({
+      synergies: generateSynergiesMock(),
+      bonuses: generateBonusesMock()
+    }));
+
     const wrapper = shallow(
       <SynergiesBar
         synergies={generateSynergiesMock()}
         bonusesDetails={generateBonusesMock()}
       />
     );
+
     const SynergyUnitComponents = wrapper.find(SynergyUnit);
     const SynergyList = wrapper.find('[data-test="synergies-ul"]').children();
     expect(SynergyList.length).toBe(10);
@@ -56,6 +65,7 @@ describe('<SynergiesBar />', () => {
   });
 
   it('renders ToggleArrow when isMobile={true}', () => {
+    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ synergies: [] }));
     const wrapper = shallow(<SynergiesBar isMobile={true} />);
     const ToggleArrow = wrapper.find(S.ToggleArrow);
     expect(ToggleArrow.exists()).toBeTruthy();
