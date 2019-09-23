@@ -31,7 +31,7 @@ export default function BoardChampion({ champion }) {
     >
       <S.Synergies>
         {champion.synergies.map((synergy, index) => (
-          <ClassOrOrigin key={index} type={synergy} />
+          <ClassOrOrigin key={index} type={synergy.toLowerCase()} />
         ))}
       </S.Synergies>
       <S.ItemsAndName>
