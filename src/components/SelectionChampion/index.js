@@ -11,16 +11,7 @@ function getImgSrc(key) {
 
 export default function SelectionChampion({ champion }) {
   const { addChampion } = useDispatch();
-
-  // Champion object to dispatch to reducer
-  const championToAdd = {
-    id: champion.id,
-    name: champion.name,
-    cost: champion.cost,
-    synergies: [...champion.origin, ...champion.class]
-  };
-
-  const addChampionOnClick = () => addChampion(championToAdd);
+  const addChampionOnClick = () => addChampion(champion);
 
   return (
     <S.Wrapper onClick={addChampionOnClick}>

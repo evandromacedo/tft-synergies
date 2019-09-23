@@ -9,7 +9,11 @@ export function getChampions() {
     .then(response => response.json())
     .then(response => {
       const championsArray = Object.keys(response).map(key => response[key]);
-      const championsOrdered = orderBy(championsArray, ['cost', 'name']);
+      const championsSynergies = championsArray.map(champion => {
+        champion.synergies = [...champion.origin, ...champion.class];
+        return champion;
+      });
+      const championsOrdered = orderBy(championsSynergies, ['cost', 'name']);
       return championsOrdered;
     })
     .catch(error => alert('an error has ocurred'));
