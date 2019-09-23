@@ -5,9 +5,10 @@ import wait from 'waait';
 import { act } from 'react-dom/test-utils';
 import theme from '../App/theme';
 import { ThemeProvider } from 'styled-components';
-import Selection from '.';
+import { wrapInTestContext } from 'react-dnd-test-utils';
 import * as S from './styled';
 import * as Context from '../Context';
+import Selection from '.';
 
 // Decreases champions quantity to 10 for test
 const championsMock = champions.slice(0, 10);
@@ -29,16 +30,18 @@ jest.spyOn(Context, 'useDispatch').mockImplementation(() => ({ addChampion: () =
 
 describe('<Selection />', () => {
   it('renders properly', () => {
-    shallow(<Selection />);
+    const SelectionWrapped = wrapInTestContext(Selection);
+    shallow(<SelectionWrapped />);
   });
 
   it('fetches champions and items on mount', async () => {
     let wrapper;
 
     await act(async () => {
+      const SelectionWrapped = wrapInTestContext(Selection);
       wrapper = await mount(
         <ThemeWrapper>
-          <Selection />
+          <SelectionWrapped />
         </ThemeWrapper>
       );
     });

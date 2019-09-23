@@ -1,42 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SelectionChampion /> renders and matches snapshot 1`] = `
-<styled.div
-  onClick={[Function]}
+<Memo()
+  backend={[Function]}
 >
-  <styled.h1>
-    Kayle
-  </styled.h1>
-  <Styled(styled.div)
-    cost={5}
-  >
-    <styled.div
-      background="https://rerollcdn.com/characters/Kayle.png"
-    >
-      <styled.p>
-        5
-      </styled.p>
-    </styled.div>
-    <styled.ul>
-      <styled.li
-        key="0"
-        title="Noble"
-      >
-        <SynergyIcon
-          classOrOrigin="noble"
-          type="default"
-        />
-      </styled.li>
-      <styled.li
-        key="0"
-        title="Knight"
-      >
-        <SynergyIcon
-          classOrOrigin="knight"
-          type="default"
-        />
-      </styled.li>
-    </styled.ul>
-  </Styled(styled.div)>
-</styled.div>
+  <SelectionChampion
+    champion={
+      Object {
+        "ability": Object {
+          "description": "Kayle shields an ally, making them immune to damage.",
+          "manaCost": 125,
+          "manaStart": 0,
+          "name": "Divine Judgement",
+          "stats": Array [
+            Object {
+              "type": "Shield Duration",
+              "value": "2s / 2.5s / 3s",
+            },
+            Object {
+              "type": "Extra Targets",
+              "value": "0 / 1 / 2",
+            },
+          ],
+          "type": "Active",
+        },
+        "class": Array [
+          "Knight",
+        ],
+        "cost": 5,
+        "id": "10",
+        "items": Array [
+          "bladeoftheruinedking",
+          "guinsoosrageblade",
+          "spearofshojin",
+        ],
+        "key": "Kayle",
+        "name": "Kayle",
+        "origin": Array [
+          "Noble",
+        ],
+        "stats": Object {
+          "defense": Object {
+            "armor": 40,
+            "health": 750,
+            "magicResist": 20,
+          },
+          "offense": Object {
+            "attackSpeed": 1,
+            "damage": 60,
+            "dps": 66,
+            "range": 3,
+          },
+        },
+      }
+    }
+  />
+</Memo()>
 `;
