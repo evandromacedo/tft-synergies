@@ -1,5 +1,5 @@
 import find from 'lodash/find';
-import { ADD_CHAMPION, SET_BONUSES } from '..';
+import { ADD_CHAMPION, LEVEL_UP, LEVEL_DOWN, SET_BONUSES } from '..';
 import synergiesReducer from './synergiesReducer';
 import boardReducer from './boardReducer';
 
@@ -24,6 +24,38 @@ export default function reducer(state, action) {
           bonuses: state.bonuses
         }),
         board: boardReducer(state.board, action)
+      };
+
+    case LEVEL_UP:
+      if (state.level === 9) {
+        return state;
+      }
+
+      return { ...state, level: state.level + 1 };
+
+    case LEVEL_DOWN:
+      if (state.level === 1) {
+        return state;
+      }
+
+      const newLevel = state.level - 1;
+
+      if (newLevel < state.board.length) {
+        return {
+          ...state,
+          board: boardReducer(state.board, { ...action, newLevel }),
+          synergies: boardReducer(state.synergies, {
+            ...action,
+            lastChampion: state.board.slice(-1),
+            newLevel
+          }),
+          level: newLevel
+        };
+      }
+
+      return {
+        ...state,
+        level: newLevel
       };
 
     case SET_BONUSES:

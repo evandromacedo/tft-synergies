@@ -1,16 +1,18 @@
 import find from 'lodash/find';
 import { getSynergyRanking } from '../../utils';
-import { ADD_CHAMPION } from '..';
+import { ADD_CHAMPION, LEVEL_DOWN } from '..';
 
-const initialState = {
-  name: '',
-  count: 0,
-  ranking: ''
-};
+const initialState = [];
+
+// {
+//   name: 'blademaster',
+//   count: 2,
+//   ranking: 'bronze'
+// };
 
 export default function synergiesReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_CHAMPION:
+    case ADD_CHAMPION: {
       const { synergies: championSynergies } = action.champion;
       const synergies = [...state];
 
@@ -24,7 +26,7 @@ export default function synergiesReducer(state = initialState, action) {
           foundSynergy.count = newCount;
           foundSynergy.ranking = getSynergyRanking(
             newCount,
-            action.bonuses[synergyName.toLowerCase()].bonuses
+            action.bonuses[synergyName].bonuses
           );
         }
         // Else, create a new one with initial count
@@ -32,15 +34,42 @@ export default function synergiesReducer(state = initialState, action) {
           synergies.push({
             count: 1,
             name: synergyName,
-            ranking: getSynergyRanking(
-              1,
-              action.bonuses[synergyName.toLowerCase()].bonuses
-            )
+            ranking: getSynergyRanking(1, action.bonuses[synergyName].bonuses)
           });
         }
       });
 
       return synergies;
+    }
+
+    case LEVEL_DOWN: {
+      // Checks if there's last champion on board
+      const championOccurrences = action.board.filter(
+        champion => champion.id === action.lastChampion.id
+      ).length;
+
+      if (championOccurrences >= 2) {
+        return state;
+      }
+
+      const synergies = [...state];
+
+      action.lastChampion.synergies.forEach(synergyName => {
+        const foundSynergy = find(synergies, { name: synergyName });
+
+        // Decreases -1 or deletes synergy
+        if (foundSynergy.count > 1) {
+          foundSynergy.count = foundSynergy.count - 1;
+        } else {
+          const index = synergies.findIndex(
+            synergy => synergy.name === foundSynergy.name
+          );
+          synergies.splice(index, 1);
+        }
+      });
+
+      return synergies;
+    }
 
     default:
       return null;
