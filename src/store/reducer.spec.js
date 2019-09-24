@@ -96,6 +96,40 @@ describe('Synergies Reducer', () => {
     expect(result.current.state.board).toMatchObject([boardAatroxMock, boardAatroxMock]);
   });
 
+  it('removes a champion with more than one occurrences without removing the synergies', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const { addChampion, removeChampion } = result.current;
+    const aatroxMock = getChampion('Aatrox');
+
+    act(() => {
+      addChampion(aatroxMock);
+      addChampion(aatroxMock);
+      addChampion(aatroxMock);
+      removeChampion(1);
+    });
+
+    expect(result.current.state.board.length).toEqual(2);
+    expect(result.current.state.synergies.length).toEqual(2);
+  });
+
+  it('removes a champion with just one occurrence and removes its synergies', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const { addChampion, removeChampion } = result.current;
+    const camilleMock = getChampion('Camille');
+    const dariusMock = getChampion('Darius');
+
+    act(() => {
+      addChampion(camilleMock);
+      addChampion(dariusMock);
+      addChampion(camilleMock);
+      removeChampion(1);
+    });
+
+    expect(result.current.state.synergies.length).toEqual(2);
+  });
+
   it('increases the level until 9', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       useSynergies({ ...firstState, level: 7 })
@@ -169,7 +203,7 @@ describe('Synergies Reducer', () => {
 
   it("doesn't add a new champion when exceed the level", async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useSynergies({ ...firstState, level: 3 })
+      useSynergies({ ...firstState, level: 2 })
     );
     await waitForNextUpdate();
     const aatroxMock = getChampion('Aatrox');

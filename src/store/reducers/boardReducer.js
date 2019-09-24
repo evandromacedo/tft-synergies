@@ -1,4 +1,4 @@
-import { ADD_CHAMPION, LEVEL_DOWN } from '..';
+import { ADD_CHAMPION, REMOVE_CHAMPION, LEVEL_DOWN } from '..';
 
 const initialState = [];
 
@@ -16,6 +16,10 @@ export default function boardReducer(state = initialState, action) {
       const { champion } = action;
       const { id, key, name, cost, synergies } = champion;
       return [...state, { id, key, name, cost, synergies }];
+
+    case REMOVE_CHAMPION:
+      const { index } = action;
+      return [...state.slice(0, index), ...state.slice(index + 1)];
 
     case LEVEL_DOWN:
       if (action.newLevel < state.length) {

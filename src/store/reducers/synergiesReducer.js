@@ -1,6 +1,6 @@
 import find from 'lodash/find';
 import { getSynergyRanking } from '../../utils';
-import { ADD_CHAMPION, LEVEL_DOWN } from '..';
+import { ADD_CHAMPION, REMOVE_CHAMPION, LEVEL_DOWN } from '..';
 
 const initialState = [];
 
@@ -42,8 +42,23 @@ export default function synergiesReducer(state = initialState, action) {
       return synergies;
     }
 
+    case REMOVE_CHAMPION: {
+      // Checks if there are removed champion occurences on board
+      const removedChampion = action.board[action.index];
+      const championOccurrences = action.board.filter(champion => {
+        return champion.id === removedChampion.id;
+      }).length;
+
+      if (championOccurrences > 1) {
+        return state;
+      }
+
+      const synergies = removeSynergies(removedChampion, action.bonuses, state);
+      return synergies;
+    }
+
     case LEVEL_DOWN: {
-      // Checks if there's last champion on board
+      // Checks if there are last champion occurences on board
       const lastChampion = action.board.slice(-1)[0];
       const championOccurrences = action.board.filter(champion => {
         return champion.id === lastChampion.id;
@@ -53,31 +68,31 @@ export default function synergiesReducer(state = initialState, action) {
         return state;
       }
 
-      const synergies = [...state];
-
-      lastChampion.synergies.forEach(synergyName => {
-        const foundSynergy = find(synergies, { name: synergyName });
-
-        // Decreases -1 or deletes synergy
-        if (foundSynergy.count > 1) {
-          const newCount = foundSynergy.count - 1;
-          foundSynergy.count = newCount;
-          foundSynergy.ranking = getSynergyRanking(
-            newCount,
-            action.bonuses[synergyName].bonuses
-          );
-        } else {
-          const index = synergies.findIndex(
-            synergy => synergy.name === foundSynergy.name
-          );
-          synergies.splice(index, 1);
-        }
-      });
-
+      const synergies = removeSynergies(lastChampion, action.bonuses, state);
       return synergies;
     }
 
     default:
       return null;
   }
+}
+
+function removeSynergies(champion, bonuses, state) {
+  const synergies = [...state];
+
+  champion.synergies.forEach(synergyName => {
+    const foundSynergy = find(synergies, { name: synergyName });
+
+    // Decreases -1 or deletes synergy
+    if (foundSynergy.count > 1) {
+      const newCount = foundSynergy.count - 1;
+      foundSynergy.count = newCount;
+      foundSynergy.ranking = getSynergyRanking(newCount, bonuses[synergyName].bonuses);
+    } else {
+      const index = synergies.findIndex(synergy => synergy.name === foundSynergy.name);
+      synergies.splice(index, 1);
+    }
+  });
+
+  return synergies;
 }

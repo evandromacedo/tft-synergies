@@ -1,11 +1,11 @@
 import find from 'lodash/find';
-import { ADD_CHAMPION, LEVEL_UP, LEVEL_DOWN, SET_BONUSES } from '..';
+import { ADD_CHAMPION, REMOVE_CHAMPION, LEVEL_UP, LEVEL_DOWN, SET_BONUSES } from '..';
 import synergiesReducer from './synergiesReducer';
 import boardReducer from './boardReducer';
 
 export default function reducer(state, action) {
   switch (action.type) {
-    case ADD_CHAMPION:
+    case ADD_CHAMPION: {
       const { champion } = action;
 
       // If exceed the level, don't add the champion to board
@@ -29,6 +29,18 @@ export default function reducer(state, action) {
           bonuses: state.bonuses
         }),
         board: boardReducer(state.board, action)
+      };
+    }
+
+    case REMOVE_CHAMPION:
+      return {
+        ...state,
+        board: boardReducer(state.board, action),
+        synergies: synergiesReducer(state.synergies, {
+          ...action,
+          bonuses: state.bonuses,
+          board: state.board
+        })
       };
 
     case LEVEL_UP:
