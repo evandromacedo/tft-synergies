@@ -10,7 +10,10 @@ export function getChampions() {
     .then(response => {
       const championsArray = Object.keys(response).map(key => response[key]);
       const championsSynergies = championsArray.map(champion => {
-        champion.synergies = [...champion.origin, ...champion.class];
+        champion.synergies = [
+          ...champion.origin.map(championOrigin => championOrigin.toLowerCase()),
+          ...champion.class.map(championClass => championClass.toLowerCase())
+        ];
         return champion;
       });
       const championsOrdered = orderBy(championsSynergies, ['cost', 'name']);
