@@ -4,18 +4,24 @@ import * as S from './styled';
 import Divider from '../Common/Divider';
 import BoardChampion from '../BoardChampion';
 import { generate } from 'shortid';
-import { useStore } from '../Context';
+import { useStore, useDispatch } from '../Context';
 
 export default function Board() {
   const { board: champions } = useStore();
+  const { removeChampion } = useDispatch();
+
   const hasChampion = champions && !!champions.length;
 
   return (
     <S.Wrapper>
       {hasChampion && (
         <S.BoardChampions>
-          {champions.map(champion => (
-            <BoardChampion key={generate()} champion={champion} />
+          {champions.map((champion, index) => (
+            <BoardChampion
+              key={generate()}
+              onClick={() => removeChampion(index)}
+              champion={champion}
+            />
           ))}
         </S.BoardChampions>
       )}

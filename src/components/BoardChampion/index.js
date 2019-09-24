@@ -7,7 +7,8 @@ import ItemSlot from '../ItemSlot';
 
 // This will be made again to atempt the API and props.
 // Must implement the drag and drop functionality afterwards.
-export default function BoardChampion({ champion }) {
+export default function BoardChampion({ champion, onClick }) {
+  // Drag and drop configs
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'item',
     drop: item => {
@@ -25,6 +26,7 @@ export default function BoardChampion({ champion }) {
   return (
     <S.Wrapper
       ref={drop}
+      onClick={onClick}
       className={className}
       cost={champion.cost}
       position={getBackgroundPosition(champion.key)}

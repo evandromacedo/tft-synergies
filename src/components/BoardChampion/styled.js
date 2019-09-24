@@ -3,6 +3,7 @@ import TierBorder from '../Common/TierBorder';
 import ChampionsSprite from '../../static/img/ChampionsSprite.png';
 
 export const Wrapper = styled(TierBorder)`
+  cursor: pointer;
   position: relative;
   height: 12.8rem;
   padding: 0.8rem;
