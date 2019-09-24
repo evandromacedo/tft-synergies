@@ -46,6 +46,7 @@ export default function reducer(state, action) {
           board: boardReducer(state.board, { ...action, newLevel }),
           synergies: synergiesReducer(state.synergies, {
             ...action,
+            bonuses: state.bonuses,
             board: state.board
           }),
           level: newLevel

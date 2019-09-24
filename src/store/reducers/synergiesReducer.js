@@ -60,7 +60,12 @@ export default function synergiesReducer(state = initialState, action) {
 
         // Decreases -1 or deletes synergy
         if (foundSynergy.count > 1) {
-          foundSynergy.count = foundSynergy.count - 1;
+          const newCount = foundSynergy.count - 1;
+          foundSynergy.count = newCount;
+          foundSynergy.ranking = getSynergyRanking(
+            newCount,
+            action.bonuses[synergyName].bonuses
+          );
         } else {
           const index = synergies.findIndex(
             synergy => synergy.name === foundSynergy.name
