@@ -1,5 +1,12 @@
 import find from 'lodash/find';
-import { ADD_CHAMPION, REMOVE_CHAMPION, LEVEL_UP, LEVEL_DOWN, SET_BONUSES } from '..';
+import {
+  ADD_CHAMPION,
+  REMOVE_CHAMPION,
+  LEVEL_UP,
+  LEVEL_DOWN,
+  SET_BONUSES,
+  CLEAR_BOARD
+} from '..';
 import synergiesReducer from './synergiesReducer';
 import boardReducer from './boardReducer';
 
@@ -79,6 +86,13 @@ export default function reducer(state, action) {
       return {
         ...state,
         bonuses: action.payload
+      };
+
+    case CLEAR_BOARD:
+      return {
+        ...state,
+        board: [],
+        synergies: []
       };
 
     default:

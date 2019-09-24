@@ -53,6 +53,9 @@ const useSynergies = (initialState = firstState) => {
     },
     levelDown() {
       dispatch({ type: LEVEL_DOWN });
+    },
+    clearBoard() {
+      dispatch({ type: CLEAR_BOARD });
     }
   };
 };

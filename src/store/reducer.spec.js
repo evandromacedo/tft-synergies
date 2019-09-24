@@ -217,4 +217,23 @@ describe('Synergies Reducer', () => {
 
     expect(result.current.state.board.length).toEqual(2);
   });
+
+  it('clears the board and synergies', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const aatroxMock = getChampion('Aatrox');
+    const camilleMock = getChampion('Camille');
+    const dariusMock = getChampion('Darius');
+    const { addChampion, clearBoard } = result.current;
+
+    act(() => {
+      addChampion(aatroxMock);
+      addChampion(camilleMock);
+      addChampion(dariusMock);
+      clearBoard();
+    });
+
+    expect(result.current.state.board).toEqual([]);
+    expect(result.current.state.synergies).toEqual([]);
+  });
 });
