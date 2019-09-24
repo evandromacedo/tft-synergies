@@ -1,5 +1,4 @@
 import React from 'react';
-import ChampionsSprite from '../../static/img/ChampionsSprite.png';
 import { Helmet } from 'react-helmet';
 import Favicon from '../../static/img/Favicon.ico';
 
@@ -12,7 +11,6 @@ export default function Meta() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
       <meta name="description" content="Web site created using create-react-app" />
-      <link rel="preload" href={ChampionsSprite} as="image" />
       <title>TFT Synergies</title>
     </Helmet>
   );
