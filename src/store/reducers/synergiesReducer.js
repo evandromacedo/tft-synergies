@@ -44,17 +44,18 @@ export default function synergiesReducer(state = initialState, action) {
 
     case LEVEL_DOWN: {
       // Checks if there's last champion on board
-      const championOccurrences = action.board.filter(
-        champion => champion.id === action.lastChampion.id
-      ).length;
+      const lastChampion = action.board.slice(-1)[0];
+      const championOccurrences = action.board.filter(champion => {
+        return champion.id === lastChampion.id;
+      }).length;
 
-      if (championOccurrences >= 2) {
+      if (championOccurrences > 1) {
         return state;
       }
 
       const synergies = [...state];
 
-      action.lastChampion.synergies.forEach(synergyName => {
+      lastChampion.synergies.forEach(synergyName => {
         const foundSynergy = find(synergies, { name: synergyName });
 
         // Decreases -1 or deletes synergy

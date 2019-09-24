@@ -158,12 +158,13 @@ describe('Synergies Reducer', () => {
     expect(result.current.state.board.length).toEqual(2);
     expect(result.current.state.synergies.length).toEqual(2);
 
-    // act(() => {
-    //   levelDown();
-    //   levelDown();
-    // });
+    act(() => {
+      levelDown();
+    });
 
-    // expect(result.current.state.level).toEqual(1);
+    expect(result.current.state.level).toEqual(1);
+    expect(result.current.state.board.length).toEqual(1);
+    expect(result.current.state.synergies.length).toEqual(2);
   });
 
   // it("doesn't add a new champion when exceed the level",)

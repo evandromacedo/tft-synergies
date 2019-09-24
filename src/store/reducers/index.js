@@ -44,10 +44,9 @@ export default function reducer(state, action) {
         return {
           ...state,
           board: boardReducer(state.board, { ...action, newLevel }),
-          synergies: boardReducer(state.synergies, {
+          synergies: synergiesReducer(state.synergies, {
             ...action,
-            lastChampion: state.board.slice(-1),
-            newLevel
+            board: state.board
           }),
           level: newLevel
         };
