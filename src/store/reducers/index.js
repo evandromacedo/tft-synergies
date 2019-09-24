@@ -8,6 +8,11 @@ export default function reducer(state, action) {
     case ADD_CHAMPION:
       const { champion } = action;
 
+      // If exceed the level, don't add the champion to board
+      if (state.board.length === state.level) {
+        return state;
+      }
+
       // If champion is on board, add him with no new synergies
       if (find(state.board, { id: champion.id })) {
         return {

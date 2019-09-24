@@ -167,5 +167,20 @@ describe('Synergies Reducer', () => {
     expect(result.current.state.synergies.length).toEqual(2);
   });
 
-  // it("doesn't add a new champion when exceed the level",)
+  it("doesn't add a new champion when exceed the level", async () => {
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useSynergies({ ...firstState, level: 3 })
+    );
+    await waitForNextUpdate();
+    const aatroxMock = getChampion('Aatrox');
+    const { addChampion } = result.current;
+
+    act(() => {
+      addChampion(aatroxMock);
+      addChampion(aatroxMock);
+      addChampion(aatroxMock);
+    });
+
+    expect(result.current.state.board.length).toEqual(2);
+  });
 });
