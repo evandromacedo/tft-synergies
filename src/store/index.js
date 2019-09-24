@@ -47,6 +47,12 @@ const useSynergies = (initialState = firstState) => {
     },
     removeItem(champion, item) {
       dispatch({ type: REMOVE_CHAMPION, champion, item });
+    },
+    levelUp() {
+      dispatch({ type: LEVEL_UP });
+    },
+    levelDown() {
+      dispatch({ type: LEVEL_DOWN });
     }
   };
 };
