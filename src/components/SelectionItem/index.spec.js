@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { wrapInTestContext } from 'react-dnd-test-utils';
 import toJSON from 'enzyme-to-json';
 import SelectionItem from '.';
 
@@ -15,13 +16,15 @@ const botrkMock = {
   champs: ['Ashe', 'Yasuo', 'Zed']
 };
 
-describe('<SelectionChampion />', () => {
+const SelectionItemWrapped = wrapInTestContext(SelectionItem);
+
+describe('<SelectionItem />', () => {
   it('renders properly', () => {
-    shallow(<SelectionItem item={botrkMock} />);
+    shallow(<SelectionItemWrapped item={botrkMock} />);
   });
 
   it('renders and matches snapshot', () => {
-    const wrapper = shallow(<SelectionItem item={botrkMock} />);
+    const wrapper = shallow(<SelectionItemWrapped item={botrkMock} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

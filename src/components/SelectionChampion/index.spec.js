@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import { wrapInTestContext } from 'react-dnd-test-utils';
 import * as Context from '../Context';
 import SelectionChampion from '.';
 
@@ -49,13 +48,11 @@ jest.spyOn(Context, 'useDispatch').mockImplementation(() => ({ addChampion: () =
 
 describe('<SelectionChampion />', () => {
   it('renders properly', () => {
-    const SelectionChampionWrapped = wrapInTestContext(SelectionChampion);
-    shallow(<SelectionChampionWrapped champion={kayleMock} />);
+    shallow(<SelectionChampion champion={kayleMock} />);
   });
 
   it('renders and matches snapshot', () => {
-    const SelectionChampionWrapped = wrapInTestContext(SelectionChampion);
-    const wrapper = shallow(<SelectionChampionWrapped champion={kayleMock} />);
+    const wrapper = shallow(<SelectionChampion champion={kayleMock} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

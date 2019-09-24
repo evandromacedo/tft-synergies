@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import toJSON from 'enzyme-to-json';
 import * as S from './styled';
 import SelectionList from '.';
 import { champions, items } from '../Selection/mock';

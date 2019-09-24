@@ -1,20 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SelectionChampion /> renders and matches snapshot 1`] = `
-<styled.div>
-  <styled.img
-    alt="Blade of the Ruined King"
-    src="https://rerollcdn.com/items/BladeoftheRuinedKing.png"
-    title="Blade of the Ruined King"
+exports[`<SelectionItem /> renders and matches snapshot 1`] = `
+<Memo()
+  backend={[Function]}
+>
+  <SelectionItem
+    item={
+      Object {
+        "bonus": "Wearer is also a Blademaster.",
+        "buildsFrom": Array [
+          "spatula",
+          "recurvebow",
+        ],
+        "champs": Array [
+          "Ashe",
+          "Yasuo",
+          "Zed",
+        ],
+        "depth": 2,
+        "key": "bladeoftheruinedking",
+        "kind": "advanced",
+        "name": "Blade of the Ruined King",
+        "tier": 1,
+        "type": "Offensive",
+      }
+    }
   />
-  <styled.div>
-    <Styled(SynergyIcon)
-      classOrOrigin="blademaster"
-      type="default"
-    />
-    <styled.p>
-      Wearer is also a Blademaster.
-    </styled.p>
-  </styled.div>
-</styled.div>
+</Memo()>
 `;
