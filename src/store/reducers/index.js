@@ -1,4 +1,5 @@
 import find from 'lodash/find';
+import isEqual from 'lodash/isEqual';
 import {
   ADD_CHAMPION,
   REMOVE_CHAMPION,
@@ -52,10 +53,10 @@ export default function reducer(state, action) {
       };
 
     case ADD_ITEM: {
-      const board = boardReducer(state.board, action);
+      const board = boardReducer([...state.board], action);
       let synergies = state.synergies;
 
-      if (state.board !== board) {
+      if (!isEqual(state.board, board)) {
         synergies = synergiesReducer(state.synergies, {
           ...action,
           bonuses: state.bonuses

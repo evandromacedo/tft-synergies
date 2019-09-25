@@ -32,9 +32,13 @@ export default function boardReducer(state = initialState, action) {
         return state;
       }
 
-      champion.items.push(action.item.name);
+      champion.items = [...champion.items, action.item.name];
 
-      return [champion];
+      return [
+        ...state.slice(0, action.index),
+        champion,
+        ...state.slice(action.index + 1)
+      ];
     }
 
     case LEVEL_DOWN:
