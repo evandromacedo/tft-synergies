@@ -2,6 +2,7 @@ import find from 'lodash/find';
 import {
   ADD_CHAMPION,
   REMOVE_CHAMPION,
+  ADD_ITEM,
   LEVEL_UP,
   LEVEL_DOWN,
   SET_BONUSES,
@@ -49,6 +50,24 @@ export default function reducer(state, action) {
           board: state.board
         })
       };
+
+    case ADD_ITEM: {
+      const board = boardReducer(state.board, action);
+      let synergies = state.synergies;
+
+      if (state.board !== board) {
+        synergies = synergiesReducer(state.synergies, {
+          ...action,
+          bonuses: state.bonuses
+        });
+      }
+
+      return {
+        ...state,
+        board,
+        synergies
+      };
+    }
 
     case LEVEL_UP:
       if (state.level === 9) {

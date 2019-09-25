@@ -130,6 +130,63 @@ describe('Synergies Reducer', () => {
     expect(result.current.state.synergies.length).toEqual(2);
   });
 
+  it('adds an item on champion and sums up synergy', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const { addChampion, addItem } = result.current;
+    const aatroxMock = getChampion('Aatrox');
+
+    act(() => {
+      addChampion(aatroxMock);
+      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+    });
+
+    expect(result.current.state.board[0].items).toContainEqual('yuumi');
+    expect(result.current.state.synergies).toContainEqual({
+      name: 'sorcerer',
+      count: 1,
+      ranking: 'partial'
+    });
+  });
+
+  it("doesn't add an item with the same synergy of the champion or if item is already on", async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const { addChampion, addItem } = result.current;
+    const aatroxMock = getChampion('Aatrox');
+
+    act(() => {
+      addChampion(aatroxMock);
+      addItem(0, { name: 'darkin', synergy: 'demon' });
+    });
+
+    expect(result.current.state.board[0].items).toEqual([]);
+
+    act(() => {
+      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+    });
+
+    expect(result.current.state.board[0].items[1]).toBeUndefined();
+    expect(result.current.state.synergies).toEqual([
+      {
+        count: 1,
+        name: 'demon',
+        ranking: 'partial'
+      },
+      {
+        count: 1,
+        name: 'blademaster',
+        ranking: 'partial'
+      },
+      {
+        count: 1,
+        name: 'sorcerer',
+        ranking: 'partial'
+      }
+    ]);
+  });
+
   it('increases the level until 9', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       useSynergies({ ...firstState, level: 7 })

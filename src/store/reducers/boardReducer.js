@@ -1,4 +1,4 @@
-import { ADD_CHAMPION, REMOVE_CHAMPION, LEVEL_DOWN } from '..';
+import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, LEVEL_DOWN } from '..';
 
 const initialState = [];
 
@@ -7,7 +7,8 @@ const initialState = [];
 //   key: 'aatrox',
 //   name: 'Aatrox',
 //   cost: 3,
-//   synergies: ['demon', 'blademaster']
+//   synergies: ['demon', 'blademaster'],
+//   items: ['yuumi']
 // };
 
 export default function boardReducer(state = initialState, action) {
@@ -15,11 +16,26 @@ export default function boardReducer(state = initialState, action) {
     case ADD_CHAMPION:
       const { champion } = action;
       const { id, key, name, cost, synergies } = champion;
-      return [...state, { id, key, name, cost, synergies }];
+      return [...state, { id, key, name, cost, synergies, items: [] }];
 
     case REMOVE_CHAMPION:
       const { index } = action;
       return [...state.slice(0, index), ...state.slice(index + 1)];
+
+    case ADD_ITEM: {
+      const champion = { ...state[action.index] };
+
+      if (
+        champion.synergies.includes(action.item.synergy) ||
+        champion.items.includes(action.item.name)
+      ) {
+        return state;
+      }
+
+      champion.items.push(action.item.name);
+
+      return [champion];
+    }
 
     case LEVEL_DOWN:
       if (action.newLevel < state.length) {
@@ -29,6 +45,6 @@ export default function boardReducer(state = initialState, action) {
       return state;
 
     default:
-      return null;
+      return state;
   }
 }
