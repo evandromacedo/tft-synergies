@@ -12,10 +12,23 @@ const championsMock = [
   { name: 'Anivia', cost: 5, synergies: ['glacial', 'elementalist'] }
 ];
 
+const removeChampionMock = jest.fn();
+jest
+  .spyOn(Context, 'useDispatch')
+  .mockImplementation(() => ({ removeChampion: removeChampionMock }));
+
 describe('<Board />', () => {
   it('renders properly', () => {
     jest.spyOn(Context, 'useStore').mockImplementation(() => ({ board: [] }));
     shallow(<Board />);
+  });
+
+  it('renders "No champions selected yet" when no champion is passed', () => {
+    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ board: [] }));
+    const wrapper = shallow(<Board />);
+    const Text = wrapper.find(S.Text);
+    expect(Text.exists()).toBeTruthy();
+    expect(Text.text()).toMatch('No champion selected yet...');
   });
 
   it('renders BoardChampions when champions are passed', () => {
@@ -26,11 +39,12 @@ describe('<Board />', () => {
     expect(BoardChampions.children().length).toBe(5);
   });
 
-  it('renders "No champions selected yet" when no champion is passed', () => {
-    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ board: [] }));
+  it('call removeChampion when BoardChampion is clicked', () => {
+    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ board: championsMock }));
     const wrapper = shallow(<Board />);
-    const Text = wrapper.find(S.Text);
-    expect(Text.exists()).toBeTruthy();
-    expect(Text.text()).toMatch('No champion selected yet...');
+    const BoardChampions = wrapper.find(S.BoardChampions);
+    const BoardChampion = BoardChampions.children().get(0);
+    BoardChampion.props.onClick();
+    expect(removeChampionMock).toHaveBeenCalled();
   });
 });
