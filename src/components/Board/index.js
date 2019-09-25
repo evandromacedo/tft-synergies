@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useStore } from '../Context';
 import * as S from './styled';
 import Divider from '../Common/Divider';
 import BoardChampion from '../BoardChampion';
 import { generate } from 'shortid';
-import { useStore, useDispatch } from '../Context';
 
 export default function Board() {
   const { board: champions } = useStore();
-  const { removeChampion } = useDispatch();
-
   const hasChampion = champions && !!champions.length;
 
   return (
@@ -17,11 +15,7 @@ export default function Board() {
       {hasChampion && (
         <S.BoardChampions>
           {champions.map((champion, index) => (
-            <BoardChampion
-              key={generate()}
-              onClick={() => removeChampion(index)}
-              champion={champion}
-            />
+            <BoardChampion key={generate()} index={index} champion={champion} />
           ))}
         </S.BoardChampions>
       )}

@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDrop } from 'react-dnd';
+import { useDispatch } from '../Context';
 import * as S from './styled';
 import ClassOrOrigin from '../ClassOrOrigin';
 import ItemSlot from '../ItemSlot';
 
 // This will be made again to atempt the API and props.
 // Must implement the drag and drop functionality afterwards.
-export default function BoardChampion({ champion, onClick }) {
+export default function BoardChampion({ champion, index }) {
+  const { removeChampion, addItem } = useDispatch();
+
   // Drag and drop configs
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'item',
-    drop: item => {
-      console.log(`You dropped ${item.item.name} into ${champion.name}!`);
+    drop: dropElement => {
+      const { name, synergy } = dropElement.item;
+      addItem(index, { name, synergy });
     },
     collect: monitor => ({
       isOver: monitor.isOver(),
@@ -26,7 +30,7 @@ export default function BoardChampion({ champion, onClick }) {
   return (
     <S.Wrapper
       ref={drop}
-      onClick={onClick}
+      onClick={() => removeChampion(index)}
       className={className}
       cost={champion.cost}
       position={getBackgroundPosition(champion.key)}
@@ -52,7 +56,8 @@ BoardChampion.propTypes = {
     cost: PropTypes.number,
     key: PropTypes.string,
     synergies: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired
+  }).isRequired,
+  index: PropTypes.number.isRequired
 };
 
 function getClassName(canDrop, isOver) {
