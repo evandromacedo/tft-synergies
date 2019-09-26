@@ -9,7 +9,7 @@ import ItemSlot from '../ItemSlot';
 // This will be made again to atempt the API and props.
 // Must implement the drag and drop functionality afterwards.
 export default function BoardChampion({ champion, index }) {
-  const { removeChampion, addItem } = useDispatch();
+  const { removeChampion, addItem, removeItem } = useDispatch();
 
   // Drag and drop configs
   const [{ canDrop, isOver }, drop] = useDrop({
@@ -41,9 +41,18 @@ export default function BoardChampion({ champion, index }) {
         ))}
       </S.Synergies>
       <S.ItemsAndName>
-        <ItemSlot item={champion.items[0]} />
-        <ItemSlot item={champion.items[1]} />
-        <ItemSlot item={champion.items[2]} />
+        <ItemSlot
+          item={champion.items[0]}
+          onClick={e => removeItem(index, champion.items[0])}
+        />
+        <ItemSlot
+          item={champion.items[1]}
+          onClick={e => removeItem(index, champion.items[1])}
+        />
+        <ItemSlot
+          item={champion.items[2]}
+          onClick={e => removeItem(index, champion.items[2])}
+        />
         <S.Name>{champion.name}</S.Name>
       </S.ItemsAndName>
     </S.Wrapper>
