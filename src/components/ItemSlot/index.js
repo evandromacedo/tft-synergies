@@ -3,7 +3,7 @@ import getItemImage from '../../utils/getItemImage';
 import * as S from './styled.js';
 
 export default function ItemSlot({ item }) {
-  const image = item ? getItemImage(item) : null;
+  const image = item ? getItemImage(item.name) : null;
 
   return (
     <S.Wrapper

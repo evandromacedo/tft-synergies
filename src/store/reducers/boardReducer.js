@@ -27,12 +27,12 @@ export default function boardReducer(state = initialState, action) {
 
       if (
         champion.synergies.includes(action.item.synergy) ||
-        champion.items.includes(action.item.name)
+        champion.items.includes(action.item)
       ) {
         return state;
       }
 
-      champion.items = [...champion.items, action.item.name];
+      champion.items = [...champion.items, action.item];
 
       return [
         ...state.slice(0, action.index),

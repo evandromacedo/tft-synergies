@@ -135,13 +135,14 @@ describe('Synergies Reducer', () => {
     await waitForNextUpdate();
     const { addChampion, addItem } = result.current;
     const aatroxMock = getChampion('Aatrox');
+    const yuumi = { name: 'yuumi', synergy: 'sorcerer' };
 
     act(() => {
       addChampion(aatroxMock);
-      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+      addItem(0, yuumi);
     });
 
-    expect(result.current.state.board[0].items).toContainEqual('yuumi');
+    expect(result.current.state.board[0].items).toContainEqual(yuumi);
     expect(result.current.state.synergies).toContainEqual({
       name: 'sorcerer',
       count: 1,
@@ -154,17 +155,19 @@ describe('Synergies Reducer', () => {
     await waitForNextUpdate();
     const { addChampion, addItem } = result.current;
     const aatroxMock = getChampion('Aatrox');
+    const darkin = { name: 'darkin', synergy: 'demon' };
+    const yuumi = { name: 'yuumi', synergy: 'sorcerer' };
 
     act(() => {
       addChampion(aatroxMock);
-      addItem(0, { name: 'darkin', synergy: 'demon' });
+      addItem(0, darkin);
     });
 
     expect(result.current.state.board[0].items).toEqual([]);
 
     act(() => {
-      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
-      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+      addItem(0, yuumi);
+      addItem(0, yuumi);
     });
 
     expect(result.current.state.board[0].items[1]).toBeUndefined();
@@ -182,6 +185,33 @@ describe('Synergies Reducer', () => {
       {
         count: 1,
         name: 'sorcerer',
+        ranking: 'partial'
+      }
+    ]);
+  });
+
+  it('removes an item and its synergy', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const { addChampion, addItem, removeItem } = result.current;
+    const aatroxMock = getChampion('Aatrox');
+
+    act(() => {
+      addChampion(aatroxMock);
+      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+      removeItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+    });
+
+    expect(result.current.state.board[0].items).toEqual([]);
+    expect(result.current.state.synergies).toEqual([
+      {
+        count: 1,
+        name: 'demon',
+        ranking: 'partial'
+      },
+      {
+        count: 1,
+        name: 'blademaster',
         ranking: 'partial'
       }
     ]);
