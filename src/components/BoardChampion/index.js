@@ -41,9 +41,9 @@ export default function BoardChampion({ champion, index }) {
         ))}
       </S.Synergies>
       <S.ItemsAndName>
-        <ItemSlot />
-        <ItemSlot />
-        <ItemSlot />
+        <ItemSlot item={champion.items[0]} />
+        <ItemSlot item={champion.items[1]} />
+        <ItemSlot item={champion.items[2]} />
         <S.Name>{champion.name}</S.Name>
       </S.ItemsAndName>
     </S.Wrapper>
