@@ -130,6 +130,50 @@ describe('Synergies Reducer', () => {
     expect(result.current.state.synergies.length).toEqual(2);
   });
 
+  it("removes the champion's items synergies when removing the champion", async () => {
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useSynergies({ ...firstState, level: 2 })
+    );
+    await waitForNextUpdate();
+    const { addChampion, addItem, removeChampion, levelDown } = result.current;
+    const aatroxMock = getChampion('Aatrox');
+    const yuumi = { name: 'yuumi', synergy: 'sorcerer' };
+    const frozenMallet = { name: 'frozen mallet', synergy: 'glacial' };
+    const knightsVow = { name: 'knights vow', synergy: 'knight' };
+
+    act(() => {
+      addChampion(aatroxMock);
+      addItem(0, yuumi);
+      addItem(0, frozenMallet);
+      addItem(0, knightsVow);
+      removeChampion(0);
+    });
+
+    expect(result.current.state.synergies).toEqual([]);
+
+    act(() => {
+      addChampion(aatroxMock);
+      addChampion(aatroxMock);
+      addItem(1, yuumi);
+      addItem(1, frozenMallet);
+      addItem(1, knightsVow);
+      levelDown();
+    });
+
+    expect(result.current.state.synergies).toEqual([
+      {
+        count: 1,
+        name: 'demon',
+        ranking: 'partial'
+      },
+      {
+        count: 1,
+        name: 'blademaster',
+        ranking: 'partial'
+      }
+    ]);
+  });
+
   it('adds an item on champion and sums up synergy', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useSynergies());
     await waitForNextUpdate();

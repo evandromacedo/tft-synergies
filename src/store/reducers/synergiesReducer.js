@@ -18,19 +18,42 @@ export default function synergiesReducer(state = initialState, action) {
       return synergies;
     }
 
+    case LEVEL_DOWN:
     case REMOVE_CHAMPION: {
+      let removedChampion;
+
+      // Removed champion by index or the last
+      if (action.type === REMOVE_CHAMPION) {
+        removedChampion = action.board[action.index];
+      } else {
+        removedChampion = action.board.slice(-1)[0];
+      }
+
+      // Checks if champion has items
+      const hasItems = !!removedChampion.items.length;
+
       // Checks if there are removed champion occurences on board
-      const removedChampion = action.board[action.index];
       const championOccurrences = action.board.filter(champion => {
         return champion.id === removedChampion.id;
       }).length;
 
-      if (championOccurrences > 1) {
+      if (!hasItems && championOccurrences > 1) {
         return state;
       }
 
-      const { synergies: championSynergies } = removedChampion;
-      const synergies = removeSynergies(championSynergies, action.bonuses, state);
+      let synergiesToRemove = [];
+
+      // Remove synergies from items
+      if (hasItems) {
+        synergiesToRemove = [...removedChampion.items.map(item => item.synergy)];
+      }
+
+      // Remove synergies from occurrences
+      if (championOccurrences === 1) {
+        synergiesToRemove = [...synergiesToRemove, ...removedChampion.synergies];
+      }
+
+      const synergies = removeSynergies(synergiesToRemove, action.bonuses, state);
       return synergies;
     }
 
@@ -40,24 +63,7 @@ export default function synergiesReducer(state = initialState, action) {
     }
 
     case REMOVE_ITEM: {
-      // console.log(action);
       const synergies = removeSynergies([action.item.synergy], action.bonuses, state);
-      return synergies;
-    }
-
-    case LEVEL_DOWN: {
-      // Checks if there are last champion occurences on board
-      const lastChampion = action.board.slice(-1)[0];
-      const championOccurrences = action.board.filter(champion => {
-        return champion.id === lastChampion.id;
-      }).length;
-
-      if (championOccurrences > 1) {
-        return state;
-      }
-
-      const { synergies: championSynergies } = lastChampion;
-      const synergies = removeSynergies(championSynergies, action.bonuses, state);
       return synergies;
     }
 
