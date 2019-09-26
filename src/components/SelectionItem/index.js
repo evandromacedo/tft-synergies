@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import capitalize from 'lodash/capitalize';
 import getItemImage from '../../utils/getItemImage';
 import { DragPreviewImage, useDrag } from 'react-dnd';
 import * as S from './styled';
@@ -18,10 +19,11 @@ export default function SelectionItem({ item }) {
     frozenmallet: 'glacial',
     yuumi: 'sorcerer',
     bladeoftheruinedking: 'blademaster',
-    darkin: 'demon'
+    darkin: 'demon',
+    mittens: 'yordle'
   };
 
-  const { key, name, bonus } = item;
+  const { key, name, synergy } = item;
   const opacity = isDragging ? 0.4 : 1;
 
   return (
@@ -30,7 +32,7 @@ export default function SelectionItem({ item }) {
       <S.Img src={getItemImage(name)} alt={name} title={name} />
       <S.IconAndDescription>
         <S.SynergyIcon classOrOrigin={synergyIcons[key]} type="default" />
-        <S.Description>{bonus}</S.Description>
+        <S.Description>Wearer is also a {capitalize(synergy)}</S.Description>
       </S.IconAndDescription>
     </S.Wrapper>
   );

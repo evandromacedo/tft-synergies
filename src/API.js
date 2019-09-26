@@ -32,7 +32,8 @@ export function getItems() {
         'frozenmallet',
         'yuumi',
         'bladeoftheruinedking',
-        'darkin'
+        'darkin',
+        'mittens'
       ];
 
       const itemsArray = Object.keys(response).map(key => response[key]);
