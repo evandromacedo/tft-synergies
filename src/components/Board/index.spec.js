@@ -38,13 +38,4 @@ describe('<Board />', () => {
     expect(BoardChampions.exists()).toBeTruthy();
     expect(BoardChampions.children().length).toBe(5);
   });
-
-  it('call removeChampion when BoardChampion is clicked', () => {
-    jest.spyOn(Context, 'useStore').mockImplementation(() => ({ board: championsMock }));
-    const wrapper = shallow(<Board />);
-    const BoardChampions = wrapper.find(S.BoardChampions);
-    const BoardChampion = BoardChampions.children().get(0);
-    BoardChampion.props.onClick();
-    expect(removeChampionMock).toHaveBeenCalled();
-  });
 });
