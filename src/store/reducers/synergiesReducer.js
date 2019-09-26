@@ -59,7 +59,7 @@ export default function synergiesReducer(state = initialState, action) {
 }
 
 function addSynergies(championSynergies, bonuses, state) {
-  const synergies = [...state];
+  let synergies = [...state];
 
   championSynergies.forEach(synergyName => {
     const foundSynergy = find(synergies, { name: synergyName });
@@ -67,16 +67,30 @@ function addSynergies(championSynergies, bonuses, state) {
     // If found, adds +1 on count with new ranking
     if (foundSynergy) {
       const newCount = foundSynergy.count + 1;
-      foundSynergy.count = newCount;
-      foundSynergy.ranking = getSynergyRanking(newCount, bonuses[synergyName].bonuses);
+      const newSynergy = {
+        name: foundSynergy.name,
+        count: newCount,
+        ranking: getSynergyRanking(newCount, bonuses[synergyName].bonuses)
+      };
+      const foundIndex = synergies.findIndex(
+        synergy => synergy.name === foundSynergy.name
+      );
+      synergies = [
+        ...synergies.slice(0, foundIndex),
+        newSynergy,
+        ...synergies.slice(foundIndex + 1)
+      ];
     }
     // Else, create a new one with initial count
     else {
-      synergies.push({
-        count: 1,
-        name: synergyName,
-        ranking: getSynergyRanking(1, bonuses[synergyName].bonuses)
-      });
+      synergies = [
+        ...synergies,
+        {
+          count: 1,
+          name: synergyName,
+          ranking: getSynergyRanking(1, bonuses[synergyName].bonuses)
+        }
+      ];
     }
   });
 
@@ -84,7 +98,7 @@ function addSynergies(championSynergies, bonuses, state) {
 }
 
 function removeSynergies(champion, bonuses, state) {
-  const synergies = [...state];
+  let synergies = [...state];
 
   champion.synergies.forEach(synergyName => {
     const foundSynergy = find(synergies, { name: synergyName });
@@ -96,7 +110,7 @@ function removeSynergies(champion, bonuses, state) {
       foundSynergy.ranking = getSynergyRanking(newCount, bonuses[synergyName].bonuses);
     } else {
       const index = synergies.findIndex(synergy => synergy.name === foundSynergy.name);
-      synergies.splice(index, 1);
+      synergies = [...synergies.slice(0, index), ...synergies.slice(index + 1)];
     }
   });
 
