@@ -1,3 +1,4 @@
+import some from 'lodash/some';
 import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, REMOVE_ITEM, LEVEL_DOWN } from '..';
 
 const initialState = [];
@@ -27,7 +28,7 @@ export default function boardReducer(state = initialState, action) {
 
       if (
         champion.synergies.includes(action.item.synergy) ||
-        champion.items.includes(action.item)
+        some(champion.items, action.item)
       ) {
         return state;
       }
