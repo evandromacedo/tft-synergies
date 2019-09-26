@@ -4,6 +4,7 @@ import {
   ADD_CHAMPION,
   REMOVE_CHAMPION,
   ADD_ITEM,
+  REMOVE_ITEM,
   LEVEL_UP,
   LEVEL_DOWN,
   SET_BONUSES,
@@ -67,6 +68,17 @@ export default function reducer(state, action) {
         ...state,
         board,
         synergies
+      };
+    }
+
+    case REMOVE_ITEM: {
+      return {
+        ...state,
+        board: boardReducer(state.board, action),
+        synergies: synergiesReducer(state.synergies, {
+          ...action,
+          bonuses: state.bonuses
+        })
       };
     }
 

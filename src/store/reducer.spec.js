@@ -195,11 +195,14 @@ describe('Synergies Reducer', () => {
     await waitForNextUpdate();
     const { addChampion, addItem, removeItem } = result.current;
     const aatroxMock = getChampion('Aatrox');
+    const yuumi = { name: 'yuumi', synergy: 'sorcerer' };
+    const frozenMallet = { name: 'frozen mallet', synergy: 'glacial' };
+    const knightsVow = { name: 'knights vow', synergy: 'knight' };
 
     act(() => {
       addChampion(aatroxMock);
-      addItem(0, { name: 'yuumi', synergy: 'sorcerer' });
-      removeItem(0, { name: 'yuumi', synergy: 'sorcerer' });
+      addItem(0, yuumi);
+      removeItem(0, yuumi);
     });
 
     expect(result.current.state.board[0].items).toEqual([]);
@@ -215,6 +218,15 @@ describe('Synergies Reducer', () => {
         ranking: 'partial'
       }
     ]);
+
+    act(() => {
+      addItem(0, yuumi);
+      addItem(0, frozenMallet);
+      addItem(0, knightsVow);
+      removeItem(0, frozenMallet);
+    });
+
+    expect(result.current.state.board[0].items).toEqual([yuumi, knightsVow]);
   });
 
   it('increases the level until 9', async () => {

@@ -1,4 +1,4 @@
-import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, LEVEL_DOWN } from '..';
+import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, REMOVE_ITEM, LEVEL_DOWN } from '..';
 
 const initialState = [];
 
@@ -33,6 +33,21 @@ export default function boardReducer(state = initialState, action) {
       }
 
       champion.items = [...champion.items, action.item];
+
+      return [
+        ...state.slice(0, action.index),
+        champion,
+        ...state.slice(action.index + 1)
+      ];
+    }
+
+    case REMOVE_ITEM: {
+      const champion = { ...state[action.index] };
+      const itemIndex = champion.items.findIndex(item => item.name === action.item.name);
+      champion.items = [
+        ...champion.items.slice(0, itemIndex),
+        ...champion.items.slice(itemIndex + 1)
+      ];
 
       return [
         ...state.slice(0, action.index),

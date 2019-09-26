@@ -45,8 +45,8 @@ const useSynergies = (initialState = firstState) => {
     addItem(index, item) {
       dispatch({ type: ADD_ITEM, index, item });
     },
-    removeItem(champion, item) {
-      dispatch({ type: REMOVE_CHAMPION, champion, item });
+    removeItem(index, item) {
+      dispatch({ type: REMOVE_ITEM, index, item });
     },
     levelUp() {
       dispatch({ type: LEVEL_UP });

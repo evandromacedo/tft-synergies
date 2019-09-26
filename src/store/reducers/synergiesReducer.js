@@ -1,6 +1,6 @@
 import find from 'lodash/find';
 import { getSynergyRanking } from '../../utils';
-import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, LEVEL_DOWN } from '..';
+import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, REMOVE_ITEM, LEVEL_DOWN } from '..';
 
 const initialState = [];
 
@@ -29,12 +29,19 @@ export default function synergiesReducer(state = initialState, action) {
         return state;
       }
 
-      const synergies = removeSynergies(removedChampion, action.bonuses, state);
+      const { synergies: championSynergies } = removedChampion;
+      const synergies = removeSynergies(championSynergies, action.bonuses, state);
       return synergies;
     }
 
     case ADD_ITEM: {
       const synergies = addSynergies([action.item.synergy], action.bonuses, state);
+      return synergies;
+    }
+
+    case REMOVE_ITEM: {
+      // console.log(action);
+      const synergies = removeSynergies([action.item.synergy], action.bonuses, state);
       return synergies;
     }
 
@@ -49,7 +56,8 @@ export default function synergiesReducer(state = initialState, action) {
         return state;
       }
 
-      const synergies = removeSynergies(lastChampion, action.bonuses, state);
+      const { synergies: championSynergies } = lastChampion;
+      const synergies = removeSynergies(championSynergies, action.bonuses, state);
       return synergies;
     }
 
@@ -58,10 +66,10 @@ export default function synergiesReducer(state = initialState, action) {
   }
 }
 
-function addSynergies(championSynergies, bonuses, state) {
+function addSynergies(synergiesList, bonuses, state) {
   let synergies = [...state];
 
-  championSynergies.forEach(synergyName => {
+  synergiesList.forEach(synergyName => {
     const foundSynergy = find(synergies, { name: synergyName });
 
     // If found, adds +1 on count with new ranking
@@ -97,10 +105,10 @@ function addSynergies(championSynergies, bonuses, state) {
   return synergies;
 }
 
-function removeSynergies(champion, bonuses, state) {
+function removeSynergies(synergiesList, bonuses, state) {
   let synergies = [...state];
 
-  champion.synergies.forEach(synergyName => {
+  synergiesList.forEach(synergyName => {
     const foundSynergy = find(synergies, { name: synergyName });
 
     // Decreases -1 or deletes synergy
