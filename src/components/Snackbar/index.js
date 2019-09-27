@@ -1,5 +1,6 @@
 import React from 'react';
+import * as S from './styled';
 
 export default function Snackbar() {
-  return <h1>Snackbar</h1>;
+  return <S.Wrapper>Snackbar</S.Wrapper>;
 }
