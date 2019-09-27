@@ -11,7 +11,7 @@ const fadeOut = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  /* visibility: hidden; */
+  visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
   background-color: #333;
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   bottom: 30px;
   font-size: 1rem;
 
-  &.show {
+  &.open {
     /* Show the snackbar */
     visibility: visible;
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
