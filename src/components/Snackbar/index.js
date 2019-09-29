@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import * as S from './styled';
 
-export default function Snackbar() {
+const SnackbarContext = createContext(null);
+
+export default function Snackbar({ children }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -10,6 +12,10 @@ export default function Snackbar() {
     }, 3000);
     setOpen(true);
   }, []);
-
-  return <S.Wrapper className={open ? 'open' : ''}>Snackbar</S.Wrapper>;
+  return (
+    <SnackbarContext.Provider>
+      {children}
+      <S.Wrapper className={open ? 'open' : ''}>Snackbar</S.Wrapper>
+    </SnackbarContext.Provider>
+  );
 }
