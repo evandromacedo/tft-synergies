@@ -25,7 +25,7 @@ export default function Snackbar({ timeout = 3000, className, children }) {
   const open = async node => {
     if (openState === true) {
       setOpenState(false);
-      await wait(150);
+      await wait(250);
     }
 
     triggerSnackbar(node);
