@@ -25,11 +25,50 @@ export const Wrapper = styled.div`
   bottom: 30px;
   font-size: 1rem;
 
-  &.open {
-    /* Show the snackbar */
+  &.my-node-enter {
     visibility: visible;
-    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-    However, delay the fade out process for 2.5 seconds */
-    animation: ${fadeIn} 0.5s, ${fadeOut} 0.5s 2.5s;
+    bottom: 0;
+    opacity: 0;
   }
+  &.my-node-enter-active {
+    visibility: visible;
+    bottom: 30px;
+    opacity: 1;
+    transition: opacity 500ms, bottom 500ms;
+  }
+  &.my-node-exit {
+    visibility: visible;
+    bottom: 30px;
+    opacity: 1;
+  }
+  &.my-node-exit-active {
+    visibility: visible;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 500ms, bottom 500ms;
+  }
+  &.my-node-exit-done {
+    visibility: hidden;
+  }
+
+  /* &.open {
+    visibility: visible;
+    animation: ${fadeIn} 0.5s, ${fadeOut} 0.5s 2.5s;
+  } */
+
+  /* &.close {
+    animation: ${fadeOut} 0.5s;
+  } */
 `;
+
+// z-index: 8;
+// margin: 8px;
+// display: none;
+// position: fixed;
+// right: 0;
+// bottom: 0;
+// left: 0;
+// align-items: center;
+// justify-content: center;
+// box-sizing: border-box;
+// pointer-events: none;
