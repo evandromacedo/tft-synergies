@@ -1,69 +1,55 @@
-import React, { createContext, useState, useEffect } from 'react';
-import wait from 'waait';
+import React, { createContext, useContext, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import * as S from './styled';
 
+// Based on 'waait' package from Wes Bos.
+const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 const SnackbarContext = createContext(null);
 
-export default function Snackbar({ children }) {
-  const [open, setOpen] = useState(false);
-  const [timeoutId, setTimeoutId] = useState(null);
+export default function Snackbar({ timeout = 3000, className, children }) {
+  const [openState, setOpenState] = useState(false);
+  const [snackbarTimeoutID, setSnackbarTimeoutID] = useState(null);
+  const [node, setNode] = useState(null);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setOpen(false);
-  //   }, 3000);
-  //   setOpen(true);
-  // }, []);
-
-  // const timeout
-  const setNewTimeout = async () => {
-    clearTimeout(timeoutId);
-    setTimeoutId(
+  const triggerSnackbar = node => {
+    setNode(node);
+    setOpenState(true);
+    clearTimeout(snackbarTimeoutID);
+    setSnackbarTimeoutID(
       setTimeout(() => {
-        setOpen(false);
-      }, 3000)
+        setOpenState(false);
+      }, timeout)
     );
   };
 
-  const trigger = async () => {
-    if (open === true) {
-      setOpen(false);
-      await wait(250);
-      setOpen(true);
-      setNewTimeout();
-    } else {
-      setOpen(true);
-      setNewTimeout();
+  const open = async node => {
+    if (openState === true) {
+      setOpenState(false);
+      await wait(150);
     }
 
-    console.log(timeoutId);
+    triggerSnackbar(node);
   };
 
   const close = () => {
-    setOpen(false);
+    setOpenState(false);
   };
 
   return (
-    <SnackbarContext.Provider>
+    <SnackbarContext.Provider value={[open, close]}>
       {children}
-      <button style={{ color: 'white', fontSize: '10rem' }} onClick={trigger}>
-        Trigger
-      </button>
-      <button style={{ color: 'white', fontSize: '10rem' }} onClick={close}>
-        Close
-      </button>
       <CSSTransition
-        in={open}
+        in={openState}
         timeout={500}
         mountOnEnter
         unmountOnExit
-        classNames="my-node"
-        // onEnter={() => setOpen(false)}
-        // onExited={() => setOpen(false)}
+        className={className}
+        classNames="snackbar"
       >
-        <S.Wrapper>Snackbar</S.Wrapper>
+        <S.Wrapper>{node}</S.Wrapper>
       </CSSTransition>
     </SnackbarContext.Provider>
   );
 }
+
+export const useSnackbar = () => useContext(SnackbarContext);

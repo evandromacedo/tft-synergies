@@ -1,14 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
-const fadeIn = keyframes`
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
-`;
-
-const fadeOut = keyframes`
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
-`;
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   visibility: visible;
@@ -26,41 +16,18 @@ export const Wrapper = styled.div`
   font-size: 1rem;
   transition: opacity 500ms, bottom 500ms;
 
-  &.my-node-enter {
-    /* visibility: visible; */
+  &.snackbar-enter {
     bottom: 0;
     opacity: 0;
   }
-  &.my-node-enter-active {
-    /* visibility: visible; */
+  &.snackbar-enter-active {
     bottom: 30px;
     opacity: 1;
   }
-  &.my-node-enter-done {
-    /* visibility: visible; */
-  }
-  &.my-node-exit {
-    /* visibility: visible;
-    bottom: 30px;
-    opacity: 1; */
-  }
-  &.my-node-exit-active {
-    /* visibility: visible; */
+  &.snackbar-exit-active {
     bottom: 0;
     opacity: 0;
   }
-  &.my-node-exit-done {
-    /* visibility: hidden; */
-  }
-
-  /* &.open {
-    visibility: visible;
-    animation: ${fadeIn} 0.5s, ${fadeOut} 0.5s 2.5s;
-  } */
-
-  /* &.close {
-    animation: ${fadeOut} 0.5s;
-  } */
 `;
 
 // z-index: 8;
