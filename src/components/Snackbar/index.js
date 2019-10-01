@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import wait from 'waait';
 import { CSSTransition } from 'react-transition-group';
 import * as S from './styled';
 
@@ -6,6 +7,7 @@ const SnackbarContext = createContext(null);
 
 export default function Snackbar({ children }) {
   const [open, setOpen] = useState(false);
+  const [timeoutId, setTimeoutId] = useState(null);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -14,26 +16,32 @@ export default function Snackbar({ children }) {
   //   setOpen(true);
   // }, []);
 
-  const trigger = () => {
-    if (open === true) {
-      setOpen(false);
-      setTimeout(() => {
-        setOpen(true);
-      }, 10);
-    } else {
-      setOpen(true);
+  // const timeout
+  const setNewTimeout = async () => {
+    clearTimeout(timeoutId);
+    setTimeoutId(
       setTimeout(() => {
         setOpen(false);
-      }, 3000);
+      }, 3000)
+    );
+  };
+
+  const trigger = async () => {
+    if (open === true) {
+      setOpen(false);
+      await wait(250);
+      setOpen(true);
+      setNewTimeout();
+    } else {
+      setOpen(true);
+      setNewTimeout();
     }
 
-    // className = 'open';
-    // setOpen(true);
+    console.log(timeoutId);
   };
 
   const close = () => {
     setOpen(false);
-    // className = 'close';
   };
 
   return (
@@ -47,9 +55,9 @@ export default function Snackbar({ children }) {
       </button>
       <CSSTransition
         in={open}
-        timeout={3000}
-        // mountOnEnter
-        // unmountOnExit
+        timeout={500}
+        mountOnEnter
+        unmountOnExit
         classNames="my-node"
         // onEnter={() => setOpen(false)}
         // onExited={() => setOpen(false)}

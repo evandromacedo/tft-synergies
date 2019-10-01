@@ -11,7 +11,7 @@ const fadeOut = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  visibility: hidden;
+  visibility: visible;
   min-width: 250px;
   margin-left: -125px;
   background-color: #333;
@@ -24,31 +24,33 @@ export const Wrapper = styled.div`
   left: 50%;
   bottom: 30px;
   font-size: 1rem;
+  transition: opacity 500ms, bottom 500ms;
 
   &.my-node-enter {
-    visibility: visible;
+    /* visibility: visible; */
     bottom: 0;
     opacity: 0;
   }
   &.my-node-enter-active {
-    visibility: visible;
+    /* visibility: visible; */
     bottom: 30px;
     opacity: 1;
-    transition: opacity 500ms, bottom 500ms;
+  }
+  &.my-node-enter-done {
+    /* visibility: visible; */
   }
   &.my-node-exit {
-    visibility: visible;
+    /* visibility: visible;
     bottom: 30px;
-    opacity: 1;
+    opacity: 1; */
   }
   &.my-node-exit-active {
-    visibility: visible;
+    /* visibility: visible; */
     bottom: 0;
     opacity: 0;
-    transition: opacity 500ms, bottom 500ms;
   }
   &.my-node-exit-done {
-    visibility: hidden;
+    /* visibility: hidden; */
   }
 
   /* &.open {
