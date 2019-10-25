@@ -2,6 +2,7 @@ import { useEffect, useReducer } from 'react';
 import { getSynergies } from '../API';
 import reducer from './reducers';
 import { useSnackbar } from 'react-simple-snackbar';
+import theme from '../components/App/theme';
 
 export const ADD_CHAMPION = 'ADD_CHAMPION';
 export const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
@@ -19,9 +20,25 @@ export const firstState = {
   bonuses: {}
 };
 
+const snackbarStyles = {
+  color: '#fff',
+  fontFamily: 'Beaufort',
+  fontSize: '1.6rem',
+  fontWeight: 'bold',
+  backgroundColor: `${theme.background2}`,
+  borderRadius: '2px',
+  borderTop: `2px solid ${theme.accentYellow}`,
+  borderBottom: '2px solid #67502d',
+  backgroundImage: `linear-gradient(to bottom,${theme.accentYellow},#67502d),linear-gradient(${theme.accentYellow}, #67502d)`,
+  backgroundSize: '2px 100%',
+  backgroundPosition: '0 0, 100% 0',
+  backgroundRepeat: 'no-repeat',
+  boxShadow: '0 3px 5px -1px rgba(255, 255, 255, .2)'
+};
+
 const useSynergies = (initialState = firstState) => {
-  const [openSnackbar] = useSnackbar();
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [openSnackbar] = useSnackbar({ style: snackbarStyles });
 
   // Fetch bonuses details and dispatches to "bonuses"
   useEffect(() => {
