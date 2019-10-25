@@ -1,4 +1,5 @@
 import some from 'lodash/some';
+import capitalize from 'lodash/capitalize';
 import { ADD_CHAMPION, REMOVE_CHAMPION, ADD_ITEM, REMOVE_ITEM, LEVEL_DOWN } from '..';
 
 const initialState = [];
@@ -30,6 +31,9 @@ export default function boardReducer(state = initialState, action) {
         champion.synergies.includes(action.item.synergy) ||
         some(champion.items, action.item)
       ) {
+        action.openSnackbar(
+          `${champion.name} is already a ${capitalize(action.item.synergy)}.`
+        );
         return state;
       }
 

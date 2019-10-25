@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from 'react';
 import { getSynergies } from '../API';
 import reducer from './reducers';
+import { useSnackbar } from 'react-simple-snackbar';
 
 export const ADD_CHAMPION = 'ADD_CHAMPION';
 export const REMOVE_CHAMPION = 'REMOVE_CHAMPION';
@@ -19,6 +20,7 @@ export const firstState = {
 };
 
 const useSynergies = (initialState = firstState) => {
+  const [openSnackbar] = useSnackbar();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // Fetch bonuses details and dispatches to "bonuses"
@@ -43,7 +45,7 @@ const useSynergies = (initialState = firstState) => {
       dispatch({ type: REMOVE_CHAMPION, index });
     },
     addItem(index, item) {
-      dispatch({ type: ADD_ITEM, index, item });
+      dispatch({ type: ADD_ITEM, index, item, openSnackbar });
     },
     removeItem(index, item) {
       dispatch({ type: REMOVE_ITEM, index, item });
