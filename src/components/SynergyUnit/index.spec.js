@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import SynergyUnit from '.';
+import { SynergyUnit } from '.';
 import SynergyIcon from '../SynergyIcon';
 import * as S from './styled';
 

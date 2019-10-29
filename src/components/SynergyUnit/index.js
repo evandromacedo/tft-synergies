@@ -136,4 +136,5 @@ const mapSizesToProps = ({ width }) => ({
 });
 
 // Named export for testing, and default for using
+export { SynergyUnit };
 export default withSizes(mapSizesToProps)(SynergyUnit);
