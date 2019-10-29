@@ -1,6 +1,11 @@
+import capitalize from 'lodash/capitalize';
 import { renderHook, act } from '@testing-library/react-hooks';
 import useSynergies, { firstState } from '.';
 import { generateBonusesMock, generateChampionsMock } from './mock';
+import * as Snackbar from 'react-simple-snackbar';
+
+const openSnackbar = jest.fn();
+jest.spyOn(Snackbar, 'useSnackbar').mockImplementation(() => [openSnackbar, jest.fn()]);
 
 const bonusesMock = generateBonusesMock();
 const championsMock = generateChampionsMock();
@@ -208,12 +213,18 @@ describe('Synergies Reducer', () => {
     });
 
     expect(result.current.state.board[0].items).toEqual([]);
+    expect(openSnackbar).toHaveBeenCalledWith(
+      `${aatroxMock.name} is already a ${capitalize(darkin.synergy)}.`
+    );
 
     act(() => {
       addItem(0, yuumi);
       addItem(0, yuumi);
     });
 
+    expect(openSnackbar).toHaveBeenCalledWith(
+      `${aatroxMock.name} is already a ${capitalize(yuumi.synergy)}.`
+    );
     expect(result.current.state.board[0].items[1]).toBeUndefined();
     expect(result.current.state.synergies).toEqual([
       {
