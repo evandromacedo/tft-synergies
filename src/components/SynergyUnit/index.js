@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import withSizes from 'react-sizes';
 import * as S from './styled';
 import SynergyIcon from '../SynergyIcon';
+import theme from '../App/theme';
 import { getSynergyIndex } from '../../utils';
 import ReactHover from 'react-hover';
 import SynergyDetails from '../SynergyDetails';
@@ -10,11 +12,12 @@ import SynergyDetails from '../SynergyDetails';
 // count - the current synergy count
 // ranking - synergy ranking: PARTIAL, BRONZE, SILVER, GOLD
 // None of them is required because it may have no champion selected at all
-export default function SynergyUnit({
+function SynergyUnit({
   count = 0,
   details = {},
   ranking = 'partial',
-  showDetails = true
+  showDetails = true,
+  isMobile = false
 }) {
   const { bonuses } = details;
 
@@ -51,7 +54,9 @@ export default function SynergyUnit({
 
           {/* Show the synergy count and progress, or no synergies text */}
           <S.Count className={detailsSettings.hide}>
-            {!hasChampionSelected && <S.NoSynergies>No synergies yet</S.NoSynergies>}
+            {!hasChampionSelected && (
+              <S.NoSynergies>{isMobile ? 'None' : 'No synergies yet'}</S.NoSynergies>
+            )}
             {hasChampionSelected && (
               <>
                 <S.Quantity>{count}</S.Quantity>
@@ -128,3 +133,11 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
     );
   });
 }
+
+// This is the "small" breakpoint on theme.js
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width <= parseInt(theme.small)
+});
+
+// Named export for testing, and default for using
+export default withSizes(mapSizesToProps)(SynergyUnit);
