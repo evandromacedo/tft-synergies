@@ -34,15 +34,11 @@ function SynergyUnit({
   };
 
   // Show or hide details based on props
-  const detailsSettings = {
-    trigger: showDetails ? 'trigger' : '',
-    hover: showDetails ? 'hover' : '',
-    hide: showDetails ? '' : 'hide'
-  };
+  const hideClass = showDetails ? '' : 'hide';
 
   return (
     <ReactHover options={reactHoverSettings}>
-      <ReactHover.Trigger type={detailsSettings.trigger}>
+      <ReactHover.Trigger type="trigger">
         <S.Wrapper>
           {/* Show the synergy icon or no synergy */}
           <S.Icon>
@@ -53,7 +49,7 @@ function SynergyUnit({
           </S.Icon>
 
           {/* Show the synergy count and progress, or no synergies text */}
-          <S.Count className={detailsSettings.hide}>
+          <S.Count className={hideClass}>
             {!hasChampionSelected && (
               <S.NoSynergies>{isMobile ? 'None' : 'No synergies yet'}</S.NoSynergies>
             )}
@@ -71,7 +67,7 @@ function SynergyUnit({
           </S.Count>
         </S.Wrapper>
       </ReactHover.Trigger>
-      <ReactHover.Hover type={detailsSettings.hover}>
+      <ReactHover.Hover type="hover">
         {hasChampionSelected ? (
           <SynergyDetails
             synergyIndex={getSynergyIndex(count, bonuses)}
