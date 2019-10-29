@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import withSizes from 'react-sizes';
+import theme from '../App/theme';
 import { arrangeSynergies } from '../../utils';
 import { useStore } from '../Context';
 import * as S from './styled';
@@ -83,7 +84,7 @@ SynergiesBar.propTypes = {
 
 // This is the "small" breakpoint on theme.js
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width <= 576
+  isMobile: width <= parseInt(theme.small)
 });
 
 // Named export for testing, and default for using
