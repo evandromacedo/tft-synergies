@@ -130,7 +130,6 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
   });
 }
 
-// This is the "small" breakpoint on theme.js
 const mapSizesToProps = ({ width }) => ({
   isMobile: width <= parseInt(theme.small)
 });

@@ -82,9 +82,8 @@ SynergiesBar.propTypes = {
   isMobile: PropTypes.bool
 };
 
-// This is the "small" breakpoint on theme.js
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width <= parseInt(theme.small)
+  isMobile: width <= parseInt(theme.medium)
 });
 
 // Named export for testing, and default for using

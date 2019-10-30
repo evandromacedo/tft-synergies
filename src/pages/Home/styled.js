@@ -11,7 +11,7 @@ export const Layout = styled.div`
     padding-right: 2.4rem;
   }
 
-  @media (max-width: ${props => props.theme.small}) {
+  @media (max-width: ${props => props.theme.medium}) {
     grid-template-columns: 4.2rem 1fr;
   }
 `;
