@@ -9,7 +9,6 @@ import TouchBackend from 'react-dnd-touch-backend';
 import SnackbarProvider from 'react-simple-snackbar';
 import { Layout, Wrapper, GlobalStyle } from './styled';
 import Context from '../Context';
-import Meta from '../Meta';
 import Header from '../Header';
 import Home from '../../pages/Home';
 import About from '../../pages/About';
@@ -26,7 +25,6 @@ export default function App() {
           <ThemeProvider theme={theme}>
             <Router>
               <Layout>
-                <Meta />
                 <Header />
                 <Wrapper>
                   <Route path="/" exact component={Home} />
