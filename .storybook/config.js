@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import theme from '../src/components/App/theme';
 import Context from '../src/components/Context';
 import { DndProvider } from 'react-dnd';
+import SnackbarProvider from 'react-simple-snackbar';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 // automatically import all files ending in *.stories.js
@@ -16,18 +17,20 @@ function loadStories() {
 
 const ThemeDecorator = storyFn => {
   return (
-    <Context>
-      <ThemeProvider theme={theme}>
-        <DndProvider backend={HTML5Backend}>
-          <GlobalStyle />
-          <Layout>
-            <Router>
-              <div style={{ padding: '16px' }}>{storyFn()}</div>
-            </Router>
-          </Layout>
-        </DndProvider>
-      </ThemeProvider>
-    </Context>
+    <SnackbarProvider>
+      <Context>
+        <ThemeProvider theme={theme}>
+          <DndProvider backend={HTML5Backend}>
+            <GlobalStyle />
+            <Layout>
+              <Router>
+                <div style={{ padding: '16px' }}>{storyFn()}</div>
+              </Router>
+            </Layout>
+          </DndProvider>
+        </ThemeProvider>
+      </Context>
+    </SnackbarProvider>
   );
 };
 
