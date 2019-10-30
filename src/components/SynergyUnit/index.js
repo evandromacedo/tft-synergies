@@ -131,7 +131,7 @@ function printSynergyProgress(hasSynergy, count, bonuses) {
 }
 
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width <= parseInt(theme.small)
+  isMobile: width <= parseInt(theme.medium)
 });
 
 // Named export for testing, and default for using

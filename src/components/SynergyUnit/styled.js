@@ -44,7 +44,7 @@ export const Count = styled.div`
     transform: translateX(calc(-100% - 0.5rem)) translateY(-4rem);
   }
 
-  @media (max-width: ${props => props.theme.small}) {
+  @media (max-width: ${props => props.theme.medium}) {
     /* border: 1px solid dimgray; */
     filter: drop-shadow(0 0 2px white);
     background-color: rgba(0, 0, 0, 0.85);
