@@ -12,7 +12,11 @@ export const SelectionChampions = styled(SelectionList)`
 
 export const SelectionItems = styled(SelectionList)`
   grid-template-columns: repeat(auto-fill, 22.4rem);
-  justify-content: space-around;
+
+  @media (max-width: ${props => props.theme.medium}) {
+    grid-template-columns: repeat(auto-fill, 3.4rem);
+    grid-gap: 1.6rem;
+  }
 `;
 
 export const Text = styled.p`

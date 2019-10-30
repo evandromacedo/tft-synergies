@@ -9,6 +9,11 @@ export const Wrapper = styled.div`
   grid-gap: 0.6rem;
   border: 1px dashed ${props => props.theme.background4};
   cursor: move;
+
+  @media (max-width: ${props => props.theme.medium}) {
+    width: 3.4rem;
+    grid-template-columns: 3.2rem;
+  }
 `;
 
 export const IconAndDescription = styled.div`
@@ -18,6 +23,10 @@ export const IconAndDescription = styled.div`
   align-items: center;
   justify-content: start;
   padding-right: 0.8rem;
+
+  @media (max-width: ${props => props.theme.medium}) {
+    display: none;
+  }
 `;
 
 export const Img = styled.img`
