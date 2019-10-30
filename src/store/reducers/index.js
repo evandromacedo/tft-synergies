@@ -20,6 +20,7 @@ export default function reducer(state, action) {
 
       // If exceed the level, don't add the champion to board
       if (state.board.length === state.level) {
+        action.openSnackbar('Your board cannot transpass your level.');
         return state;
       }
 

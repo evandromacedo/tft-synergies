@@ -56,7 +56,7 @@ const useSynergies = (initialState = firstState) => {
   return {
     state,
     addChampion(champion) {
-      dispatch({ type: ADD_CHAMPION, champion });
+      dispatch({ type: ADD_CHAMPION, champion, openSnackbar });
     },
     removeChampion(index) {
       dispatch({ type: REMOVE_CHAMPION, index });
