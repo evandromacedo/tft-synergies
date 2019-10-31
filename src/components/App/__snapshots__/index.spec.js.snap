@@ -2,7 +2,6 @@
 
 exports[`<App /> renders the Layout 1`] = `
 <styled.div>
-  <Meta />
   <Header />
   <styled.main>
     <Route
