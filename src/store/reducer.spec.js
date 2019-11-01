@@ -245,6 +245,27 @@ describe('Synergies Reducer', () => {
     ]);
   });
 
+  it("doesn't add more than 3 items", async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useSynergies());
+    await waitForNextUpdate();
+    const { addChampion, addItem } = result.current;
+    const aatroxMock = getChampion('Aatrox');
+    const yuumi = { name: 'yuumi', synergy: 'sorcerer' };
+    const frozenmallet = { name: 'frozenmallet', synergy: 'glacial' };
+    const mittens = { name: 'mittens', synergy: 'yordle' };
+    const knightsvow = { name: 'knightsvow', synergy: 'knight' };
+
+    act(() => {
+      addChampion(aatroxMock);
+      addItem(0, yuumi);
+      addItem(0, frozenmallet);
+      addItem(0, mittens);
+      addItem(0, knightsvow);
+    });
+
+    expect(result.current.state.board[0].items).toEqual([yuumi, frozenmallet, mittens]);
+  });
+
   it('removes an item and its synergy', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useSynergies());
     await waitForNextUpdate();

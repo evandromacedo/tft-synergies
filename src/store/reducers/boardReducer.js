@@ -37,6 +37,11 @@ export default function boardReducer(state = initialState, action) {
         return state;
       }
 
+      if (champion.items.length === 3) {
+        action.openSnackbar(`${champion.name} has already 3 items.`);
+        return state;
+      }
+
       champion.items = [...champion.items, action.item];
 
       return [
